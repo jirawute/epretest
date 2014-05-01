@@ -1,0 +1,29 @@
+<?php
+
+return array(
+    'student' => array (
+        'type'=>CAuthItem::TYPE_ROLE,
+        'description'=>'Student access',
+        'bizRule'=>'',
+        'data'=>''
+    ),
+	
+    'admin' => array (
+        'type'=>CAuthItem::TYPE_ROLE,
+        'description'=>'Can access to back end',
+        'bizRule'=>'',
+        'data'=>''
+    ),
+ 
+    'top_admin' => array (
+        'type'=>CAuthItem::TYPE_ROLE,
+        'description'=>'Can do anything on this website',
+        'children'=>array(
+            'admin','student'
+        ),
+        'bizRule'=>'',
+        'data'=>''
+   )
+);
+
+?>

@@ -1,0 +1,44 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Feb 02, 2013 at 06:39 AM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `estudio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `esto_setting`
+--
+
+CREATE TABLE `esto_setting` (
+  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `setting_group` varchar(32) COLLATE utf8_bin NOT NULL,
+  `key` varchar(64) COLLATE utf8_bin NOT NULL,
+  `value` text COLLATE utf8_bin NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`setting_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=130 ;
+
+--
+-- Dumping data for table `esto_setting`
+--
+
+INSERT INTO `esto_setting` (`setting_id`, `setting_group`, `key`, `value`, `serialized`) VALUES
+(1, 'config', 'config_title', 0x5469746c65, 0),
+(2, 'config', 'config_description', 0x4465736372697074696f6e, 0),
+(113, 'bank_transfer', 'bank_transfer_instructions', 0x42616e6b205472616e73666572, 0),
+(114, 'bank_transfer', 'bank_transfer_total', 0x30, 0),
+(115, 'bank_transfer', 'bank_transfer_order_status_id', 0x33, 0),
+(116, 'bank_transfer', 'bank_transfer_status', 0x31, 0),
+(117, 'bank_transfer', 'bank_transfer_sort_order', 0x30, 0),
+(129, 'credit_point', 'credit_point_1', '', 1);

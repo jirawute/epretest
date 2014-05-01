@@ -1,0 +1,437 @@
+ #content .application h2 {
+        font-family: rsufont,Helvetica,Arial,Tahoma,Thonburi,sans-serif;
+        font-size: 3em;
+        text-align: center;
+        margin: 30px 0px 8px;
+        font-weight: normal;
+    }
+    #content .application .editinfo_box {
+        width:788px;
+        margin: 40px 60px;
+        border: 1px solid rgb(255, 168, 0);
+        border-radius: 5px 5px 5px 5px;
+        background-color: rgb(239, 239, 239);
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 81%, rgb(232, 232, 232));
+        box-shadow: 0px 6px 8px -5px rgb(194, 159, 121);
+        padding: 10px 15px;
+        overflow: hidden;
+    }
+    #content .editinfo_box p.textnormal{
+        font-size: 13px;
+    }
+    #content .editinfo_box .orange{
+         color:#FF7E2F;
+    }
+    #content .editinfo_box h3{
+        font-family: rsufont,Helvetica,Arial,Tahoma,Thonburi,sans-serif;
+        font-size: 2em;
+        margin: 10px 0px 8px;
+        font-weight: normal;
+    }
+    #content .editinfo_box .entry h1{
+          font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+          font-weight: normal;
+          font-size: 3.2em;
+          margin: 10px 0 3px;
+    }
+    #content .editinfo_box .entry h1 a{
+          text-decoration: none;
+          color:#FF7E2F;
+    }
+    #content .editinfo_box .entry h1 a:hover{
+          text-decoration: underline;
+    }
+    #content .editinfo_box h3.note,#content .editinfo_box .required {
+        color:red;
+    }
+    #content .application .editinfo_box form p {
+        margin: 12px 0px 0px;
+    }
+    #content .application .editinfo_box {
+        float: left;
+
+    }
+    #content .application .editinfo_box form label {
+        width:220px;
+        float:left;
+        margin-right:10px;
+        font-size: 1.4em;
+        color: rgb(51, 51, 51);
+        line-height: 1.8em;
+        display: block;
+    }
+    #content .application .editinfo_box form .type input{
+        float:left;
+
+    }
+    #content .application .editinfo_box form .type  label{
+        float:left;
+        width:90%;
+
+    }
+    #content .application .editinfo_box form ul {
+        float:left;
+    }
+
+    #content .application .editinfo_box form ul li label {
+        float:left;
+        width:250px;
+    }
+    #content .application .editinfo_box form ul li input {
+        float:left;
+        margin-right:5px;
+
+    }
+    #content .application .editinfo_box form span.spantext {
+        color: rgb(51, 51, 51);
+        font-size: 1.4em;
+        margin:0 5px;
+    }
+    #content .application .editinfo_box form span label {
+        float:left;
+        margin-right:5px;
+        width:100px;
+    }
+    #content .application .editinfo_box .id_number input[type="text"] {
+        width: 10px;
+        padding: 5px;
+    }
+    #content .application .editinfo_box form input[type="text"], #content .application .editinfo_box form textarea , #content .application .editinfo_box form select  {
+        border: 1px solid #ccc;
+        padding: 5px;
+        font-size: 1.4em;
+    }
+/* Css for top-up Credit */
+#content .pay_select {
+  float: left;
+  width: 300px;
+}
+#content .pay_select h3 {
+  font-size: 2.4em;
+  font-weight: normal;
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+  color: #ff6c00;
+}
+#content .pay_select li {
+  font-size: 1.1em;
+  line-height: 2.2em;
+  color: #333;
+}
+#content .pay_select li input {
+  cursor: pointer;
+}
+#content .pay_select li label {
+  position: relative;
+  top: 2px;
+  cursor: pointer;
+}
+#content input[type="submit"],#content input[type="button"] {
+/*  display: block;*/
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px #aa4b11;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 6px 20px 2px;
+  margin: 15px 0 5px;
+  font-size: 1.6em;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.19), inset 0 2px rgba(255, 255, 255, 0.44), inset 0 0 5px rgba(255, 255, 255, 0.34);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.19), inset 0 2px rgba(255, 255, 255, 0.44), inset 0 0 5px rgba(255, 255, 255, 0.34);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.19), inset 0 2px rgba(255, 255, 255, 0.44), inset 0 0 5px rgba(255, 255, 255, 0.34);
+  border: solid 1px #ce570f;
+  background-color: #ff7725;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.31), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.31), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.31), rgba(255, 255, 255, 0));
+  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.31), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.31), rgba(255, 255, 255, 0));
+}
+#content input[type="submit"]:hover,#content input[type="button"]:hover {
+  border: solid 1px #ce570f;
+  background-color: #e75700;
+  background-image: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(bottom, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
+  background-image: -ms-linear-gradient(bottom, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
+  text-decoration: none;
+}
+#content .pay_bank {
+  float: left;
+  width: 270px;
+  display: block;
+  position: relative;
+  background: #ffe3bb;
+  border: 1px solid #c4a77d;
+  padding: 15px 15px 15px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#content .pay_bank h3 {
+  font-size: 2em;
+  font-weight: normal;
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+  color: #5a3500;
+  margin: 3px 0 5px;
+}
+#content .pay_bank .bank {
+  margin: 0 0 10px;
+  color: #4e3e26;
+       font-size: 1.2em;
+}
+#content .pay_bank .bank h4 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #4e3e26;
+}
+
+#content .pay_bank:after,
+#content .pay_bank:before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#content .pay_bank:after {
+  border-color: rgba(255, 227, 187, 0);
+  border-right-color: #ffe3bb;
+  border-width: 15px;
+  top: 26%;
+  margin-top: -15px;
+}
+#content .pay_bank:before {
+  border-color: rgba(196, 167, 125, 0);
+  border-right-color: #c4a77d;
+  border-width: 16px;
+  top: 26%;
+  margin-top: -16px;
+}
+
+#content .pay_box {
+  float: left;
+  width: 270px;
+  display: block;
+  position: relative;
+  background: #ffe3bb;
+  border: 1px solid #c4a77d;
+  padding: 15px 15px 15px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#content .pay_box h3 {
+  font-size: 2em;
+  font-weight: normal;
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+  color: #5a3500;
+  margin: 3px 0 5px;
+}
+#content .pay_box .bank {
+  margin: 0 0 10px;
+}
+#content .pay_box .bank h4 {
+  font-size: 1.2em;
+  color: #4e3e26;
+  margin:0;
+  padding:0;
+}
+#content .pay_box .bank p {
+  color: #4e3e26;
+  font-size:1.0em;
+  margin:0;
+}
+#content .pay_box:after,
+#content .pay_box:before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#content .pay_box:after {
+  border-color: rgba(255, 227, 187, 0);
+  border-right-color: #ffe3bb;
+  border-width: 15px;
+  top: 26%;
+  margin-top: -50px;
+}
+#content .pay_box:before {
+  border-color: rgba(196, 167, 125, 0);
+  border-right-color: #c4a77d;
+  border-width: 16px;
+  top: 26%;
+  margin-top: -51px;
+}
+
+#content .pay_bank,
+#content .pay_creditcard,
+#content .pay_paysbuy,
+#content .pay_counterservice
+{
+  display: block;
+}
+
+
+#content .pay_bank:after,
+#content .pay_bank:before {
+  top: 26%;
+}
+
+#content .pay_creditcard:after,
+#content .pay_creditcard:before {
+  top: 73%;
+}
+
+#content .pay_paysbuy:after,
+#content .pay_paysbuy:before {
+  top: 75%;
+}
+
+#content .pay_counterservice:after,
+#content .pay_counterservice:before {
+  top: 75%;
+}
+
+#content .pay_coupon:after,
+#content .pay_coupon:before {
+  top: 75%;
+}
+
+.visa_mastercard {
+  width: 164px;
+  height: 45px;
+  display: block;
+  background: url(../../images/web/visa_mastercard.png) no-repeat;
+}
+
+#content .pay_paysbuy {
+  margin-top: 6px;
+}
+
+.paysbuy {
+  width: 400px;
+  height: 72px;
+  display: block;
+  background: url(../../images/web/paysbuy.png) no-repeat;
+}
+
+#content .pay_counterservice {
+  margin-top: 35px;
+}
+
+.counterservice {
+  width: 260px;
+  height: 72px;
+  display: block;
+  background: url(../../images/web/counterservice.png) no-repeat;
+}
+#content .pay_coupon {
+  margin-top: 75px;
+}
+
+#content .entry .entry-content p {
+  font-size: 1.3em;
+  line-height: 1.8em;
+  margin: 10px auto 15px;
+  color: #444;
+}
+#content .entry .entry-content h6 {
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+  line-height: 150%;
+  color: #7c4300;
+  font-weight: normal;
+  font-size: 2em;
+}
+#content .entry .entry-content label {
+    width:200px;
+}
+
+#content .status-box{
+    border:1px solid #cccccc;
+    width:300px;
+    margin:auto;
+    padding:10px;
+    border-radius: 5px 5px 5px 5px;
+
+}
+#content .editinfo_box .goback{
+    margin-bottom:40px;
+}
+#content .table_history table {
+
+}
+/*By Yong*/
+ @media print {     
+body * {
+visibility:hidden;
+}
+#printable, #printable * {
+visibility:visible;
+}
+}.voucher img{display: none;}
+
+
+.voucher{
+    text-align: left;
+    width:950px;
+    height:600px;
+    background:  url(../../images/web/gift_voucher.png) no-repeat;    
+}
+
+
+.voucher span{
+  font-size: 2em;
+  font-weight: normal;
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+        
+}
+.voucher span.voucher_value{
+    position:relative;
+    top:22px;
+    left:285px;
+}
+.voucher span.voucher_expire{
+    position:relative;
+    top:10px;
+    left:700px;
+}
+.voucher span.voucher_name{
+    position:relative;
+    top:25px;
+    left:400px;
+}
+.voucher span.voucher_email{
+    position:relative;
+    top:63px;
+    left:400px;
+}
+.voucher span.voucher_num{
+    position:relative;
+    top:46px;
+    left:285px;
+}
+.voucher span.voucher_condition{
+    position:relative;
+    font-size: 1.6em;
+    top:107px;
+    left:300px;
+}
+.voucher span.voucher_condition_line2{
+    position:relative;
+    font-size: 1.6em;
+    top:108px;
+    left:208px;
+    line-height: 1.4em;
+}
