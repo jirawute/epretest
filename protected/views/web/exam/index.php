@@ -89,16 +89,16 @@ width: 5em;
             <div class="question_content" style="position:absolute">
                     <div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
 
-                    <iframe  id="iframe" class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.e-pretest.com/uploads/pdf/<?php echo $exam_info['exam_file'];?>&embedded=true" width="640px" height="100%" frameborder="0"></iframe>
+                    <iframe  id="iframe" class="pdfviewer" src="http://docs.google.com/viewer?url=<?php echo "http://www.e-pretest.com/uploads/pdf/".$exam_info['exam_file'];?>&embedded=true" width="640px" height="100%" frameborder="0"></iframe>
                     <!--<iframe class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.forum.02dual.com%2Fexamfile%2F655topic%2FkeyO-NET53Math.pdf&embedded=true" width="640px" height="100%" frameborder="0"></iframe>-->
                  
     </div>
             </div>
-    <form name="ExamForm" method="post" action="index.php?r=exam/submit">
+    <form name="ExamForm" method="post" action="index.php?r=exam/submit&id=<?php echo $exam_info['exam_id'];?>">
         <input type="hidden" name="ExamForm[exam_id]" value="<?php echo $exam_info['exam_id'];?>"/>
         <input type="hidden" name="ExamForm[student_id]" value="<?php echo Yii::app()->user->id;?>"/>
         <input type="hidden" name="ExamForm[score]" value="00.00"/>
-        <input type="hidden" name="ExamForm[elapse_time]" id="elapse_time" />
+        <input type="hidden" name="ExamForm[elapse_time]" id="elapse_time" value="0" /><!--set to default - > will be used to identify if this test is shared on FB-->
         <input type="hidden" name="ExamForm[status]" value="1"/>
     <div class="answer">
             <?php

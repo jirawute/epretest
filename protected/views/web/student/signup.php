@@ -4,7 +4,7 @@
         <div class="signup_box">
 
                 <div class="signup_normal_box" style="width:300px;padding-bottom:10px;">
-                        <h3>สมัครสมาชิกแบบพิเศษ</h3>
+                        <!--h3>สมัครสมาชิกแบบพิเศษ</h3--><br/><br/>
                         <div align="center">
                             <input onclick="OpenLink('<?php echo Yii::app()->createUrl('student/extra'); ?>')" type="button" value="สมัครเลย" class="submit_button">
                         </div><br/>
@@ -12,10 +12,7 @@
                                 <li>ทำข้อสอบและทราบผลคะแนนสอบ</li>
                                 <li>เติมเครดิตผ่านช่องทางต่าง ๆ</li>
                                 <li>รับข้อมูลข่าวสารต่าง ๆ ของทางเว็บไซต์</li>
-                                <li>รับเครดิตเพิ่มจาก Invite Friends (สูงสุด 50 เครดิต)</li>
-                                <li>รับข้อมูลข่าวสารแอดมิชชั่น</li>
                                 <li>รับข้อมูลข่าวสารทุนการศึกษา</li>
-                                <li>รับโบนัสเครดิต 30 เครดิต</li>
                                 <li>สามารถสะสมเครดิตเพื่อรับสิทธิพิเศษอื่น ๆ ได้</li>
                                 <li>ร่วมสนุกและรับของรางวัลจากทางเว็บไซต์ได้</li>
                                 <li>รับสิทธิร่วมกิจกรรมอื่น ๆ ของทางเว็บไซต์</li>
@@ -25,7 +22,7 @@
                 </div>
 
                 <div class="signup_with_facebook_box" style="width:270px;padding-bottom:10px;">
-                        <h3>สมัครสมาชิกแบบธรรมดา</h3>
+                        <!--h3>สมัครสมาชิกแบบธรรมดา</h3>
                         <div align="center">
                             <input onclick="OpenLink('<?php echo Yii::app()->createUrl('student/create'); ?>')" type="button" value="สมัครเลย" class="submit_button">
                         </div><br/>
@@ -34,7 +31,7 @@
                                 <li>เติมเครดิตผ่านช่องทางต่าง ๆ</li>
                                 <li>รับข้อมูลข่าวสารต่าง ๆ ของทางเว็บไซต์</li>
                                 <li>รับเครดิตเพิ่มจาก Invite Friends (สูงสุด 50 เครดิต)</li>
-                        </ul>
+                        </ul-->
                                     <?php
                                                 $key = 'facebook';
                                                 $cc = Yii::app()->crugeconnector;

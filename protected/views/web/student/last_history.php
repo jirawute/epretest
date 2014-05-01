@@ -50,7 +50,7 @@
 
 
                 <tr>
-                        <td style="padding-left:10px;text-align:left"><a href="<?php echo Yii::app()->createUrl('exam/answer', array('id'=>"as032B$".$Test['exam_id'])); ?>" title="<?php echo $Test['name'];?>"><span id="exam_name"><?php echo $Test['name'];?></span></a></td>
+                        <td style="padding-left:10px;text-align:left"><a href="<?php echo Yii::app()->createUrl('exam/answer', array('id'=>$Test['exam_id'])); ?>" title="<?php echo $Test['name'];?>"><span id="exam_name"><?php echo $Test['name'];?></span></a></td>
                         <td><?php echo $Test['date_attended'];?></td>
                         <td><?php echo number_format($Test['exam_avg']);?>/<?php echo $score_total;?></td>
                         <td><?php echo $score;?>/<?php echo $score_total;?></td>

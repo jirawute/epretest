@@ -22,9 +22,8 @@ class ExamController extends Controller {
             $this->render('index', array(
                 'exam_info' => $exam_info,
                 'session_list' => $session_list,
-                'mp3' => $mp3,
             ));
-        } else if ($_GET['id'] == 'test') {
+        } else if ($_GET['id'] == '$30') {
             // for testing only
             $exam_id = 30; // Can change
             $exam = new Exam;
@@ -34,7 +33,6 @@ class ExamController extends Controller {
             $this->render('index', array(
                 'exam_info' => $exam_info,
                 'session_list' => $session_list,
-                'mp3' => "uploads/mp3/test.mp3",
             ));
         } else {
             $this->redirect(Yii::app()->createUrl('site/login'));
@@ -69,7 +67,7 @@ class ExamController extends Controller {
             $test = $testRecord->getTestRecordDetailByStudentIdExamId($student_id, $Exam['exam_id']);
 
             $status_test = $test['status'];
-            $exam_id = "320b$" . $Exam['exam_id'] . "$3$5t97<" . rand();
+            $exam_id =  $Exam['exam_id'];
             switch ($status_test) {
                 case 1: $td = '<td class="mark_resume" title="กำลังทำ"><span>¨</span></td>';
                     break;
@@ -103,6 +101,7 @@ class ExamController extends Controller {
 
     // actionSubmit not edit
     public function actionSubmit() {
+        //print_r($_POST['ExamForm']);exit();
         $this->layout = '//layouts/answer';
         if (isset($_POST['ExamForm'])) {
             $exam_id = $_POST['ExamForm']['exam_id'];
@@ -111,11 +110,7 @@ class ExamController extends Controller {
             $student_id = Yii::app()->user->id;
             $exam_id = $_GET['id'];
             $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
-            $model = $this->loadTestRecord($test_record_id);
-            $model->status  = 2;
-            $model->save();
-            //$this->redirect(Yii::app()->createUrl('student/view'));
-            $this->redirect(Yii::app()->createUrl('exam/answer&id=234$'.$exam_id));
+            
         } else {
             $this->redirect(Yii::app()->createUrl('student/view'));
         }
@@ -133,7 +128,7 @@ class ExamController extends Controller {
         $exam = new Exam;
         $exam_info = $exam->getExamDetailById($exam_id);
 
-        $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_status' => 2));
+        $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group,'test_record_id' => $test_record_id));
     }
 
     public function actionAnswer($id) {
@@ -141,14 +136,16 @@ class ExamController extends Controller {
             $this->layout = '//layouts/answer';
             $exam = new Exam;
 
-            list($other1, $exam_id, $other2) = explode('$', $id);
+            $student_id = Yii::app()->user->id;
+            $exam_id = $_GET['id'];
+            $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
 
             $exam_info = $exam->getExamDetailById($exam_id);
             $session = new Session;
             $session_group = $session->getSessionByExamId($exam_id);
 
             
-            $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_status' => 2));
+            $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_record_id' => $test_record_id));
         } else {
             $this->redirect(Yii::app()->createUrl('site/login'));
         }

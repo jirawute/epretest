@@ -124,8 +124,7 @@
             <?php
             } else {
                 $student = Student::model()->findByPk(Yii::app()->user->id);
-list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
-                //$exam_id = $exam_info['exam_id'];
+                $exam_id =  $_GET['id'];
                 $exam = Exam::model()->findByPk($exam_id);
                 $student_id = $student->student_id;
                 $testRecoed = new TestRecord;
@@ -161,7 +160,7 @@ list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
                 <div id="header" class="grid_12 do_exercise">
 
                     <div class="point_detail">
-                        <div class="box">คะแนนเฉลี่ย : <?php echo "XXX".$exam_id; echo number_format($test_static['score_avg']); ?></div>
+                        <div class="box">คะแนนเฉลี่ย : <?php $exam_id; echo number_format($test_static['score_avg']); ?></div>
                         <div class="box">คะแนนสูงสุด : <?php echo number_format($test_static['score_max']); ?></div>
                         <div class="box">คุณได้ลำดับที่ : <?php echo $test_rank; ?></div>
                         <div class="box">จากผู้เข้าสอบทั้งหมด : <?php echo number_format($test_static['student_total']); ?> คน</div>
@@ -171,7 +170,7 @@ list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
                         <!--<a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php"  share_url="http://www.e-pretest.com/index.php?r=exam/answer&id=10">Share</a>-->
     <?php
     $parm = $exam_id . "-" . $score . "-" . intval($exam->score_total) . "-" . $test_rank . "-" . $test_static['student_total'];
-    $url = "www.e-pretest.com/fbsharepage.php?parm=" . $parm;
+    $url = "www.e-pretest.com/fbsharescore.php?parm=" . $parm;
     //echo $url;
     ?>
                         <script type="text/javascript">

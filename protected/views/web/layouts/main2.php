@@ -69,7 +69,6 @@
         <?php if ($exam_info['voice_file'] == NULL) { ?>
 
             <script type="text/javascript">
-
                 var exam_id = <?php echo $exam_id ?>;
                 var credit_require = <?php echo $exam_info['credit_required']; ?>;
 
@@ -132,9 +131,10 @@
 
             <script type="text/javascript">
 
+
                 var exam_id = <?php echo $exam_id ?>;
                 var credit_require = <?php echo $exam_info['credit_required']; ?>;
-    <?php $php_play = ""; ?>
+
                 $(document).ready(function() {
                     $.ajax({
                         url: '?r=exam/checkRecord&exam_id=' + exam_id,
@@ -143,17 +143,17 @@
                         success: function(data, textStatus, xhr) {
                             //alert(data);
                             if (data == 0) {
-                                apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3<?php //echo $exam_info['voice_file'];  ?>">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                                apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3<?php //echo $exam_info['voice_file'];  ?>" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                                     if (r) {
                                         useCredit(credit_require, exam_id);
                                         //onclick="myFunction()"
-                                        alert('คำเตือน : หากท่านออกจากหน้าทำข้อสอบ หรือ กดปุ่มรีเฟรชหน้า เสียงจะหยุดเล่นทันที')
                                         var x = document.createElement("AUDIO");
                                         x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['voice_file']; ?>");
                                         x.setAttribute("controls", "controls");
                                         x.setAttribute("autoplay", "autoplay");
 
                                         if (useCredit) {<?php $php_play = "autoplay"; ?>
+                                        alert('คำเตือน : หากท่านออกจากหน้าทำข้อสอบ หรือ กดปุ่มรีเฟรชหน้า เสียงจะหยุดเล่นทันที');
                                         }
                                     } else {
                                         OpenLink("index.php?r=student/view");

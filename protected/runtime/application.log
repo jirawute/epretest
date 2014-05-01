@@ -341,3 +341,346 @@ in C:\AppServ\www\epretest\index.php (11)
 in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
 in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\AppServ\www\epretest\index.php (11)
+2014/05/01 22:09:13 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:115) (C:\AppServ\www\epretest\framework\web\CHttpRequest.php:763)
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(116): ExamController->redirect()
+#1 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): ExamController->runAction()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#9 unknown(0): WebApplicationEndBehavior->runEnd()
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#11 unknown(0): CWebApplication->__call()
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=27
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (116)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/01 22:09:22 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:115) (C:\AppServ\www\epretest\framework\web\CHttpRequest.php:763)
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(116): ExamController->redirect()
+#1 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): ExamController->runAction()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#9 unknown(0): WebApplicationEndBehavior->runEnd()
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#11 unknown(0): CWebApplication->__call()
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=1
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (116)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/01 22:09:33 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:115) (C:\AppServ\www\epretest\framework\web\CHttpRequest.php:763)
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(116): ExamController->redirect()
+#1 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): ExamController->runAction()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#9 unknown(0): WebApplicationEndBehavior->runEnd()
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#11 unknown(0): CWebApplication->__call()
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=27
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (116)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/01 22:10:59 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:115) (C:\AppServ\www\epretest\framework\web\CHttpRequest.php:763)
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(116): ExamController->redirect()
+#1 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): ExamController->runAction()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#9 unknown(0): WebApplicationEndBehavior->runEnd()
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#11 unknown(0): CWebApplication->__call()
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=21
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (116)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/01 23:24:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=2342$29".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=2342$...')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=2342$...')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=2342$29
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$29$aw8
+---
+2014/05/01 23:26:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=29".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=29')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=29')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=29
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$29$aw8
+---
+2014/05/01 23:27:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=29".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=29')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=29')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=29
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2429
+---
+2014/05/01 23:29:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=29".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=29')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=29')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=29
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$29$aw8
+---
+2014/05/01 23:30:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=29".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=29')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=29')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=29
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$29$aw8
+---
+2014/05/01 23:32:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=30".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=30')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=30')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=30
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2430
+---
+2014/05/01 23:33:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:36:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:37:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+---
+2014/05/01 23:37:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+---
+2014/05/01 23:39:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:42:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:49:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?sid=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?sid=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?sid=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?sid...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?sid=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:53:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$21$aw8
+---
+2014/05/01 23:54:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:54:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/01 23:57:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?id=21".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?id=21')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?id=21')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?id=...')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?id=21
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam/index&id=%2302B13%2421
+---
+2014/05/02 00:00:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "submit?".' in C:\AppServ\www\epretest\framework\web\CController.php:484
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(271): CController->missingAction('submit?')
+#1 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit?')
+#2 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit?')
+#3 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#5 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#6 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#7 [internal function]: CComponent->__call('runEnd', Array)
+#8 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#9 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit?&id=21
+---

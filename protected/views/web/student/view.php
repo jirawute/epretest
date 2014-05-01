@@ -92,13 +92,15 @@ if ($subject['exam_type'] == 'Exam') {
     function CheckandGo(status, exam_id) {
         //alert(exam_id);
         if (status == 2) {
-            apprise('คุณเคยทำข้อสอบชุดนี้แล้ว', {'verify': true, 'textYes': 'ดูเฉลยละเอียด', 'textNo': 'กลับสู่หน้าคลังข้อสอบ'}, function(r) {
+            apprise('คุณเคยทำข้อสอบชุดนี้แล้ว', {'verify': true, 'textYes': 'ดูเฉลยละเอียด', 'textNo': 'ทำซ้ำอีกครั้ง'}, function(r) {
                 if (r) {
                     OpenLink('index.php?r=exam/answer&id=' + exam_id);
+                }else{
+                   OpenLink('index.php?r=exam&id=32@%3$' + exam_id+'$aw8'); 
                 }
             });
         } else {
-            OpenLink('index.php?r=exam&id=' + exam_id);
+            OpenLink('index.php?r=exam&id=32@%3$' + exam_id+'$aw8'); 
         }
 
     }
