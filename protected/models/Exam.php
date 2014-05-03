@@ -20,7 +20,7 @@
  * @property string $date_added
  * @property integer $sort_order
  * @property integer $status
- * @property integer $text_file
+ * @property integer $voice_file
  *
  * The followings are the available model relations:
  * @property Type $type
@@ -63,10 +63,10 @@ class Exam extends CActiveRecord
 			array('score_total, score_avg, score_max', 'length', 'max'=>7),
 			array('date_added', 'safe'),
 			array('exam_file,answer_file', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'File has to be smaller than 10MB','allowEmpty'=>true) ,
-			array('text_file', 'length', 'max'=>100),
+			array('voice_file', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('exam_id, type_id, subject_id, level_id, name, quiz_intro, credit_required, time_limited, exam_file, answer_file, score_total, score_avg, score_max, date_added, sort_order, status, text_file', 'safe', 'on'=>'search'),
+			array('exam_id, type_id, subject_id, level_id, name, quiz_intro, credit_required, time_limited, exam_file, answer_file, score_total, score_avg, score_max, date_added, sort_order, status, voice_file', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -107,7 +107,7 @@ class Exam extends CActiveRecord
 			'date_added' => 'Date Added',
 			'sort_order' => 'Sort Order',
 			'status' => 'Status',
-                        'text_file' => 'Listening Exam (Max char : 100)',
+                        'voice_file' => 'Listening Exam',
 		);
 	}
 
@@ -137,7 +137,7 @@ class Exam extends CActiveRecord
 		$criteria->compare('date_added',$this->date_added,true);
 		$criteria->compare('sort_order',$this->sort_order);
 		$criteria->compare('status',$this->status);
-                $criteria->compare('text_file',$this->text_file);
+                $criteria->compare('voice_file',$this->voice_file);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -148,14 +148,14 @@ class Exam extends CActiveRecord
 
         public function getTotalExamBySubjectId($id) {
 		$command = Yii::app()->db->createCommand();
-		$result = $command->select('COUNT(*) as total')->from('esto_exam')->where('status=:status AND subject_id=:subject_id', array(':status'=>1,':subject_id'=>$id))->queryRow();
+		$result = $command->select('COUNT(*) as total')->from('esto_exam')->where('status>=:status AND subject_id=:subject_id', array(':status'=>1,':subject_id'=>$id))->queryRow();
 		return $result['total'];
 	}
 
         public function getExamBySubjectId($subject_id) {
 		$command = Yii::app()->db->createCommand();
                 
-		$result = $command->select('*')->from('esto_exam')->where('status=:status AND subject_id = :subject_id', array(':status'=>1,':subject_id'=>$subject_id))->order('sort_order')->queryAll();
+		$result = $command->select('*')->from('esto_exam')->where('status>=:status AND subject_id = :subject_id', array(':status'=>1,':subject_id'=>$subject_id))->order('sort_order')->queryAll();
 		
                 return $result;
 	}

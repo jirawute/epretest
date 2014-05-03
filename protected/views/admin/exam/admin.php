@@ -84,9 +84,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		*/
 		array(
 			'name'=> 'status',
-			'value'=> '($data->status)? \'Enabled\' : \'Disabled\'',
+			'value'=> '($data->status)? \'Enabled|Hide\' : \'Disabled\'',
 			'htmlOptions'=>array('style'=>'text-align: center; width: 60px;'),
-                        'filter'=>array('1'=>'Enabled','0'=>'Disabled'),
+                        'filter'=>array('0'=>'0-Disabled','1'=>'1-Enabled','2'=>'2-HideAnswer'),
 		),
 		array(
 			'class'=>'CButtonColumn',

@@ -26,11 +26,6 @@
 		<?php echo $form->error($model,'answer_type_id'); ?>
 	</div>
         
-        <div class="row" <?//=$hd?>>
-		<?php echo $form->labelEx($model,'text_file'); ?>
-		<?php echo $form->textField($model,'text_file',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'text_file'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'session_order'); ?>

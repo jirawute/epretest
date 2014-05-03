@@ -179,7 +179,7 @@ $(function(){
                                                                     )); ?>
                                                                 <?php echo $form->error($model,'date'); ?>
                                                         </p>
-							<p>
+							<!--p>
 								<label>สนใจทำข้อสอบวิชา</label>
                                                                 <?php echo $form->textField($model,'subject',array('class'=>'input')); ?>
                                                                 <?php echo $form->error($model,'subject'); ?>
@@ -188,7 +188,7 @@ $(function(){
                                                                 <label>คณะที่สนใจ</label>
                                                                 <?php echo $form->textField($model,'faculty',array('size'=>60,'maxlength'=>255)); ?>
                                                                 <?php echo $form->error($model,'faculty'); ?>
-                                                        </div>
+                                                        </div-->
 							
 
 							<div class="editpass">

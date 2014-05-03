@@ -14,7 +14,6 @@
  * @property integer $session_end
  * @property string $session_score_total
  * @property integer $session_status
- * @property integer $text_file
  *
  * The followings are the available model relations:
  * @property EstoAnswer[] $estoAnswers
@@ -53,10 +52,9 @@ class Session extends CActiveRecord
 			array('session_order', 'length', 'max'=>2),
                         array('session_name', 'length', 'max'=>255),
 			array('session_score_total', 'length', 'max'=>7),
-                        array('text_file', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('session_id, exam_id, session_name, answer_type_id, session_order, session_total, session_start, session_end, session_score_total, session_status, text_file', 'safe', 'on'=>'search'),
+			array('session_id, exam_id, session_name, answer_type_id, session_order, session_total, session_start, session_end, session_score_total, session_status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -90,7 +88,6 @@ class Session extends CActiveRecord
 			'session_end' => 'ถึงข้อที่',
 			'session_score_total' => 'คะแนนรวม',
 			'session_status' => 'สถานะ',
-                        'text_file' => 'ข้อสอบเสียง',
 		);
 	}
 
@@ -115,7 +112,6 @@ class Session extends CActiveRecord
 		$criteria->compare('session_end',$this->session_end);
 		$criteria->compare('session_score_total',$this->session_score_total,true);
 		$criteria->compare('session_status',$this->session_status);
-                $criteria->compare('text_file',$this->text_file);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

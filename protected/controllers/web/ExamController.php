@@ -195,6 +195,23 @@ class ExamController extends Controller {
 
         echo $status;
     }
+        public function actionUpcredit() {
+            $student_id = Yii::app()->user->id;
+            $up_credit = $_GET['credit'];            
+            $test_record_id = $_GET['id'];
+            $student = new Student;
+            $old_credit = $student->getCreditStudentById($student_id);
+
+            $credit = $old_credit + $up_credit;
+
+            $student->updateNewCredit($credit, $student_id);
+                
+                $model = TestRecord::model()->loadTestRecord($test_record_id);
+                $model->elapse_time=$up_credit;//elapse currently used to identify if this test record is rewarded or not
+                $model->save();
+               // exit();
+            $this->redirect(Yii::app()->createUrl('student/view'));
+    }
 
     public function loadTestRecord($id) {
         $model = TestRecord::model()->findByPk($id);

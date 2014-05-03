@@ -29,7 +29,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->dropDownList($model, 'status', array('1'=>'Enabled','0'=>'Disabled')); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'Enabled','2'=>'Special','0'=>'Disabled')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 

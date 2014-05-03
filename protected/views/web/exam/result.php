@@ -17,14 +17,16 @@
 
     }
 
-    function alertBox(shared, test_record_id) {
+    function alertBox(shared,credit_required, test_record_id) {
         if (shared == 0) {
-            apprise('<img src="http://www.e-pretest.com/images/web/facebook_hover.png" /><br/>ชวนเพื่อนๆมาทำแบบทดสอบกัน', {'verify': true, 'textYes': 'ตกลง', 'textNo': 'ยกเลิก'}, function(r) {
+            var up_credit = 5;
+            apprise('<img src="http://www.e-pretest.com/images/web/facebook_hover.png" /><br/>ชวนเพื่อนๆมาทำแบบทดสอบกัน พร้อมรับเครดิตเพิ่ม '+up_credit+' เครดิต', {'verify': true, 'textYes': 'ตกลง', 'textNo': 'ยกเลิก'}, function(r) {
                 if (r) {
                     //window.open("https://docs.google.com/forms/d/1vNpjYLkLLYFtD8I9Wti_JhpU8p5gsezJihSAUh1Jos8/viewform");
                     window.open("http://www.facebook.com/share.php?u=www.e-pretest.com/fbsharepage.php", "Facebook_Share", "menubar=1,resizable=1,width=600,height=400");
-
-                    OpenLink("index.php?r=student/view");
+                    
+                    
+                    OpenLink("index.php?r=exam/upcredit&id="+test_record_id+"&credit="+up_credit);//Credit reward = 10% if shared on FB
                 } else {
                     OpenLink("index.php?r=student/view");
                 }
@@ -79,6 +81,8 @@
             }
             if ($exam_info['status'] = 0) {
                 echo "DISABLED";
+            } else if ($exam_info['status'] = 2) {
+                echo "Answer file(s) is hidden";
             } else if (count($session_list) != 0) {
 
                 foreach ($session_list as $key_ans => $session) {
@@ -116,7 +120,7 @@
             <div class="answer_bottom">
                 <? $testrecord = TestRecord::model()->getTestRecordDetailByStudentIdExamId($student_id, $exam_id); ?>
 
-                <input onclick="<? echo 'alertBox(' . $testrecord['elapse_time'] . ',' . $testrecord['test_record_id'] . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
+                <input onclick="<? echo 'alertBox(' .$testrecord['elapse_time'].','. $exam_info['credit_required']. ',' . $testrecord['test_record_id'] . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
 
             </div>
         </div>

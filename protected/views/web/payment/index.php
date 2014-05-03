@@ -74,7 +74,6 @@ if (!Yii::app()->user->id)
                 document.getElementById('itm').value = document.getElementById('desc_' + i).value;
                 document.getElementById('credit_point').value = document.getElementById('credit_' + i).value;
             }
-
         }
 
         $.ajax({
@@ -82,9 +81,12 @@ if (!Yii::app()->user->id)
             type: 'GET',
             dataType: 'html',
             success: function(data, textStatus, xhr) {
-                document.getElementById('inv').value = data;
-
-                if (document.getElementById('payment_transfer').checked) {
+                document.getElementById('inv').value = data;  
+                
+                if (document.getElementById('payment_counter_service').checked) {
+                    document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?cs=true&lang=t";
+                  document.forms['payment_form'].submit();
+                } else if (document.getElementById('payment_transfer').checked) {
                     var result = confirm('ยืนยันวิธีการชำระเงินโดยโอนเงินผ่านบัญชีธนาคาร');
                     if (result == true) {
                         document.forms['payment_form'].action = "index.php?r=payment/bank";
@@ -95,12 +97,6 @@ if (!Yii::app()->user->id)
 
                 } else if (document.getElementById('payment_credit').checked) {
                     document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?c=true&lang=t";
-                    document.forms['payment_form'].submit();
-                } else if (document.getElementById('payment_paysbuy').checked) {
-                    document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?psb=true&lang=t";
-                    document.forms['payment_form'].submit();
-                } else if (document.getElementById('payment_counter_service').checked) {
-                    document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?cs=true&lang=t";
                     document.forms['payment_form'].submit();
                 } else if (document.getElementById('payment_coupon').checked) {
                     if (document.getElementById('coupon_code').value == '') {
@@ -175,7 +171,6 @@ if (!Yii::app()->user->id)
                         <li>
                             <input onclick="changeMethodPayment('1');
             appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_transfer" value="Transfer"/>
-                            <!--                            <label for="payment_transfer">ชำระโดยโอนเงินผ่านบัญชีธนาคาร</label>-->
                             <label for="payment_transfer">โอนเงินผ่านบัญชีธนาคาร</label>
                         </li>
                         <li>

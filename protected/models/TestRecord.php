@@ -189,7 +189,7 @@ class TestRecord extends CActiveRecord
                                   ->leftjoin('esto_student std', 'std.student_id=test.student_id')
                                   ->leftjoin('esto_subject sub', 'sub.subject_id=ex.subject_id')
                                   ->leftjoin('esto_type type', 'type.type_id=ex.type_id')
-                                  ->where('test.student_id=:student_id AND test.status=:status', array(':student_id'=>$student_id,':status'=>2))
+                                  ->where('ex.status=:ex_status AND test.student_id=:student_id AND test.status=:status', array(':ex_status'=>1,':student_id'=>$student_id,':status'=>2))
                                   ->order('date_attended desc')
                                   ->queryAll();
               return $result;
@@ -203,7 +203,7 @@ class TestRecord extends CActiveRecord
                                   ->leftjoin('esto_student std', 'std.student_id=test.student_id')
                                   ->leftjoin('esto_subject sub', 'sub.subject_id=ex.subject_id')
                                   ->leftjoin('esto_type type', 'type.type_id=ex.type_id')
-                                  ->where('test.student_id=:student_id AND test.status=:status', array(':student_id'=>$student_id,':status'=>2))
+                                  ->where('ex.status=:ex_status AND test.student_id=:student_id AND test.status=:status', array(':ex_status'=>1,':student_id'=>$student_id,':status'=>2))
                                   ->order('date_attended desc')
                                   ->offset(0)
                                   ->limit(3)

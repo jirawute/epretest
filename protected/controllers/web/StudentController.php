@@ -1,5 +1,7 @@
 <?php
+
 require_once('mail.php');
+
 class StudentController extends Controller {
 
     /**
@@ -29,14 +31,12 @@ class StudentController extends Controller {
         $this->upload_path = Yii::app()->basePath . '/../uploads/student/';
     }
 
-    public function actions()
-    {
-            $this->layout = '//layouts/information_view';
-            return array(
-                    // ADD THIS:
-                    'crugeconnector'=>array('class'=>'CrugeConnectorAction'),
-
-            );
+    public function actions() {
+        $this->layout = '//layouts/information_view';
+        return array(
+            // ADD THIS:
+            'crugeconnector' => array('class' => 'CrugeConnectorAction'),
+        );
     }
 
     /**
@@ -60,7 +60,6 @@ class StudentController extends Controller {
 
             if (isset($_GET['level'])) {
                 $level_id = $_GET['level'];
-
             } else {
                 $level_id = $model->level_id;
             }
@@ -91,7 +90,7 @@ class StudentController extends Controller {
 
             $level_criteria = new CDbCriteria();
             $level_criteria->select = '*';
-            $level_criteria->condition = 'status=:status';
+            $level_criteria->condition = 'status>=:status';
             $level_criteria->params = array(':status' => 1);
             $level_criteria->order = 'sort_order DESC, level_id DESC';
             $level_all = Level::model()->findAll($level_criteria);
@@ -157,7 +156,7 @@ class StudentController extends Controller {
         $password_not_match = 0;
 
         $option_levels = $this->levelOption();
-        $option_schools =$this->schoolOption();
+        $option_schools = $this->schoolOption();
         // Define label
         $this->label['firstname'] = 'ชื่อ';
         $this->label['lastname'] = 'นามสกุล';
@@ -205,14 +204,6 @@ class StudentController extends Controller {
                                             <body>';
                     $body .= '<p>สวัสดีค่ะ คุณ ' . $model->firstname . ' <br />
                                             <br />
-                                            ขอขอบคุณที่คุณสมัครเป็นสมาชิกกับเว็บไซต์ e-pretest.com<br />
-                                            --------------------------------------------------------------------<br />
-                                            ชื่อผู้ใช้และรหัสผ่านของคุณสำหรับใช้เข้าสู่ระบบ คือ<br />
-                                            --------------------------------------------------------------------<br />
-                                            ชื่อผู้ใช้ : ' . $model->username . '<br />
-                                            รหัสผ่าน : ' . $model->password . '<br />
-                                            --------------------------------------------------------------------<br />
-                                            <u>หมายเหตุ</u> : คุณต้องยืนยันการสมัครสมาชิกก่อน ถึงจะสามารถล็อกอินเข้าสู่ระบบได้ค่ะ
                                             <br /><br />
                                             กรุณาคลิกที่ลิงค์ด้านล่างเพื่อยืนยันการสมัครของคุณภายใน 7 วัน หลังจากได้รับอีเมล์นี้นะคะ<br />
                                             <br />
@@ -220,6 +211,15 @@ class StudentController extends Controller {
                                             <br />
                                             หากคุณไม่สามารถคลิกที่ลิงค์นี้ได้ กรุณาคัดลองลิงค์ด้านบนไปวางที่เว็บบราวเซอร์ของคุณค่ะ
                                             <br />
+                                            --------------------------------------------------------------------<br />
+                                            ชื่อผู้ใช้และรหัสผ่านของคุณสำหรับใช้เข้าสู่ระบบ คือ<br />
+                                            --------------------------------------------------------------------<br />
+                                            ชื่อผู้ใช้ : ' . $model->username . '<br />
+                                            รหัสผ่าน : ' . $model->password . '<br />
+                                            --------------------------------------------------------------------<br />
+                                            
+                                            
+                                            ขอขอบคุณที่คุณสมัครเป็นสมาชิกกับเว็บไซต์ e-pretest.com<br />
                                             </p>
                                             <p><br />
                                             ขอแสดงความนับถือ<br />
@@ -240,15 +240,14 @@ class StudentController extends Controller {
 
                     //mail($to, $subject, $body, $headers);
                     //Change function send email
-                    $flgSend = $this->sendMail($to,'epretest@e-studio.co.th','E-pretest.com',$subject,$body);
-                    if($flgSend){
-                         Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
+                    $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
+                    if ($flgSend) {
+                        Yii::app()->user->setFlash('create', '<h3>บัญชีของคุณจะใช้ได้หลังจากยืนยันตัวตนผ่านข้อความอัตโนมัติที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
                         $this->redirect(array('student/create', 'id' => $model->student_id));
-                    }else{
-                        Yii::app()->user->setFlash('create','ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
+                    } else {
+                        Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
                         $this->refresh();
                     }
-                   
                 }
             }
         }
@@ -354,7 +353,7 @@ class StudentController extends Controller {
                     }
                 }
             }
-          
+
             $this->render('update', array(
                 'model' => $model,
                 'option_schools' => $this->schoolOption(),
@@ -364,10 +363,10 @@ class StudentController extends Controller {
             ));
         }//end if
     }
-    
-    public function actionLoginSuccess($key){
 
-        
+    public function actionLoginSuccess($key) {
+
+
         $loginData = Yii::app()->crugeconnector->getStoredData();
         // loginData: remote user information in JSON format.
 
@@ -378,7 +377,7 @@ class StudentController extends Controller {
         $password_not_match = 0;
 
         $option_levels = $this->levelOption();
-        $option_schools =$this->schoolOption();
+        $option_schools = $this->schoolOption();
         // Define label
         $this->label['firstname'] = 'ชื่อ';
         $this->label['lastname'] = 'นามสกุล';
@@ -389,15 +388,15 @@ class StudentController extends Controller {
         $this->label['pass_not_match_label'] = 'รหัสผ่านไม่ตรงกัน';
 
         $model = new SignupForm;
-        
+
         $data = array();
         $data['firstname'] = $decode['first_name'];
         $data['lastname'] = $decode['last_name'];
         $data['email'] = $decode['email'];
-       // $data['username'] = $decode['username'];
+        // $data['username'] = $decode['username'];
         $data['username'] = $decode['email'];
 
-        
+
         $model->attributes = $data;
 
         // if it is ajax validation request
@@ -406,7 +405,7 @@ class StudentController extends Controller {
             Yii::app()->end();
         }
 
-                // collect user input data
+        // collect user input data
         if (isset($_POST['SignupForm'])) {
             $length = 32;
             $chars = array_merge(range(0, 9), range('a', 'z'));
@@ -465,37 +464,36 @@ class StudentController extends Controller {
 
                     //mail($to, $subject, $body, $headers);
                     //Change Function Send Email
-                    $flgSend = $this->sendMail($to,'epretest@e-studio.co.th','E-pretest.com',$subject,$body);
-                    if($flgSend){
+                    $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
+                    if ($flgSend) {
                         Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>คุณสามารถล็อกอินเข้าสู่ระบบสมาชิก  ตามชื่อผู้ใช้และรหัสผ่านของคุณได้ทันที<br/> โดยไม่ต้องยืนยันการสมัครสมาชิกผ่านอีเมล์ค่ะ<br/>ขอบคุณที่ไว้ใจ E-Pretest ขออวยพรให้ทุกท่านประสบความสำเร็จในการสอบทุกระดับค่ะ</p>');
                         $this->redirect(array('student/create', 'id' => $model->student_id));
-                    }else{
-                        Yii::app()->user->setFlash('create','ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
+                    } else {
+                        Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
                         $this->refresh();
                     }
-
                 }
             }
         }
-            $this->render('create', array(
+        $this->render('create', array(
             'model' => $model,
             'password_confirm' => $password_confirm,
             'password_not_match' => $password_not_match,
             'option_levels' => $option_levels,
-
         ));
     }
 
-    public function actionLoginError($key, $message=''){
+    public function actionLoginError($key, $message = '') {
         //$this->renderText('<h1>Login Error</h1><p>'.$message.'</p>');
         $this->render('login_error');
     }
+
     public function actionFb() {
         $password_confirm = 0;
         $password_not_match = 0;
 
         $option_levels = $this->levelOption();
-        $option_schools =$this->schoolOption();
+        $option_schools = $this->schoolOption();
         // Define label
         $this->label['firstname'] = 'ชื่อ';
         $this->label['lastname'] = 'นามสกุล';
@@ -543,21 +541,21 @@ class StudentController extends Controller {
                                             <body>';
                     $body .= '<p>สวัสดีค่ะ คุณ ' . $model->firstname . ' <br />
                                             <br />
-                                            ขอขอบคุณที่คุณสมัครเป็นสมาชิกกับเว็บไซต์ e-pretest.com<br />
-                                            --------------------------------------------------------------------<br />
-                                            ชื่อผู้ใช้และรหัสผ่านของคุณสำหรับใช้เข้าสู่ระบบ คือ<br />
-                                            --------------------------------------------------------------------<br />
-                                            ชื่อผู้ใช้ : ' . $model->username . '<br />
-                                            รหัสผ่าน : ' . $model->password . '<br />
-                                            --------------------------------------------------------------------<br />
-                                            <u>หมายเหตุ</u> : คุณต้องยืนยันการสมัครสมาชิกก่อน ถึงจะสามารถล็อกอินเข้าสู่ระบบได้ค่ะ
-                                            <br /><br />
                                             กรุณาคลิกที่ลิงค์ด้านล่างเพื่อยืนยันการสมัครของคุณภายใน 7 วัน หลังจากได้รับอีเมล์นี้นะคะ<br />
                                             <br />
                                             <a href="http://www.e-pretest.com/index.php?r=student/verify&code=' . $model->sid . '&id=' . $model->student_id . '" target="_blank">http://www.e-pretest.com/index.php?r=student/verify&code=' . $model->sid . '&id=' . $model->student_id . '</a><br />
                                             <br />
                                             หากคุณไม่สามารถคลิกที่ลิงค์นี้ได้ กรุณาคัดลองลิงค์ด้านบนไปวางที่เว็บบราวเซอร์ของคุณค่ะ
                                             <br />
+                                            --------------------------------------------------------------------<br />
+                                            ชื่อผู้ใช้และรหัสผ่านของคุณสำหรับใช้เข้าสู่ระบบ คือ<br />
+                                            --------------------------------------------------------------------<br />
+                                            ชื่อผู้ใช้ : ' . $model->username . '<br />
+                                            รหัสผ่าน : ' . $model->password . '<br />
+                                            --------------------------------------------------------------------<br />
+                                            
+                                            ขอขอบคุณที่คุณสมัครเป็นสมาชิกกับเว็บไซต์ e-pretest.com<br />
+                                            
                                             </p>
                                             <p><br />
                                             ขอแสดงความนับถือ<br />
@@ -578,12 +576,12 @@ class StudentController extends Controller {
 
                     //mail($to, $subject, $body, $headers);
                     //Change function send email
-                    $flgSend = $this->sendMail($to,'epretest@e-studio.co.th','E-pretest.com',$subject,$body);
-                    if($flgSend){                        
-                        Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
+                    $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
+                    if ($flgSend) {
+                        Yii::app()->user->setFlash('create', '<h3>บัญชีของคุณจะใช้ได้หลังจากยืนยันตัวตนผ่านข้อความอัตโนมัติที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
                         $this->redirect(array('student/create', 'id' => $model->student_id));
-                    }else{
-                        Yii::app()->user->setFlash('create','ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
+                    } else {
+                        Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
                         $this->refresh();
                     }
                 }
@@ -754,12 +752,10 @@ class StudentController extends Controller {
         $exam_info = $exam->getExamBySubjectId($subject_id);
         $text = '';
         foreach ($exam_info as $ex) {
-            $exam_detail = $exam->getExamDetailById($ex['exam_id']);
-//                          echo "<br> ===> ";
-//                          echo "<pre>";
-//                          print_r($exam_detail);
-//                          echo "</pre>";
-            $text .= "<li id=\"exam_li\" style=\"float:left;\"><a onclick=\"showStudent('" . $ex['exam_id'] . "','" . $ex['name'] . "')\">  &nbsp;» " . $ex['name'] . "</a></li>";
+            if ($ex['status'] == 1) {//show hall of fame only when enable (not hide)
+                $exam_detail = $exam->getExamDetailById($ex['exam_id']);
+                $text .= "<li id=\"exam_li\" style=\"float:left;\"><a onclick=\"showStudent('" . $ex['exam_id'] . "','" . $ex['name'] . "')\">  &nbsp;» " . $ex['name'] . "</a></li>";
+            }
         }
         echo $text;
     }
@@ -871,15 +867,14 @@ class StudentController extends Controller {
 
                     //mail($to, $subject, $body, $headers);
                     //Change function send email
-                    $flgSend = $this->sendMail($to,'epretest@e-studio.co.th','E-pretest.com',$subject,$body);
-                    if($flgSend){                        
+                    $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
+                    if ($flgSend) {
                         Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
                         $this->redirect(array('student/extra', 'id' => $model->student_id));
-                    }else{
-                        Yii::app()->user->setFlash('create','ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
+                    } else {
+                        Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
                         $this->refresh();
-                    }                    
-
+                    }
                 }
             }
         }
@@ -924,9 +919,9 @@ class StudentController extends Controller {
                 $verify = 1;
             } else {
                 $model = $this->loadModel($student_id);
-                if($model->status==1 && $model->sid==$sid){
+                if ($model->status == 1 && $model->sid == $sid) {
                     $verify = 1;
-                }else{
+                } else {
                     $verify = 0;
                 }
             }
@@ -992,7 +987,7 @@ class StudentController extends Controller {
 
         if (is_array($schools)) {
             foreach ($schools as $school) {
-                array_push($option_schools,$school->name);                
+                array_push($option_schools, $school->name);
             }
             return $option_schools;
         }
@@ -1014,14 +1009,15 @@ class StudentController extends Controller {
             Yii::app()->end();
         }
     }
-    public function sendMail($email_to,$email_from, $sender, $subject, $message) {
+
+    public function sendMail($email_to, $email_from, $sender, $subject, $message) {
         $mail = new Mail();
         if (isset($email_to)) {
             $mail->protocol = 'smtp';
             $mail->parameter = "";
             $mail->hostname = "ssl://smtp.gmail.com";
             $mail->username = "contact@e-studio.co.th";
-            $mail->password = "estu1q2w3e";            
+            $mail->password = "estu1q2w3e";
             $mail->port = "465";
             $mail->timeout = "5";
             $mail->setTo($email_to);
@@ -1031,8 +1027,8 @@ class StudentController extends Controller {
             $mail->setHtml($message);
             $mail->setText(html_entity_decode('', ENT_QUOTES, 'UTF-8'));
             $mail->send();
-            return true; 
+            return true;
         }
-    }    
+    }
 
 }

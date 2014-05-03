@@ -148,8 +148,8 @@ width: 5em;
                 echo $this->renderPartial('_form0');
             }?>
             <div class="answer_bottom" >
-                <input id="saveBtn" type="button" value="บันทึก" class="save_button" onClick="saveThisForm();">
-                <input id="submitBtn" type="submit" value="ส่งคำตอบ" class="submit_button" >
+                <input id="saveBtn" type="button" value="บันทึก" class="save_button" onClick="saveThisForm();" title="บันทึกคำตอบระหว่างทำข้อสอบ">
+                <input id="submitBtn" type="submit" value="ส่งคำตอบ" class="submit_button" title="ส่งคำตอบและดูเฉลย" >
             </div>
         </div>
     </form>

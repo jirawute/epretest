@@ -262,7 +262,7 @@ if ($subject['exam_type'] == 'Exam') {
 
         </div>
         <div class="table_list_test" id="showData">
-<?php $this->renderPartial('show_exam', array('subject_id' => $subject_id, 'student_id' => $model->student_id)); ?>
+<?php $this->renderPartial('show_exam', array('model'=>$model, 'subject_id' => $subject_id, 'student_id' => $model->student_id)); ?>
         </div>
 
     </div>

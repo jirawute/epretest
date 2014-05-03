@@ -30,6 +30,7 @@
         list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
         $exam = new Exam;
         $exam_info = $exam->getExamDetailById($exam_id);
+       
         ?>
         <script type="text/javascript">
 
@@ -55,8 +56,7 @@
                 s.parentNode.insertBefore(ga, s);
             })();
 
-        </script>
-        <script type="text/javascript">
+
             function OpenLink(url) {
                 document.location.href = url;
             }
@@ -66,140 +66,90 @@
             }
         </script>
 
-        <?php if ($exam_info['voice_file'] == NULL) { ?>
 
-            <script type="text/javascript">
-                var exam_id = <?php echo $exam_id ?>;
-                var credit_require = <?php echo $exam_info['credit_required']; ?>;
+        <script type="text/javascript">
+            var exam_id = <?php echo $exam_id ?>;
+            var credit_require = <?php echo $exam_info['credit_required']; ?>;
 
-                $(document).ready(function() {
-                    $.ajax({
-                        url: '?r=exam/checkRecord&exam_id=' + exam_id,
-                        type: 'GET',
-                        dataType: 'html',
-                        success: function(data, textStatus, xhr) {
-                            //alert(data);
-                            if (data == 0) {
-                                apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
-                                    if (r) {
-                                        useCredit(credit_require, exam_id);
-                                    } else {
-                                        OpenLink("index.php?r=student/view");
-                                    }
-                                });
+<?php if ($exam_info['voice_file']==1) { ?>
+                function useMyCredit() {
+                    apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3<?php //echo $exam_info['voice_file'];   ?>" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                        if (r) {
+                            useCredit(credit_require, exam_id);
+                            //onclick="myFunction()"
+                            var x = document.createElement("AUDIO");
+                            x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>");
+                            x.setAttribute("controls", "controls");
+                            x.setAttribute("autoplay", "autoplay");
 
-                            } else {
-
-                                if (typeof time_dec == 'undefined') {
-                                    clearInterval(cinterval);
-                                } else {
-                                    cinterval = setInterval('time_dec()', 1000);
-                                }
-
+                            if (useCredit) {<?php $php_play = "autoplay"; ?>
+                                alert('คำเตือน : หากท่านออกจากหน้าทำข้อสอบ หรือ กดปุ่มรีเฟรชหน้า เสียงจะหยุดเล่นทันที');
                             }
-
-
-                        },
-                        error: function(request, status, error) {
-                            alert("Error: " + error + "\nResponseText: " + request.responseText);
+                        } else {
+                            OpenLink("index.php?r=student/view");
                         }
                     });
+                }
+<? } else { ?>
+                function useMyCredit() {
+                    apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                        if (r) {
+                            useCredit(credit_require, exam_id);
+                        } else {
+                            OpenLink("index.php?r=student/view");
+                        }
+                    });
+                }
+<? } ?>
+            $(document).ready(function() {
+                $.ajax({
+                    url: '?r=exam/checkRecord&exam_id=' + exam_id,
+                    type: 'GET',
+                    dataType: 'html',
+                    success: function(data, textStatus, xhr) {
+                        //alert(data);
+                        if (data == 0) {
+                            useMyCredit();
+                           
+                        } else {
 
+                            if (typeof time_dec == 'undefined') {
+                                clearInterval(cinterval);
+                            } else {
+                                cinterval = setInterval('time_dec()', 1000);
+                            }
+
+                        }
+
+
+                    },
+                    error: function(request, status, error) {
+                        alert("Error: " + error + "\nResponseText: " + request.responseText);
+                    }
                 });
 
+            });
 
-                function useCredit(credit_require, exam_id) {
-                    $.ajax({
-                        url: '?r=exam/usecredit&credit=' + credit_require + '&id=' + exam_id,
-                        type: 'GET',
-                        dataType: 'html',
-                        success: function(temp, textStatus, xhr) {
-                            if (temp == 'Y') {
-                                cinterval = setInterval('time_dec()', 1000);
-                            } else {
 
-                                alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้');
-                                OpenLink("index.php?r=student/view");
-                            }
+            function useCredit(credit_require, exam_id) {
+                $.ajax({
+                    url: '?r=exam/usecredit&credit=' + credit_require + '&id=' + exam_id,
+                    type: 'GET',
+                    dataType: 'html',
+                    success: function(temp, textStatus, xhr) {
+                        if (temp == 'Y') {
+                            cinterval = setInterval('time_dec()', 1000);
+                        } else {
+
+                            alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้');
+                            OpenLink("index.php?r=student/view");
                         }
-                    });
-
-                }
-            </script>
-
-        <? } else { ?>
-
-            <script type="text/javascript">
-
-
-                var exam_id = <?php echo $exam_id ?>;
-                var credit_require = <?php echo $exam_info['credit_required']; ?>;
-
-                $(document).ready(function() {
-                    $.ajax({
-                        url: '?r=exam/checkRecord&exam_id=' + exam_id,
-                        type: 'GET',
-                        dataType: 'html',
-                        success: function(data, textStatus, xhr) {
-                            //alert(data);
-                            if (data == 0) {
-                                apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3<?php //echo $exam_info['voice_file'];  ?>" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
-                                    if (r) {
-                                        useCredit(credit_require, exam_id);
-                                        //onclick="myFunction()"
-                                        var x = document.createElement("AUDIO");
-                                        x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['voice_file']; ?>");
-                                        x.setAttribute("controls", "controls");
-                                        x.setAttribute("autoplay", "autoplay");
-
-                                        if (useCredit) {<?php $php_play = "autoplay"; ?>
-                                        alert('คำเตือน : หากท่านออกจากหน้าทำข้อสอบ หรือ กดปุ่มรีเฟรชหน้า เสียงจะหยุดเล่นทันที');
-                                        }
-                                    } else {
-                                        OpenLink("index.php?r=student/view");
-                                    }
-                                });
-
-                            } else {
-
-                                if (typeof time_dec == 'undefined') {
-                                    clearInterval(cinterval);
-                                } else {
-                                    cinterval = setInterval('time_dec()', 1000);
-                                }
-
-                            }
-
-
-                        },
-                        error: function(request, status, error) {
-                            alert("Error: " + error + "\nResponseText: " + request.responseText);
-                        }
-                    });
-
+                    }
                 });
 
+            }
+        </script>
 
-                function useCredit(credit_require, exam_id) {
-                    $.ajax({
-                        url: '?r=exam/usecredit&credit=' + credit_require + '&id=' + exam_id,
-                        type: 'GET',
-                        dataType: 'html',
-                        success: function(temp, textStatus, xhr) {
-                            if (temp == 'Y') {
-                                cinterval = setInterval('time_dec()', 1000);
-                            } else {
-
-                                alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้');
-                                OpenLink("index.php?r=student/view");
-                            }
-                        }
-                    });
-
-                }
-            </script>
-
-        <? } ?>
 
     </head>
 
@@ -324,7 +274,7 @@
                     </div>
                 </div>
 
-            <?php } ?>
+<?php } ?>
             <div class="clear"></div>
 
             <div id="content" class="grid_12 do_exercise_window" ><?php echo $content; ?></div>

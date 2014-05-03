@@ -120,7 +120,7 @@ function showExam(subject_id){
 
 </div>
 <div class="list_name">
-
+    <div class="clear"></div>
         <div class="list_name_unselect">
                 <p>เลือกรายชื่อชุดทดสอบจากด้านซ้าย</p>
                 <p>เพื่อดูลำดับคะแนนของนักเรียนตามชุดทดสอบ</p>

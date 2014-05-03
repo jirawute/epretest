@@ -684,3 +684,320 @@ Stack trace:
 #9 {main}
 REQUEST_URI=/epretest/index.php?r=exam/submit?&id=21
 ---
+2014/05/03 08:23:56 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/03 09:42:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/03 09:42:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$30$aw8
+---
+2014/05/03 09:43:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/03 09:43:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$24$aw8
+---
+2014/05/03 09:43:53 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/03 09:43:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$24$aw8
+---
+2014/05/03 09:45:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/03 09:45:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$24$aw8
+---
+2014/05/03 09:52:49 [error] [php] move_uploaded_file(C:\AppServ\www\epretest\protected/../uploads/pdf/uploaded_20140503095248.pdf) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory (C:\AppServ\www\epretest\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionCreate()
+#1 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(134): ExamController->runAction()
+#3 C:\AppServ\www\epretest\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#5 C:\AppServ\www\epretest\framework\web\filters\CInlineFilter.php(59): ExamController->filterAccessControl()
+#6 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\AppServ\www\epretest\framework\web\CController.php(292): CFilterChain->run()
+#8 C:\AppServ\www\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#9 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#10 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#13 unknown(0): WebApplicationEndBehavior->runEnd()
+#14 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#15 unknown(0): CWebApplication->__call()
+#16 C:\AppServ\www\epretest\admin.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/admin/exam/create
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (88)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/05/03 09:59:50 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) as total
+FROM `esto_exam`
+WHERE status=:status AND subject_id=:subject_id.
+in C:\AppServ\www\epretest\protected\models\Exam.php (151)
+in C:\AppServ\www\epretest\protected\views\web\student\view.php (204)
+in C:\AppServ\www\epretest\protected\controllers\web\StudentController.php (144)
+2014/05/03 09:59:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) as total
+FROM `esto_exam`
+WHERE status=:status AND subject_id=:subject_id' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(408): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\AppServ\www\epretest\protected\models\Exam.php(151): CDbCommand->queryRow()
+#2 C:\AppServ\www\epretest\protected\views\web\student\view.php(204): Exam->getTotalExamBySubjectId('1')
+#3 C:\AppServ\www\epretest\framework\web\CBaseController.php(127): require('C:\AppServ\www\...')
+#4 C:\AppServ\www\epretest\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\AppServ\www\...', Array, true)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(870): CBaseController->renderFile('C:\AppServ\www\...', Array, true)
+#6 C:\AppServ\www\epretest\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#7 C:\AppServ\www\epretest\protected\controllers\web\StudentController.php(144): CController->render('view', Array)
+#8 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): StudentController->actionView()
+#9 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\epretest\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\AppServ\www\epretest\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\AppServ\www\epretest\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\AppServ\www\epretest\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('view')
+#18 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('student/view')
+#19 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#21 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#22 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#23 [internal function]: CComponent->__call('runEnd', Array)
+#24 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#25 {main}
+REQUEST_URI=/epretest/index.php?r=student/view&level=13
+---
+2014/05/03 10:01:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/03 10:01:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$34$aw8
+---
+2014/05/03 10:17:24 [error] [php] Invalid argument supplied for foreach() (C:\AppServ\www\epretest\protected\views\web\student\viewall.php:125)
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\CController.php(870): StudentController->renderFile()
+#1 C:\AppServ\www\epretest\framework\web\CController.php(783): StudentController->renderPartial()
+#2 C:\AppServ\www\epretest\protected\controllers\web\StudentController.php(706): StudentController->render()
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): StudentController->actionViewAll()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(134): StudentController->runAction()
+#6 C:\AppServ\www\epretest\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\AppServ\www\epretest\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\AppServ\www\epretest\framework\web\filters\CInlineFilter.php(59): StudentController->filterAccessControl()
+#9 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\AppServ\www\epretest\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\AppServ\www\epretest\framework\web\CController.php(266): StudentController->runActionWithFilters()
+#12 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): StudentController->run()
+#13 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#16 unknown(0): WebApplicationEndBehavior->runEnd()
+#17 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#18 unknown(0): CWebApplication->__call()
+#19 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=student/viewall
+in C:\AppServ\www\epretest\protected\views\web\student\viewall.php (125)
+in C:\AppServ\www\epretest\protected\controllers\web\StudentController.php (706)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/04 00:10:58 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/04 00:54:10 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/04 01:54:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/04 01:54:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$1$aw8
+---
+2014/05/04 03:09:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/04 03:09:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$16$aw8
+---
+2014/05/04 03:18:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:218
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(117): ExamController->loadTestRecord(NULL)
+#1 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#9 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#11 [internal function]: CComponent->__call('runEnd', Array)
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#13 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=29
+---
+2014/05/04 03:18:08 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status).
+in C:\AppServ\www\epretest\protected\models\TestRecord.php (224)
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (192)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/05/04 03:18:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_test_record`, CONSTRAINT `esto_test_record_ibfk_1` FOREIGN KEY (`exam_id`) REFERENCES `esto_exam` (`exam_id`)). The SQL statement executed was: INSERT INTO `esto_test_record` (`exam_id`, `student_id`, `score`, `date_attended`, `elapse_time`, `status`) VALUES (:exam_id, :student_id, :score, :date_attended, :elapse_time, :status)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\CDbCommand.php(1178): CDbCommand->execute(Array)
+#1 C:\AppServ\www\epretest\protected\models\TestRecord.php(224): CDbCommand->insert('esto_test_recor...', Array)
+#2 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(192): TestRecord->saveFirstLogTestRecord('undefined', '8')
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionUsecredit()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('usecredit')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/usecredit')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$29$aw8
+---
