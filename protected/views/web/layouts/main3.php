@@ -127,13 +127,13 @@
                 $exam_id =  $_GET['id'];
                 $exam = Exam::model()->findByPk($exam_id);
                 
-                if($exam['status']==1){
+                if($exam['status']==1){//show detail only if exam status =1
                 $student_id = $student->student_id;
                 $testRecoed = new TestRecord;
 
                 $row = $testRecoed->getTestRecordDetailByStudentIdExamId($student_id, $exam_id);
                 $test_static = $testRecoed->getTestRecordDetailByExamId($exam_id);
-                }
+                
 
                 /* Find Rank by exam_id and student_id */
                 $test_all = $testRecoed->getAllTestRecordByExamId($exam_id);
@@ -157,6 +157,7 @@
                     $score = number_format($row['score']);
                 } else {
                     $score = $row['score'];
+                }
                 }
                 ?>
                 <div id="header" class="grid_12 do_exercise">

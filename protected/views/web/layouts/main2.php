@@ -34,13 +34,12 @@
         ?>
         <script type="text/javascript">
 
-            window.onbeforeunload = function(e) {
-                document.forms['ExamForm'].action = "index.php?r=exam/save";
-                document.forms['ExamForm'].submit();
-            };
             function saveThisForm() {
                 document.forms['ExamForm'].action = "index.php?r=exam/save";
                 document.forms['ExamForm'].submit();
+            }
+            window.onbeforeunload=function(){
+                saveThisForm();
             }
 
             var _gaq = _gaq || [];
@@ -73,12 +72,12 @@
 
 <?php if ($exam_info['voice_file']==1) { ?>
                 function useMyCredit() {
-                    apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3<?php //echo $exam_info['voice_file'];   ?>" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                    apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
                             useCredit(credit_require, exam_id);
                             //onclick="myFunction()"
                             var x = document.createElement("AUDIO");
-                            x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>");
+                            x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id'];?>.mp3");
                             x.setAttribute("controls", "controls");
                             x.setAttribute("autoplay", "autoplay");
 
@@ -153,7 +152,7 @@
 
     </head>
 
-    <body >
+    <body onbeforeunload="saveThisForm()" >
 
         <div class="container_12">
             <?php if (Yii::app()->user->isGuest) { ?>
@@ -215,12 +214,13 @@
                     var timeTxt = "time_text";
 
                     function time_dec() {
-                        if (time_left == 0) {
-
-                            alert("หมดเวลาทำข้อสอบแล้วคะ");
+                        if (time_left < 0) {
                             clearInterval(cinterval);
-
-                            document.location.href = 'index.php?r=exam/submit&id=' + exam_id;
+                            saveThisForm();
+                            alert("หมดเวลาทำข้อสอบแล้วคะ");
+                            
+                document.forms['ExamForm'].action = "index.php?r=exam/submit&id="+ exam_id;
+                document.forms['ExamForm'].submit();
                         } else if (time_left < 300) {
                             if (timeTxt == 'time_text') {
                                 timeTxt = 'time_text blink';
@@ -265,9 +265,9 @@
                     //cinterval = setInterval('time_dec()', 1000);
                 </script>
                 <div id="header" class="grid_12 do_exercise">
-                    <div class="point_detail">
+                    <!--div class="point_detail">
                         แนะนำ : หากโหลดข้อสอบไม่ขึ้น ให้กดที่ปุ่ม Refresh ด้านล่าง
-                    </div>
+                    </div-->
                     <div class="time_countdown time_countdown_mini">
                         <span class="time_icon"></span>
                         <div class="time_text" id="timeTxt"><span id="countdown"><?php echo $time_limit; ?></span></div>

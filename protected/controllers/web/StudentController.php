@@ -63,7 +63,11 @@ class StudentController extends Controller {
             } else {
                 $level_id = $model->level_id;
             }
-
+            $msg = $_GET['msg'];
+            if(!$msg && !$model->credit){
+            $msg= "E-Pretest ยินดีต้อนรับค่ะ ที่นี่บริการข้อสอบออนไลน์ที่ได้มาตรฐาน น้องๆที่สนใจสามารถคลิกรายวิชาที่ปรากฏตามด้านล่างเพื่อสั่งซื้อชุดข้อสอบ
+                เมื่อสั่งซื้อแล้ว ชุดข้อสอบจะจัดเก็บอยู่ในคลังข้อสอบส่วนตัวที่น้องๆสามารถคลิกเพื่อทำข้อสอบได้ตลอด 24 ชั่วโมง ขอให้โชคดีค่ะ";
+            }
             $level_info = Level::model()->findByPk($level_id);
 
             if (isset($_GET['subject'])) {
@@ -140,6 +144,7 @@ class StudentController extends Controller {
                 'subject_id' => $subject_id,
                 'subject' => $subject,
                 'TestRecord' => $TestRecord,
+                'msg' =>$msg,
             ));
         } else {
             $this->redirect(Yii::app()->createUrl('site/login'));

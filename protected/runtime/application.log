@@ -1001,3 +1001,154 @@ Stack trace:
 REQUEST_URI=/epretest/index.php?r=exam/usecredit&credit=undefined&id=undefined
 HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$29$aw8
 ---
+2014/05/04 11:02:18 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/05 11:18:09 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/05 11:39:03 [warning] [application] Failed to set unsafe attribute "level_id" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (80)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/05/05 11:39:12 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/05 11:45:22 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/05 11:51:40 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/05 12:07:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:223
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(241): ExamController->loadTestRecord(NULL)
+#1 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(108): ExamController->saveExamForm()
+#2 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 [internal function]: CComponent->__call('runEnd', Array)
+#13 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=35
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$35$aw8
+---
+2014/05/05 12:32:11 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/05 17:05:02 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/06 17:04:49 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/07 02:36:43 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/07 10:27:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:224
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(242): ExamController->loadTestRecord(NULL)
+#1 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(108): ExamController->saveExamForm()
+#2 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 [internal function]: CComponent->__call('runEnd', Array)
+#13 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=37
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$37$aw8
+---
+2014/05/07 10:29:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:224
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(242): ExamController->loadTestRecord(NULL)
+#1 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(108): ExamController->saveExamForm()
+#2 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 [internal function]: CComponent->__call('runEnd', Array)
+#13 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=35
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$35$aw8
+---
+2014/05/07 10:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php:224
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(242): ExamController->loadTestRecord(NULL)
+#1 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(108): ExamController->saveExamForm()
+#2 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 [internal function]: CComponent->__call('runEnd', Array)
+#13 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/epretest/index.php?r=exam/submit&id=35
+HTTP_REFERER=http://localhost/epretest/index.php?r=exam&id=32@%3$35$aw8
+---
+2014/05/07 11:07:10 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\epretest\framework\web\CController.php:794) (C:\AppServ\www\epretest\framework\web\CHttpRequest.php:763)
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\ExamController.php(143): ExamController->redirect()
+#1 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionTimeout()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): ExamController->runAction()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#9 unknown(0): WebApplicationEndBehavior->runEnd()
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#11 unknown(0): CWebApplication->__call()
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=exam/timeout&id=38
+in C:\AppServ\www\epretest\protected\controllers\web\ExamController.php (143)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/07 11:59:48 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/07 12:51:41 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/07 13:37:11 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)

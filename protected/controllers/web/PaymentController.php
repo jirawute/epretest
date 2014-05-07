@@ -292,8 +292,9 @@ class PaymentController extends Controller
 	{
             $model = new Order;
             $totalOrder = $model->getTotalOrder();
-
-            if($totalOrder>0){
+            echo "INV".(rand(11,80)*10000+$totalOrder);
+// Edited by yong to random Inv
+            /*if($totalOrder>0){
 
                 // Get Last Invoice Number
                 $order = $model->getOrder(0,1);
@@ -311,7 +312,8 @@ class PaymentController extends Controller
                 // Set Default Invoice Number
                 $inv_id = "INV100001";
             }
-            echo $inv_id;
+            echo $inv_id;*/
+            
 
         }
 

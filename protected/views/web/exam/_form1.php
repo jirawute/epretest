@@ -11,7 +11,7 @@
                     <!--<span>inactive</span>-->
             </div>
             <div class="header_center">
-                    <a href="#" title="คำชี้แจง:อธิบายคำชี้แจงตรนี้ <?php echo $answer['session_name'];?>">
+                    <a href="#" title="คำชี้แจง:อธิบายคำชี้แจงตอนนี้ <?php echo $answer['session_name'];?>">
                         <h2 class="has_multiple">กระดาษคำตอบ</h2>
                         <h3>ตอนที่ <?php echo $answer['session_order'];?></h3>
                     </a>

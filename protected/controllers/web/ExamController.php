@@ -9,16 +9,16 @@ class ExamController extends Controller {
         $this->layout = '//layouts/exam';
         //check Login
         if (Yii::app()->user->id) {
-                list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
+            list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
 
             $exam = new Exam;
             $exam_info = $exam->getExamDetailById($exam_id);
 
             $session = new Session;
             $session_list = $session->getSessionByExamId($exam_id);
-           // print_r($session_list);exit();
+            // print_r($session_list);exit();
             $session_detail = $session->getSessionByExamId1($exam_id);
-           
+
             $this->render('index', array(
                 'exam_info' => $exam_info,
                 'session_list' => $session_list,
@@ -67,7 +67,7 @@ class ExamController extends Controller {
             $test = $testRecord->getTestRecordDetailByStudentIdExamId($student_id, $Exam['exam_id']);
 
             $status_test = $test['status'];
-            $exam_id =  $Exam['exam_id'];
+            $exam_id = $Exam['exam_id'];
             switch ($status_test) {
                 case 1: $td = '<td class="mark_resume" title="กำลังทำ"><span>¨</span></td>';
                     break;
@@ -106,29 +106,40 @@ class ExamController extends Controller {
         if (isset($_POST['ExamForm'])) {
             $exam_id = $_POST['ExamForm']['exam_id'];
             $test_record_id = $this->saveExamForm();
-        } else if (isset($_GET['id'])) {
-            $student_id = Yii::app()->user->id;
-            $exam_id = $_GET['id'];
-            $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
-            
         } else {
             $this->redirect(Yii::app()->createUrl('student/view'));
         }
         $model = $this->loadTestRecord($test_record_id);
 
-            $session = new Session;
-            $session_group = $session->getSessionByExamId($exam_id);
+        $session = new Session;
+        $session_group = $session->getSessionByExamId($exam_id);
         $testing = new Testing;
         $total_score = $testing->summaryTestingScore($test_record_id);
         $_POST['ExamForm']['score'] = $total_score;
         $_POST['ExamForm']['status'] = 2;
         $model->attributes = $_POST['ExamForm'];
-        $model->save();
-//echo $model->save();echo "XXXXX";exit();
-        $exam = new Exam;
-        $exam_info = $exam->getExamDetailById($exam_id);
+        if ($model->save()){
+            $exam = new Exam;
+            $exam_info = $exam->getExamDetailById($exam_id);
+            $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_record_id' => $test_record_id));
 
-        $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group,'test_record_id' => $test_record_id));
+}else {
+          print_r($exam_info);  var_dump($model->getErrors());exit();
+        }
+    }
+        public function actionTimeout() {
+            $student_id = Yii::app()->user->id;
+            $exam_id = $_GET['id'];
+            $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
+                    $model = $this->loadTestRecord($test_record_id);
+                    $model->status =2;
+        if($model->save()){
+            $exam = new Exam;
+            $exam_info = $exam->getExamDetailById($exam_id);
+            $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_record_id' => $test_record_id));
+
+}
+            $this->redirect(Yii::app()->createUrl('exam/answer', array('id' => $exam_id)));
     }
 
     public function actionAnswer($id) {
@@ -139,12 +150,16 @@ class ExamController extends Controller {
             $student_id = Yii::app()->user->id;
             $exam_id = $_GET['id'];
             $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
-
             $exam_info = $exam->getExamDetailById($exam_id);
+            if ($test_record_id == null) {//Never done this test before
+                $this->redirect(Yii::app()->createUrl('student/view', array('msg' => "ขออภัย! ไม่พบรายการทำข้อสอบชุดดังกล่าว")));
+            } else if ($exam_info['status'] != 1) {//Exam is disable or hide answer
+                $this->redirect(Yii::app()->createUrl('student/view', array('msg' => "ข้อสอบชุดดังกล่าวยังไม่อนุญาติให้ดูเฉลยค่ะ")));
+            }
             $session = new Session;
             $session_group = $session->getSessionByExamId($exam_id);
 
-            
+
             $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_record_id' => $test_record_id));
         } else {
             $this->redirect(Yii::app()->createUrl('site/login'));
@@ -161,7 +176,8 @@ class ExamController extends Controller {
             echo $Total;
         }
     }
-        public function actionCheckStatus($exam_id) {
+
+    public function actionCheckStatus($exam_id) {
         if (Yii::app()->user->id) {
             $student_id = Yii::app()->user->id;
 
@@ -195,22 +211,23 @@ class ExamController extends Controller {
 
         echo $status;
     }
-        public function actionUpcredit() {
-            $student_id = Yii::app()->user->id;
-            $up_credit = $_GET['credit'];            
-            $test_record_id = $_GET['id'];
-            $student = new Student;
-            $old_credit = $student->getCreditStudentById($student_id);
 
-            $credit = $old_credit + $up_credit;
+    public function actionUpcredit() {
+        $student_id = Yii::app()->user->id;
+        $up_credit = $_GET['credit'];
+        $test_record_id = $_GET['id'];
+        $student = new Student;
+        $old_credit = $student->getCreditStudentById($student_id);
 
-            $student->updateNewCredit($credit, $student_id);
-                
-                $model = TestRecord::model()->loadTestRecord($test_record_id);
-                $model->elapse_time=$up_credit;//elapse currently used to identify if this test record is rewarded or not
-                $model->save();
-               // exit();
-            $this->redirect(Yii::app()->createUrl('student/view'));
+        $credit = $old_credit + $up_credit;
+
+        $student->updateNewCredit($credit, $student_id);
+
+        $model = TestRecord::model()->loadTestRecord($test_record_id);
+        $model->elapse_time = $up_credit; //elapse currently used to identify if this test record is rewarded or not
+        $model->save();
+        // exit();
+        $this->redirect(Yii::app()->createUrl('student/view'));
     }
 
     public function loadTestRecord($id) {

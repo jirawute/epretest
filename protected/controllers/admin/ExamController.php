@@ -215,7 +215,9 @@ class ExamController extends AdminController
 				}
 			
 				$this->redirect(array('index'));
-			} 
+			}else{
+   var_dump($model->getErrors());
+} 
 		}
 
 		$condition = array(

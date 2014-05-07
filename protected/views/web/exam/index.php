@@ -94,7 +94,7 @@ width: 5em;
                  
     </div>
             </div>
-    <form name="ExamForm" method="post" action="index.php?r=exam/submit&id=<?php echo $exam_info['exam_id'];?>">
+    <form name="ExamForm"onsubmit="return confirm('ต้องการส่งคำตอบ?');" method="post" action="index.php?r=exam/submit&id=<?php echo $exam_info['exam_id'];?>">
         <input type="hidden" name="ExamForm[exam_id]" value="<?php echo $exam_info['exam_id'];?>"/>
         <input type="hidden" name="ExamForm[student_id]" value="<?php echo Yii::app()->user->id;?>"/>
         <input type="hidden" name="ExamForm[score]" value="00.00"/>
@@ -148,7 +148,7 @@ width: 5em;
                 echo $this->renderPartial('_form0');
             }?>
             <div class="answer_bottom" >
-                <input id="saveBtn" type="button" value="บันทึก" class="save_button" onClick="saveThisForm();" title="บันทึกคำตอบระหว่างทำข้อสอบ">
+                <!--input id="saveBtn" type="button" value="บันทึก" class="save_button" onClick="saveThisForm();" title="บันทึกคำตอบระหว่างทำข้อสอบ"-->
                 <input id="submitBtn" type="submit" value="ส่งคำตอบ" class="submit_button" title="ส่งคำตอบและดูเฉลย" >
             </div>
         </div>

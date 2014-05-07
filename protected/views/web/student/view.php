@@ -92,11 +92,11 @@ if ($subject['exam_type'] == 'Exam') {
     function CheckandGo(status, exam_id) {
         //alert(exam_id);
         if (status == 2) {
-            apprise('คุณเคยทำข้อสอบชุดนี้แล้ว', {'verify': true, 'textYes': 'ดูเฉลยละเอียด', 'textNo': 'ทำซ้ำอีกครั้ง'}, function(r) {
+            apprise('คุณเคยทำข้อสอบชุดนี้แล้ว', {'verify': true, 'textYes': 'ดูเฉลยละเอียด', 'textNo': 'กลับหน้าหลัก'}, function(r) {
                 if (r) {
                     OpenLink('index.php?r=exam/answer&id=' + exam_id);
                 }else{
-                   OpenLink('index.php?r=exam&id=32@%3$' + exam_id+'$aw8'); 
+                   //OpenLink('index.php?r=exam&id=32@%3$' + exam_id+'$aw8'); 
                 }
             });
         } else {
@@ -156,18 +156,17 @@ if ($subject['exam_type'] == 'Exam') {
 </div>
 
 <div class="clear"></div>
-<?php if (!$model->credit) { ?>
-    <div class="grid_12 dialog" id="dialogBox" >
+<? if($msg){?>
+    <div class="grid_12 dialog" id="dialogBox">
 
         <div class="text">
-            <p>E-Pretest ยินดีต้อนรับค่ะ ที่นี่บริการข้อสอบออนไลน์ที่ได้มาตรฐาน น้องๆที่สนใจสามารถคลิกรายวิชาที่ปรากฏตามด้านล่างเพื่อสั่งซื้อชุดข้อสอบ
-                เมื่อสั่งซื้อแล้ว ชุดข้อสอบจะจัดเก็บอยู่ในคลังข้อสอบส่วนตัวที่น้องๆสามารถคลิกเพื่อทำข้อสอบได้ตลอด 24 ชั่วโมง ขอให้โชคดีค่ะ</p>
+            <p><?=$msg?></p>
         </div>
 
         <div class="close" onclick="closeDialogBox();">x</div>
 
     </div>
-<?php } ?>
+<?}?>
 <div class="clear"></div>
 <!-- Start Selected -->
 <div class="grid_12 title_bar">
