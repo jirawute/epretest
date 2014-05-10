@@ -125,8 +125,7 @@
             } else {
                 $student = Student::model()->findByPk(Yii::app()->user->id);
 
-                list($other1,$exam_id, $other2) = explode('$', $_GET['id']);
-               //$exam_id = $_GET['id'];
+                $exam_id = $_GET['id'];
                 $exam = Exam::model()->findByPk($exam_id);
                 $student_id = $student->student_id;
                 $testRecoed = new TestRecord;

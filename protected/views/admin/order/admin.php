@@ -66,6 +66,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'htmlOptions'=>array('style'=>'text-align: left; width: 100px;'),
                         'filter'=>CHtml::listData(OrderStatus::model()->findAll(), 'order_status_id', 'name'),
 		),
+		'date_added',
+		'date_modified',
 		/*
 		'total',
 		'order_status_id',

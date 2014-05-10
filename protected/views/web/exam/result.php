@@ -85,7 +85,8 @@
             ?>
 <?php //echo $_SERVER['SERVER_NAME'] ;  ?>
             <div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
-            <iframe id="iframe" class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.e-pretest.com/uploads/<?php echo $file_name; ?>&embedded=true" width="640px" height="100%" frameborder="0"></iframe>
+            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div>
+            <iframe  id="iframe" class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.e-pretest.com/uploads/<?php echo $file_name; ?>&embedded=true" width="640px" height="100%" frameborder="0"></iframe>
             <!--<iframe class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.forum.02dual.com%2Fexamfile%2F655topic%2FkeyO-NET53Math.pdf&embedded=true" width="640px" height="100%" frameborder="0"></iframe>-->
         </div>
     </div>

@@ -59,7 +59,7 @@
     </head>
 
     <body>
-        <div class="container_12">
+        <div class="container_12"onmousedown="return false" ><!--lock whole sheet to prevent copy-->
 <?php if (Yii::app()->user->isGuest) { ?>
                 <div id="header" class="grid_12">
 

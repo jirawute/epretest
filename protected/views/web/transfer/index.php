@@ -1,1 +1,1 @@
-<?php echo $this->renderPartial('_form', array('model'=>$model,'student'=>$student)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'student'=>$student,'inv_list'=>$inv_list)); ?>

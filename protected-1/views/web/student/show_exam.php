@@ -34,7 +34,7 @@
                         case 2: $td = '<td class="mark_true" title="ทำแล้ว"><span>»</span></td>';break;
                         default:$td= '<td class="mark_non" title="ยังไม่ได้ทำ"><span>«</span></td>';break;
                     }
-                    $exam_id = "320b$".$Exam->exam_id."$3$5t97<".rand(); 
+                    $exam_id = $Exam->exam_id; 
 
                 ?>
             <tr onclick="CheckandGo('<?php echo $status_test;?>','<?php echo $exam_id; ?>')"> 
