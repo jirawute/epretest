@@ -38,7 +38,7 @@ $(function(){
 
                                                                  <p>
                                                                         <label for="user_pass_retype">ยืนยันรหัสผ่าน *</label>
-                                                                        <input type="password" name="password_confirm" id="password_confirm" class="input" value="" />
+                                                                        <input type="password" name="password_confirm" id="password_confirm" class="input" value="<?=$model->password;?>" />
 
                                                                </p>
                                                                 <?php if(($password_confirm==1)||($password_not_match==1) ){?>

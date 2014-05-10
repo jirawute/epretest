@@ -1,9 +1,9 @@
-<div id="answer_sheet_<?php echo $answer['session_order']; ?>" <?php if ($key_ans != 0) { ?>style="display:none"<?php } ?> >
+<div id="answer_sheet_<?php echo $session['session_order']; ?>" <?php if ($key_ans != 0) { ?>style="display:none"<?php } ?> >
     <div class="answer_top">
         <div class="header_left">
             <!-- if has link <a href="#"></a> -->
             <?php if ($key_ans != 0) { ?>
-                <a href="javascript:show_prev('<?php echo $session['session_order']; ?>');"></a>
+                <a title="ไปตอนที่ <?php echo $session['session_order']-1;?>" href="javascript:show_prev('<?php echo $session['session_order']; ?>');"></a>
             <?php } else { ?>
                 <span>inactive</span>
             <?php } ?>
@@ -15,7 +15,7 @@
         </div>
         <div class="header_right">
             <?php if ($last_key != $key_ans) { ?>
-                <a href="javascript:show_next('<?php echo $session['session_order']; ?>');"></a>
+                <a title="ไปตอนที่ <?php echo $session['session_order']+1;?>" href="javascript:show_next('<?php echo $session['session_order']; ?>');"></a>
             <?php } else { ?>
                 <span>inactive</span>
             <?php } ?>

@@ -1,30 +1,32 @@
-<div id="answer_sheet_<?php echo $answer['session_order'];?>" <?php if($key_ans!=0){?>style="display:none"<?php }?>>
-<div class="answer_top">
-    <div class="header_left">
-        <?php if($key_ans!=0){?>
-            <a href="javascript:show_prev('<?php echo $answer['session_order'];?>');"></a>
-        <?php }else{?>
-            <span>inactive</span>
-        <?php }?>
-    </div>
-    <div class="header_center">
+<div id="answer_sheet_<?php echo $session['session_order'];?>" <?php if($key_ans!=0){?>style="display:none"<?php }?>>
+    <div class="answer_top">
+        <div class="header_left">
+            <!-- if has link <a href="#"></a> -->
+            <?php if ($key_ans != 0) { ?>
+                <a title="ไปตอนที่ <?php echo $session['session_order']-1;?>" href="javascript:show_prev('<?php echo $session['session_order']; ?>');"></a>
+            <?php } else { ?>
+                <span>inactive</span>
+            <?php } ?>
+    <!--<span>inactive</span>-->
+        </div>
+        <div class="header_center">
             <h2 class="has_multiple">กระดาษคำตอบ</h2>
-            <h3>ตอนที่ <?php echo $answer['session_order'];?></h3>
+            <h3>ตอนที่ <?php echo $session['session_order']; ?></h3>
+        </div>
+        <div class="header_right">
+            <?php if ($last_key != $key_ans) { ?>
+                <a title="ไปตอนที่ <?php echo $session['session_order']+1;?>" href="javascript:show_next('<?php echo $session['session_order']; ?>');"></a>
+            <?php } else { ?>
+                <span>inactive</span>
+            <?php } ?>
+        </div>
     </div>
-    <div class="header_right">
-        <?php if($last_key!=$key_ans){?>
-            <a href="javascript:show_next('<?php echo $answer['session_order'];?>');"></a>
-        <?php }else{?>
-            <span>inactive</span>
-        <?php }?>
-    </div>
-</div>
 <div class="answer_content form_2">
     <?php
-            $session_id = $answer['session_id'];
-            $start = $answer['session_start'];
-            $end = $answer['session_end'];
-            $order = $answer['session_order'];
+            $session_id = $session['session_id'];
+            $start = $session['session_start'];
+            $end = $session['session_end'];
+            $order = $session['session_order'];
     ?>
     <ul>
 

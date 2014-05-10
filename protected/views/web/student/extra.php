@@ -82,7 +82,7 @@ function validateForm()
 <div class="grid_10 push_1 editinfo">
 
     <div class="editinfo_box">
-        <h2>สมัครสมาชิกแบบพิเศษ</h2>
+        <h2>สมัครสมาชิก</h2>
         <?php echo $this->renderPartial('_form2', array('model'=>$model,'option_levels'	=> $option_levels,'option_schools'=>$option_schools, 'password_confirm'=>$password_confirm,
                         'password_not_match'=>$password_not_match,)); ?>
     </div>
