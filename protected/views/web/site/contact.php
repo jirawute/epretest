@@ -21,12 +21,7 @@ $this->breadcrumbs=array(
                 </p>
             </div>
             <div>
-                <h5> อีเมล์แอดเดรส </h5>
-                 <p>
-                    ติดต่อเรื่องทั่วไป : epretest@e-studio.co.th<br/>
-                    ติดต่อเรื่องการชำระเงินและเติมเครดิต : payment@e-studio.co.th<br/>
-                    ติดต่อบริษัท : contact@e-studio.co.th
-                </p>
+                <h5> อีเมล์ : contact@e-studio.co.th</h5>
             </div>
             <div style="clear:both"></div>
             <?php if(Yii::app()->user->hasFlash('contact')): ?>

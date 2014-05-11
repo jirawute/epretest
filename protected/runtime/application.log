@@ -1565,3 +1565,7 @@ REQUEST_URI=/epretest/index.php?r=student/extra
 in C:\AppServ\www\epretest\mail.php (160)
 in C:\AppServ\www\epretest\protected\controllers\web\StudentController.php (1034)
 in C:\AppServ\www\epretest\protected\controllers\web\StudentController.php (875)
+2014/05/11 08:43:06 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
