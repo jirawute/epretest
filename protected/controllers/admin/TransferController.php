@@ -239,7 +239,7 @@ class TransferController extends AdminController
             $to  = $data->email;
             //$to = "payment@e-studio.co.th";
             $bcc  = "endrophine_nok@hotmail.com";
-            $from = "payment@e-studio.co.th";
+            $from = "contact@e-studio.co.th";
 
             // subject
             $subject = "แจ้งการเติมเครดิตให้กับบัญชีผู้ใช้ของคุณ :: e-pretest.com";

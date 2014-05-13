@@ -86,7 +86,7 @@ class TransferController extends Controller {
     public function sendMail($data) {
         // recipients
         // $to  = "endrophine_nok@hotmail.com";
-        $to = "payment@e-studio.co.th";
+        $to = "contact@e-studio.co.th";
         $from = $data['email'];
 
         // subject

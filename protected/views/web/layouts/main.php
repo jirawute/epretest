@@ -140,7 +140,7 @@
 
                                 </ul>
                             </li>
-                            <li class="last"><a href="<?php echo Yii::app()->createUrl('site/page&view=importance'); ?>"><span>ช่วยเหลือ</span></a>
+                            <li class="last"><a href="<?php echo Yii::app()->createUrl('site/page&view=help'); ?>"><span>ช่วยเหลือ</span></a>
 <!--                                <ul>
                                     <li><a href="<?php //echo Yii::app()->createUrl('student/history'); ?>"><span>ประวัติการทำข้อสอบ</span></a></li>
                                     <li><a href="<?php //echo Yii::app()->createUrl('student/viewall'); ?>"><span>สถิติการทำข้อสอบทั้งหมด</span></a></li>
