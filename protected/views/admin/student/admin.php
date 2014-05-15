@@ -71,9 +71,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'htmlOptions'=>array('style'=>'text-align: left; width: 80px;'),
                         'filter'=>array('1'=>'Activate','0'=>'Deactivate'),
 		),
+            
+		'email',
 		/*
 		
-		'email',
 		'address',
 		'birthday',
 		'subject',

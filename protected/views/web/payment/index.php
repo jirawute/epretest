@@ -68,24 +68,27 @@ if (!Yii::app()->user->id)
 
     }
     function checkSubmit() {
+        var amt;
         for (i = 1; i <= 4; i++) {
             if (document.getElementById('tick_' + i).checked) {
+                amt = document.getElementById('tick_' + i).value;
                 document.getElementById('amt').value = document.getElementById('tick_' + i).value;
                 document.getElementById('itm').value = document.getElementById('desc_' + i).value;
                 document.getElementById('credit_point').value = document.getElementById('credit_' + i).value;
             }
         }
-
+        var temp = document.getElementById('payment_counter_service').checked? "&&amt="+amt:"";
+        
         $.ajax({
-            url: 'index.php?r=payment/getinvoice',
+            url: 'index.php?r=payment/getinvoice' + temp,
             type: 'GET',
             dataType: 'html',
             success: function(data, textStatus, xhr) {
-                document.getElementById('inv').value = data;  
-                
+                document.getElementById('inv').value = data;
+
                 if (document.getElementById('payment_counter_service').checked) {
                     document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?cs=true&lang=t";
-                  document.forms['payment_form'].submit();
+                    document.forms['payment_form'].submit();
                 } else if (document.getElementById('payment_transfer').checked) {
                     var result = confirm('ยืนยันวิธีการชำระเงินโดยโอนเงินผ่านบัญชีธนาคาร');
                     if (result == true) {
@@ -134,10 +137,7 @@ if (!Yii::app()->user->id)
          }*/
     }
     function appBtn(data) {
-        document.getElementById('confirmBtn').value = "ยืนยันการชำระเงิน"+data;
-    }
-    function appVal(data) {
-        document.getElementById('yong1').value = data;
+        document.getElementById('confirmBtn').value = "ยืนยันการชำระเงิน" + data;
     }
 </script>
 <div class="grid_4 push_4 goback">
@@ -179,7 +179,8 @@ if (!Yii::app()->user->id)
                             <label for="payment_credit">ชำระผ่านบัตรเครดิต</label>
                         </li>
                         <li>
-                            <input onclick="changeMethodPayment('5');appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_coupon" value="coupon"/>
+                            <input onclick="changeMethodPayment('5');
+            appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_coupon" value="coupon"/>
                             <label for="payment_coupon">ใช้คูปองเติมเครดิต</label>
                         </li>
                     </ul>
@@ -249,12 +250,12 @@ if (!Yii::app()->user->id)
                     ?>
                     <ul>
 
-                    <?php
-                    $i = 1;
-                    foreach ($credits as $credit) {
-                        ?>
+                        <?php
+                        $i = 1;
+                        foreach ($credits as $credit) {
+                            ?>
                             <li>
-                                <input type="radio" id="tick_<?php echo $i ?>" name="tick" value="<?php echo $credit->credit_amount; ?>" onClick="appVal(' <?php echo number_format($credit->credit_amount); ?> บาท')"/>
+                                <input type="radio" id="tick_<?php echo $i ?>" name="tick" value="<?php echo $credit->credit_amount; ?>" />
                                 <input type="hidden" id="desc_<?php echo $i; ?>" name="desc_<?php echo $i; ?>" value="<?php echo $credit->credit_desc; ?>"/>
                                 <input type="hidden" id="credit_<?php echo $i; ?>" name="credit_<?php echo $i; ?>" value="<?php echo $credit->credit_point; ?>"/>
                                 <label for="tick_<?php echo $credit->credit_id; ?>">
@@ -262,8 +263,10 @@ if (!Yii::app()->user->id)
                                     <p><?php echo number_format($credit->credit_amount); ?> บาท</p>
                                 </label>
                             </li>
-        <?php $i++;
-    } ?>
+                            <?php
+                            $i++;
+                        }
+                        ?>
                         <input type="Hidden" id="credit_point" Name="credit_point" value=""/>
                     </ul>
 
@@ -275,19 +278,23 @@ if (!Yii::app()->user->id)
         <div class="grid_10 push_1">
             <div class="credit_option">
                 <div class="pay_select">
-                    <input id='confirmBtn' type="button" name="Submit" value="ยืนยันการชำระเงิน" onclick="checkSubmit();"/><span id="yong1"></span>
+                    <input id='confirmBtn' type="button" name="Submit" value="ยืนยันการชำระเงิน" onclick="checkSubmit();"/>
+                    <div id="counterAlert" style="display:none">                        
+                        กรุณากดปุ่ม <font color="#11100" style="font-size:150%"><strong>สิ้นสุดการทำรายการ</strong></font> ทุกครั้งหลังพิมพ์เพื่อให้รายการสมบูรณ์<br />
+                        <font color="#FC9403" style="font-size:150%"><strong>*** หมายเหตุ: สำคัญมาก หากไม่กดเงินจะไม่เข้าระบบ ***</strong></font>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <input type="Hidden" Name="psb" value="psb"/>
-        <!--<input Type="Hidden" Name="biz" value="kawiwan_merchant@paysbuy.com"/>-->
-        <input Type="Hidden" Name="biz" value="kawiwan@hotmail.com"/>
-        <input Type="Hidden" Name="inv" id="inv" value=""/>
-        <input Type="Hidden" Name="itm" id="itm" value=""/>
-        <input Type="Hidden" Name="amt" id="amt" value=""/>
-        <input Type="Hidden" Name="opt_fix_method" id="opt_fix_method" value="1"/>
-        <input Type="Hidden" Name="postURL" value="http://www.e-pretest.com/index.php/index.php?r=payment/result"/>
-        <input Type="Hidden" Name="reqURL" value="http://www.e-pretest.com/index.php/index.php?r=payment/result"/>
+            <input type="Hidden" Name="psb" value="psb"/>
+            <!--<input Type="Hidden" Name="biz" value="kawiwan_merchant@paysbuy.com"/>-->
+            <input Type="Hidden" Name="biz" value="kawiwan@hotmail.com"/>
+            <input Type="Hidden" Name="inv" id="inv" value=""/>
+            <input Type="Hidden" Name="itm" id="itm" value=""/>
+            <input Type="Hidden" Name="amt" id="amt" value=""/>
+            <input Type="Hidden" Name="opt_fix_method" id="opt_fix_method" value="1"/>
+            <input Type="Hidden" Name="postURL" value="http://www.e-pretest.com/index.php/index.php?r=payment/result"/>
+            <input Type="Hidden" Name="reqURL" value="http://www.e-pretest.com/index.php/index.php?r=payment/result"/>
     </form>
 <?php } ?>

@@ -1569,3 +1569,138 @@ in C:\AppServ\www\epretest\protected\controllers\web\StudentController.php (875)
 in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
 in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\AppServ\www\epretest\index.php (11)
+2014/05/13 12:13:02 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/13 12:13:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "help" was not found.' in C:\AppServ\www\epretest\framework\web\actions\CViewAction.php:113
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\actions\CViewAction.php(124): CViewAction->resolveView('help')
+#1 C:\AppServ\www\epretest\framework\web\actions\CAction.php(75): CViewAction->run()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CAction->runWithParams(Array)
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CViewAction))
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('page')
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#9 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#11 [internal function]: CComponent->__call('runEnd', Array)
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#13 {main}
+REQUEST_URI=/epretest/index.php?r=site/page&view=help
+HTTP_REFERER=http://localhost/epretest/index.php?r=student/view
+---
+2014/05/13 12:13:22 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/13 12:13:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "help" was not found.' in C:\AppServ\www\epretest\framework\web\actions\CViewAction.php:113
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\actions\CViewAction.php(124): CViewAction->resolveView('help')
+#1 C:\AppServ\www\epretest\framework\web\actions\CAction.php(75): CViewAction->run()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(309): CAction->runWithParams(Array)
+#3 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CViewAction))
+#4 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('page')
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('site/page')
+#7 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#9 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#10 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#11 [internal function]: CComponent->__call('runEnd', Array)
+#12 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#13 {main}
+REQUEST_URI=/epretest/index.php?r=site/page&view=help
+HTTP_REFERER=http://localhost/epretest/index.php?r=student/view
+---
+2014/05/14 16:50:41 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/14 16:51:18 [error] [php] move_uploaded_file(C:\AppServ\www\epretest\protected/../uploads/slip/slip_20140514165118.jpg) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory (C:\AppServ\www\epretest\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): TransferController->actionIndex()
+#1 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(287): TransferController->runAction()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(266): TransferController->runActionWithFilters()
+#4 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): TransferController->run()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#8 unknown(0): WebApplicationEndBehavior->runEnd()
+#9 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#10 unknown(0): CWebApplication->__call()
+#11 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=transfer
+in C:\AppServ\www\epretest\protected\controllers\web\TransferController.php (62)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/14 16:52:01 [error] [php] move_uploaded_file(C:\AppServ\www\epretest\protected/../uploads/slip/slip_20140514165201.jpg) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory (C:\AppServ\www\epretest\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): TransferController->actionIndex()
+#1 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\AppServ\www\epretest\framework\web\CController.php(287): TransferController->runAction()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(266): TransferController->runActionWithFilters()
+#4 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): TransferController->run()
+#5 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#8 unknown(0): WebApplicationEndBehavior->runEnd()
+#9 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#10 unknown(0): CWebApplication->__call()
+#11 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=transfer
+in C:\AppServ\www\epretest\protected\controllers\web\TransferController.php (62)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/14 16:55:47 [error] [php] fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://smtp.gmail.com:465 (Unable to find the socket transport &quot;ssl&quot; - did you forget to enable it when you configured PHP?) (C:\AppServ\www\epretest\mail.php:160)
+Stack trace:
+#0 C:\AppServ\www\epretest\protected\controllers\web\TransferController.php(161): TransferController->sendEMail()
+#1 C:\AppServ\www\epretest\protected\controllers\web\TransferController.php(65): TransferController->sendMail()
+#2 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): TransferController->actionIndex()
+#3 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(287): TransferController->runAction()
+#5 C:\AppServ\www\epretest\framework\web\CController.php(266): TransferController->runActionWithFilters()
+#6 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): TransferController->run()
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#8 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#10 unknown(0): WebApplicationEndBehavior->runEnd()
+#11 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#12 unknown(0): CWebApplication->__call()
+#13 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/epretest/index.php?r=transfer
+in C:\AppServ\www\epretest\mail.php (160)
+in C:\AppServ\www\epretest\protected\controllers\web\TransferController.php (231)
+in C:\AppServ\www\epretest\protected\controllers\web\TransferController.php (161)
+2014/05/14 19:43:30 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/14 20:33:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_order`, CONSTRAINT `esto_order_ibfk_2` FOREIGN KEY (`order_status_id`) REFERENCES `esto_order_status` (`order_status_id`)). The SQL statement executed was: INSERT INTO `esto_order` (`total`, `date_added`, `date_modified`, `inv_id`, `student_id`, `firstname`, `lastname`, `email`, `payment_method`, `credit`, `order_status_id`, `ip`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11).
+in C:\AppServ\www\epretest\protected\controllers\web\PaymentController.php (277)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/05/14 20:33:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1452 Cannot add or update a child row: a foreign key constraint fails (`epretest/esto_order`, CONSTRAINT `esto_order_ibfk_2` FOREIGN KEY (`order_status_id`) REFERENCES `esto_order_status` (`order_status_id`)). The SQL statement executed was: INSERT INTO `esto_order` (`total`, `date_added`, `date_modified`, `inv_id`, `student_id`, `firstname`, `lastname`, `email`, `payment_method`, `credit`, `order_status_id`, `ip`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11)' in C:\AppServ\www\epretest\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\ar\CActiveRecord.php(1014): CDbCommand->execute()
+#1 C:\AppServ\www\epretest\framework\db\ar\CActiveRecord.php(787): CActiveRecord->insert(NULL)
+#2 C:\AppServ\www\epretest\protected\controllers\web\PaymentController.php(277): CActiveRecord->save()
+#3 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): PaymentController->actionGetinvoice()
+#4 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('getinvoice')
+#8 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('payment/getinvo...')
+#9 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#11 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#12 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#13 [internal function]: CComponent->__call('runEnd', Array)
+#14 C:\AppServ\www\epretest\index.php(11): CWebApplication->runEnd('web')
+#15 {main}
+REQUEST_URI=/epretest/index.php?r=payment/getinvoice&&amt=30
+HTTP_REFERER=http://localhost/epretest/index.php?r=payment
+---

@@ -45,7 +45,7 @@ class Transfer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-                        array('inv_id, name, email, phone, bank, amount, date, images', 'required', 'message'=>'กรุณาใส่ข้อมูลให้ครบถ้วน'),
+                        array('inv_id, name, email, phone, bank, amount, date,images ', 'required', 'message'=>'กรุณาใส่ข้อมูลให้ครบถ้วน'),
 			array('amount', 'numerical', 'integerOnly'=>true),
 			array('inv_id', 'length', 'max'=>9),
 			array('name, email, date', 'length', 'max'=>255),
@@ -55,6 +55,7 @@ class Transfer extends CActiveRecord
 			array('status, send_email', 'length', 'max'=>1),
 			array('detail', 'safe'),
                         array('email', 'email'),
+                     array('inv_id','unique', 'message'=>'คุณได้เคยส่งข้อมูลการโอนเงินนี้มาแล้ว'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, inv_id, name, email, phone, amount, bank, date, detail, images, status, send_email', 'safe', 'on'=>'search'),
