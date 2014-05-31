@@ -55,7 +55,6 @@ class BankTransfer extends CActiveRecord
 			array('status, send_email', 'length', 'max'=>1),
 			array('detail', 'safe'),
                         array('email', 'email'),
-
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, inv_id, name, email, phone, amount, bank, date, detail, images, status, send_email', 'safe', 'on'=>'search'),

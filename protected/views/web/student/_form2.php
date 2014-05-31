@@ -145,7 +145,7 @@ $(function(){
                                                                                         'showAnim'=>'fold',
                                                                                         'changeMonth'=>true,
                                                                                         'dateFormat'=>'dd/mm/yy',
-                                                                                        'yearRange'=>'-30:+0',
+                                                                                        'yearRange'=>'-50:+0',
                                                                                         'changeYear'=>true,
                                                                                         'changeDate'=>true,
                                                                                         'showAnim'=>'fold',

@@ -72,44 +72,44 @@
                             </li>
                             <li>
                                     <span>B</span>
-                                            <input type="radio" id="ans<?php echo $i;?>_B_1" name="ans6B[<?php echo $i;?>]" value="B1" <?php if($valueB=='B1'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_B_1" name="ans6A[<?php echo $i;?>]" value="B1" <?php if($valueB=='B1'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_B_1">1</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_B_2" name="ans6B[<?php echo $i;?>]" value="B2" <?php if($valueB=='B2'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_B_2" name="ans6A[<?php echo $i;?>]" value="B2" <?php if($valueB=='B2'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_B_2">2</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_B_3" name="ans6B[<?php echo $i;?>]" value="B3" <?php if($valueB=='B3'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_B_3" name="ans6A[<?php echo $i;?>]" value="B3" <?php if($valueB=='B3'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_B_3">3</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_B_4" name="ans6B[<?php echo $i;?>]" value="B4" <?php if($valueB=='B4'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_B_4" name="ans6A[<?php echo $i;?>]" value="B4" <?php if($valueB=='B4'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_B_4">4</label>
                             </li>
                             <li>
                                     <span>C</span>
-                                            <input type="radio" id="ans<?php echo $i;?>_C_1" name="ans6C[<?php echo $i;?>]" value="C1" <?php if($valueC=='C1'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_C_1" name="ans6A[<?php echo $i;?>]" value="C1" <?php if($valueC=='C1'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_C_1">1</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_C_2" name="ans6C[<?php echo $i;?>]" value="C2" <?php if($valueC=='C2'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_C_2" name="ans6A[<?php echo $i;?>]" value="C2" <?php if($valueC=='C2'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_C_2">2</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_C_3" name="ans6C[<?php echo $i;?>]" value="C3" <?php if($valueC=='C3'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_C_3" name="ans6A[<?php echo $i;?>]" value="C3" <?php if($valueC=='C3'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_C_3">3</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_C_4" name="ans6C[<?php echo $i;?>]" value="C4" <?php if($valueC=='C4'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_C_4" name="ans6A[<?php echo $i;?>]" value="C4" <?php if($valueC=='C4'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_C_4">4</label>
                             </li>
                             <li>
                                     <span>D</span>
-                                            <input type="radio" id="ans<?php echo $i;?>_D_1" name="ans6D[<?php echo $i;?>]" value="D1" <?php if($valueD=='D1'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_D_1" name="ans6A[<?php echo $i;?>]" value="D1" <?php if($valueD=='D1'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_D_1">1</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_D_2" name="ans6D[<?php echo $i;?>]" value="D2" <?php if($valueD=='D2'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_D_2" name="ans6A[<?php echo $i;?>]" value="D2" <?php if($valueD=='D2'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_D_2">2</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_D_3" name="ans6D[<?php echo $i;?>]" value="D3" <?php if($valueD=='D3'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_D_3" name="ans6A[<?php echo $i;?>]" value="D3" <?php if($valueD=='D3'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_D_3">3</label>
 
-                                            <input type="radio" id="ans<?php echo $i;?>_D_4" name="ans6D[<?php echo $i;?>]" value="D4" <?php if($valueD=='D4'){?>checked<?php }?>>
+                                            <input type="radio" id="ans<?php echo $i;?>_D_4" name="ans6A[<?php echo $i;?>]" value="D4" <?php if($valueD=='D4'){?>checked<?php }?>>
                                             <label for="ans<?php echo $i;?>_D_4">4</label>
                             </li>
                     </ul>

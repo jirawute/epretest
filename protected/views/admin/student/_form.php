@@ -50,7 +50,72 @@
 		<?php echo $form->textArea($model,'address',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'address'); ?>
 	</div>
+<!--p>
+                                                                <label>วัน/เดือน/ปีเกิดxxxxx</label>
+                                                                 <?php
+                                                                        $day =  date("d");
+                                                                        $month =  date("m");
+                                                                        $year = date("Y")+543;
+                                                                        $today = $day.'/'.$month.'/'.$year;
 
+                                                                      $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                                                                        'name' => 'Student[birthday]',
+                                                                        'language'=>'th',
+                                                                        'value' => $today,
+                                                                        'options'=>array(
+                                                                                        'showAnim'=>'fold',
+                                                                                        'changeMonth'=>true,
+                                                                                        'dateFormat'=>'dd/mm/yy',
+                                                                                        'yearRange'=>'-100:+0',
+                                                                                        'changeYear'=>true,
+                                                                                        'changeDate'=>true,
+                                                                                        'showAnim'=>'fold',
+                                                                                        //'showButtonPanel'=>true,
+                                                                                        'debug'=>true,
+                                                                                        'beforeShow'=>'js:function(){
+                                                                                            if($(this).val()!=""){
+                                                                                                var arrayDate=$(this).val().split("/");
+                                                                                                arrayDate[2]=parseInt(arrayDate[2])-543;
+                                                                                                $(this).val(arrayDate[0]+"/"+arrayDate[1]+"/"+arrayDate[2]);
+                                                                                            }
+                                                                                            setTimeout(function(){
+                                                                                                $.each($(".ui-datepicker-year option"),function(j,k){
+                                                                                                    var textYear=parseInt($(".ui-datepicker-year option").eq(j).val())+543;
+                                                                                                    $(".ui-datepicker-year option").eq(j).text(textYear);
+                                                                                                });
+                                                                                            },50);
+
+                                                                                            }',
+                                                                                         'onChangeMonthYear'=> 'js:function(){
+                                                                                                setTimeout(function(){
+                                                                                                    $.each($(".ui-datepicker-year option"),function(j,k){
+                                                                                                        var textYear=parseInt($(".ui-datepicker-year option").eq(j).val())+543;
+                                                                                                        $(".ui-datepicker-year option").eq(j).text(textYear);
+                                                                                                    });
+                                                                                                },50);
+                                                                                            }',
+                                                                                        'onClose'=>'js:function(){
+                                                                                            if($(this).val()!="" && $(this).val()==dateBefore){
+                                                                                                var arrayDate=dateBefore.split("/");
+                                                                                                arrayDate[2]=parseInt(arrayDate[2])+543;
+                                                                                                $(this).val(arrayDate[0]+"/"+arrayDate[1]+"/"+arrayDate[2]);
+                                                                                            }
+                                                                                        }',
+                                                                                        'onSelect'=>'js:function(dateText, inst){
+                                                                                            dateBefore=$(this).val();
+                                                                                            var arrayDate=dateText.split("/");
+                                                                                            arrayDate[2]=parseInt(arrayDate[2])+543;
+                                                                                            $(this).val(arrayDate[0]+"/"+arrayDate[1]+"/"+arrayDate[2]);
+                                                                                        }',
+                                                                                    ),
+                                                                            'htmlOptions' => array(
+                                                                            'class'=>'shadowdatepicker',
+                                                                            'readonly'=>"readonly",
+                                                                            'style'=>'height:20px;',
+                                                                        ),
+                                                                    )); ?>
+                                                                <?php echo $form->error($model,'birthday'); ?>
+                                                        </p-->
 	<div class="row">
 		<?php echo $form->labelEx($model,'birthday'); ?>
                 <?php if(($model->birthday)&&($model->birthday!='0000-00-00')){
@@ -71,6 +136,7 @@
                                     'showAnim'=>'fold',
                                     'changeMonth'=>true,
                                     'dateFormat'=>'dd/mm/yy',
+                                    'yearRange'=>'-50:+0',
                                     'defaultDate'=>$birthday,
                                     'changeYear'=>true,
                                     'changeDate'=>true,

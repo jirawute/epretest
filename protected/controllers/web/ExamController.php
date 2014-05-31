@@ -296,7 +296,7 @@ class ExamController extends Controller {
                 }//end foreach
             }
         }
-        /////////////////Answer Type 6//////////////////
+        /////////////////Answer Type 6/////////////////
         if (isset($_POST['session_type6'])) {
             if (isset($_POST['ans6A'])) {
 
@@ -407,7 +407,7 @@ class ExamController extends Controller {
         if (isset($_POST['session_type7'])) {
 
 
-            if (isset($_POST['ans_1']) && isset($_POST['ans_2']) && isset($_POST['ans_3']) && isset($_POST['ans_4'])) {
+            if (isset($_POST['ans_1']) || isset($_POST['ans_2']) || isset($_POST['ans_3']) || isset($_POST['ans_4'])) {
                 foreach ($_POST['ans_1'] as $key7 => $v7) {
                     //คำตอบที่1
                     if (isset($_POST['ans_1_1'][$key7]) && isset($_POST['ans_1_2'][$key7]) && isset($_POST['ans_1_3'][$key7])) {
