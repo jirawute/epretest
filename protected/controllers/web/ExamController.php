@@ -303,24 +303,16 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6A'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } else {
-                        $ans6A[$key6] = 'A0';
-                    }
+                    } 
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } else {
-                        $ans6B[$key6] = 'B0';
-                    }
+                    } 
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } else {
-                        $ans6C[$key6] = 'C0';
-                    }
+                    } 
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } else {
-                        $ans6D[$key6] = 'D0';
-                    }
+                    } 
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }
             }
@@ -329,24 +321,16 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6B'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } else {
-                        $ans6A[$key6] = 'A0';
-                    }
+                    } 
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } else {
-                        $ans6B[$key6] = 'B0';
-                    }
+                    } 
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } else {
-                        $ans6C[$key6] = 'C0';
-                    }
+                    } 
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } else {
-                        $ans6D[$key6] = 'D0';
-                    }
+                    } 
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }
             }
@@ -355,24 +339,16 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6C'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } else {
-                        $ans6A[$key6] = 'A0';
-                    }
+                    } 
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } else {
-                        $ans6B[$key6] = 'B0';
-                    }
+                    } 
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } else {
-                        $ans6C[$key6] = 'C0';
-                    }
+                    } 
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } else {
-                        $ans6D[$key6] = 'D0';
-                    }
+                    } 
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }
             }
@@ -381,23 +357,15 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6D'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } else {
-                        $ans6A[$key6] = 'A0';
-                    }
+                    } 
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } else {
-                        $ans6B[$key6] = 'B0';
-                    }
+                    } 
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } else {
-                        $ans6C[$key6] = 'C0';
                     }
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } else {
-                        $ans6D[$key6] = 'D0';
                     }
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }

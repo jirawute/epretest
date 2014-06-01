@@ -45,7 +45,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
                 array(
 			'name'=>'session_id',
-                        'header'=>'ID',
+                        'header'=>'Session ID',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
 		),
 		
