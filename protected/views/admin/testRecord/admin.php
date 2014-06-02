@@ -60,9 +60,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),            
 		'date_attended',
 		array(
-			'name'=>'elapse_time',
-                        'header'=>'เวลาที่เหลือ (min.)',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
+			'name'=>'status',
+			'value'=> '($data->status==2)? \'Done\' : \'Testing\'',
+			'htmlOptions'=>array('style'=>'text-align: center; width: 100px;'),
+                        'filter'=>array('1'=>'Testing','2'=>'Done'),
 		),  
 		/*
 		'status',

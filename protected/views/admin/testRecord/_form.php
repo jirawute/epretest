@@ -41,7 +41,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-                <?php echo $form->dropDownList($model, 'status', array('3'=>'ยังทำไม่เสร็จ','2'=>'ทำเสร็จแล้ว','1'=>'ยังทำไม่เสร็จ','0'=>'ยังไม่ได้ซื้อ')); ?>
+                <?php echo $form->dropDownList($model, 'status', array('0'=>'ยังไม่ได้ซื้อ','1'=>'ยังทำไม่เสร็จ','2'=>'ทำเสร็จแล้ว')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
         <div class="tableGray" >
