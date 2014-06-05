@@ -15,7 +15,7 @@
         </div>
         <div class="header_right">
             <?php if ($last_key != $key_ans) { ?>
-                <a title="ไปตอนที่ <?php echo $session['session_order']+1;?>" href="javascript:show_next('<?php echo $session['session_order']; ?>');"></a>
+                <a title="ไปตอนที่ <?php echo     $session['session_order']+1;?>" href="javascript:show_next('<?php echo $session['session_order']; ?>');"></a>
             <?php } else { ?>
                 <span>inactive</span>
             <?php } ?>
@@ -55,24 +55,14 @@
                         $answer_12 = substr($test['answer'],11,1);
 
 
-                    }else{
-
-                        $answer_1 = '';
-                        $answer_2 = '';
-                        $answer_3 = '';
-                        $answer_4 = '';
-                        $answer_5 = '';
-                        $answer_6 = '';
-                        $answer_7 = '';
-                        $answer_8 = '';
-                        $answer_9 = '';
-                        $answer_10 = '';
-                        $answer_11 = '';
-                        $answer_12 = '';
                     }
+                        $selected = substr($test['selected'],0,3);
+                        for($j=1;$j*3<strlen($test['selected']);$j++){
+                          $selected .=  "-".substr($test['selected'],$j*3,3);
+                       }
             ?>
             <li>
-                    <span><?php echo $i;?></span>
+                    <span><?php echo $i." : ".$selected;?></span>
                     <ul>
                         <li>
                                 <span>คำตอบที่ 1</span>

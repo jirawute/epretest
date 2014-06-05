@@ -118,28 +118,29 @@ class ExamController extends Controller {
         $_POST['ExamForm']['score'] = $total_score;
         $_POST['ExamForm']['status'] = 2;
         $model->attributes = $_POST['ExamForm'];
-        if ($model->save()){
+        if ($model->save()) {
             $exam = new Exam;
             $exam_info = $exam->getExamDetailById($exam_id);
             $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_record_id' => $test_record_id));
-
-}else {
-          print_r($exam_info);  var_dump($model->getErrors());exit();
+        } else {
+            print_r($exam_info);
+            var_dump($model->getErrors());
+            exit();
         }
     }
-        public function actionTimeout() {
-            $student_id = Yii::app()->user->id;
-            $exam_id = $_GET['id'];
-            $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
-                    $model = $this->loadTestRecord($test_record_id);
-                    $model->status =2;
-        if($model->save()){
+
+    public function actionTimeout() {
+        $student_id = Yii::app()->user->id;
+        $exam_id = $_GET['id'];
+        $test_record_id = TestRecord::model()->getIdByStudentIdExamId($student_id, $exam_id);
+        $model = $this->loadTestRecord($test_record_id);
+        $model->status = 2;
+        if ($model->save()) {
             $exam = new Exam;
             $exam_info = $exam->getExamDetailById($exam_id);
             $this->render('result', array('exam_info' => $exam_info, 'session_list' => $session_group, 'test_record_id' => $test_record_id));
-
-}
-            $this->redirect(Yii::app()->createUrl('exam/answer', array('id' => $exam_id)));
+        }
+        $this->redirect(Yii::app()->createUrl('exam/answer', array('id' => $exam_id)));
     }
 
     public function actionAnswer($id) {
@@ -303,16 +304,16 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6A'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } 
+                    }
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }
             }
@@ -321,16 +322,16 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6B'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } 
+                    }
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }
             }
@@ -339,16 +340,16 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6C'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6D'][$key6])) {
                         $ans6D[$key6] = $_POST['ans6D'][$key6];
-                    } 
+                    }
                     $_POST['ans'][$key6] = $ans6A[$key6] . $ans6B[$key6] . $ans6C[$key6] . $ans6D[$key6];
                 }
             }
@@ -357,10 +358,10 @@ class ExamController extends Controller {
                 foreach ($_POST['ans6D'] as $key6 => $v6) {
                     if (isset($_POST['ans6A'][$key6])) {
                         $ans6A[$key6] = $_POST['ans6A'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6B'][$key6])) {
                         $ans6B[$key6] = $_POST['ans6B'][$key6];
-                    } 
+                    }
                     if (isset($_POST['ans6C'][$key6])) {
                         $ans6C[$key6] = $_POST['ans6C'][$key6];
                     }
@@ -405,17 +406,15 @@ class ExamController extends Controller {
 
                     //รวมคำตอบ
                     $_POST['ans'][$key7] = $_POST['ans_1'][$key7] . $_POST['ans_2'][$key7] . $_POST['ans_3'][$key7] . $_POST['ans_4'][$key7];
-                    $_POST['ans_1'][$key7];
                 }//end foreach
             }//end if isset
         }//end type 7
 
         if (isset($_POST['ans'])) {
-            $select = array();
-            $select = $_POST['ans'];
+            $selected = $_POST['ans'];
             $session_id_list = $_POST['session_id'];
 
-            $this->SaveTesting($exam_id, $student_id, $select, $session_id_list);
+            $this->SaveTesting($exam_id, $student_id, $selected, $session_id_list);
         }
 
         return $test_record_id;
@@ -436,39 +435,7 @@ class ExamController extends Controller {
             $answer = $model->getAnswerDetail($session_id, $key);
             //ตรวจคำตอบแบบที่7 - หรับหรับแบบอื่นๆ แค่เช็คว่าตรงกัน
             if ($answer_type_id == 7) {
-                $ans = array();
-                $ans[1] = substr($value, 0, 3);
-                $ans[2] = substr($value, 3, 3);
-                $ans[3] = substr($value, 6, 3);
-                $ans[4] = substr($value, 9, 3);
-                // ห้ามมีคำตอบซ้ำกัน ถ้าซ้ำกันให้ =0
-                if ($ans[1] == $ans[2] || $ans[1] == $ans[3] || $ans[1] == $ans[4] || $ans[2] == $ans[3] || $ans[2] == $ans[4] || $ans[3] == $ans[4]) {
-                    $score = 0;
-                } else {
-
-                    $score_total = 0;
-                    $score_i = 0;
-
-                    //echo "Answer => ".$answer['answer']."<br/>";
-                    foreach ($ans as $v) {
-                        if ($v != NULL) {
-                            $pos = strpos($answer['answer'], $v);
-                            if ($pos === false) {
-                                $score_i = -$answer['score_item']; //score per answer
-                            } else {
-                                $score_i = $answer['score_item'];
-                            }
-                            //echo $v."_".$pos."_" .$score_i."||";//decrease 3 if wrong
-                        }
-                        $score_total +=$score_i;
-                    }
-                    $score = max($score_total, 0);
-                    //echo "<br/> Score: ".$score."<br/>";
-                }
-
-//                        echo "<br/> Score: ".$score;
-//                        echo "<br/>Total Score: ".max($score,0);
-//                        exit;
+                $score = $this->Cal_Ans7($answer['answer'], $value,$answer['score_item']);
             } else {
 
                 if (trim($answer['answer']) == trim($value)) {
@@ -503,6 +470,33 @@ class ExamController extends Controller {
         }
 
         //exit;
+    }
+
+    private function Cal_Ans7($answer, $value,$score_item) {
+$value=trim($value,'-');
+        $selected = array();
+        for ($i = 0; $i * 3 < strlen($value); $i++) {
+            $selected[$i] = substr($value, $i * 3, 3);
+            for ($j = $i - 1; $j >= 0; $j--) {
+                if ($selected[$i] == $selected[$j])
+                    return 0;
+            } // ห้ามมีคำตอบซ้ำกัน ถ้าซ้ำกันให้ =0
+        }
+
+        $score = 0;
+
+        foreach ($selected as $v) {
+            if ($v != NULL) {
+                $pos = strpos($answer, $v);
+                if ($pos === false) {
+                   $score -=3; //decrease 3 if wrong
+                } else {
+                    $score +=$score_item;
+                }
+                //echo $v."_".$pos."_" .$score_i."||";
+            }
+        }
+        return max($score, 0);
     }
 
     // Uncomment the following methods and override them if needed
