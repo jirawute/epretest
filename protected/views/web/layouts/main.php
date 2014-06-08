@@ -46,7 +46,6 @@
             function OpenLink(url) {
                 document.location.href = url;
             }
-            ;
             function ChangeRadioLabel(textValue, id) {
                 document.getElementById('append_' + id).innerHTML = textValue.value;
             }

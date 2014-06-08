@@ -101,7 +101,6 @@
             if ($num_rec > 0 && $exam_info['status']==1 ) {
                 $last_key = $num_rec - 1;
                 foreach ($session_list as $key_ans => $session) {
-
                     switch ($session['answer_type_id']) {
                         case 1:
                             echo $this->renderPartial('_result1', array('session' => $session, 'key_ans' => $key_ans, 'last_key' => $last_key, 'test_record_id' => $test_record_id, 'exam_id' => $exam_id));

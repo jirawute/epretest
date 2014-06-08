@@ -30,7 +30,6 @@
         list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
         $exam = new Exam;
         $exam_info = $exam->getExamDetailById($exam_id);
-       
         ?>
         <script type="text/javascript">
 
@@ -38,7 +37,7 @@
                 document.forms['ExamForm'].action = "index.php?r=exam/save";
                 document.forms['ExamForm'].submit();
             }
-            window.onbeforeunload=function(){
+            window.onbeforeunload = function() {
                 saveThisForm();
             }
 
@@ -63,6 +62,14 @@
             function ChangeRadioLabel(textValue, id) {
                 document.getElementById('append_' + id).innerHTML = textValue.value;
             }
+            function ClearForm7(i,j) {
+                document.getElementById('append_' + i+'_'+j + '_1').innerHTML = "-";
+                document.getElementById('append_' + i+'_'+j + '_2').innerHTML = "-";
+                document.getElementById('append_' + i+'_'+j + '_3').innerHTML = "-";
+                
+                document.getElementById('ans' + i+'_'+j + '_1').checked=true;
+                document.getElementById('ans' + i+'_'+j + '_2').checked=true;//hide selected radio button
+            }
         </script>
 
 
@@ -70,14 +77,14 @@
             var exam_id = <?php echo $exam_id ?>;
             var credit_require = <?php echo $exam_info['credit_required']; ?>;
 
-<?php if ($exam_info['voice_file']==1) { ?>
+<?php if ($exam_info['voice_file'] == 1) { ?>
                 function useMyCredit() {
                     apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
                             useCredit(credit_require, exam_id);
                             //onclick="myFunction()"
                             var x = document.createElement("AUDIO");
-                            x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id'];?>.mp3");
+                            x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");
                             x.setAttribute("controls", "controls");
                             x.setAttribute("autoplay", "autoplay");
 
@@ -109,7 +116,7 @@
                         //alert(data);
                         if (data == 0) {
                             useMyCredit();
-                           
+
                         } else {
 
                             if (typeof time_dec == 'undefined') {
@@ -214,14 +221,7 @@
                     var timeTxt = "time_text";
 
                     function time_dec() {
-                        if (time_left < 0) {
-                            clearInterval(cinterval);
-                            saveThisForm();
-                            alert("หมดเวลาทำข้อสอบแล้วคะ");
-                            
-                document.forms['ExamForm'].action = "index.php?r=exam/submit&id="+ exam_id;
-                document.forms['ExamForm'].submit();
-                        } else if (time_left < 300) {
+                        if (time_left < 300) {
                             if (timeTxt == 'time_text') {
                                 timeTxt = 'time_text blink';
                             } else {
@@ -255,10 +255,17 @@
                         var obj = hours + ':' + minutes + ':' + seconds;
 
                         //return obj;
+                        if (time_left < 0) {
+                            clearInterval(cinterval);
+                            saveThisForm();
+                            alert("หมดเวลาทำข้อสอบแล้วคะ");
 
+                            document.forms['ExamForm'].action = "index.php?r=exam/submit&id=" + exam_id;
+                            document.forms['ExamForm'].submit();
+                        } else {
 
-                        document.getElementById('countdown').innerHTML = obj;
-
+                            document.getElementById('countdown').innerHTML = obj;
+                        }
                     }
                     // } 
 
@@ -274,7 +281,7 @@
                     </div>
                 </div>
 
-<?php } ?>
+            <?php } ?>
             <div class="clear"></div>
 
             <div id="content" class="grid_12 do_exercise_window" ><?php echo $content; ?></div>
