@@ -71,11 +71,6 @@ $(function(){
 							<p>
                                                                 <?php echo $form->labelEx($model,'school'); ?>
                                                             <?php
-    /* echo $form->dropDownList($model,'school', $option_schools,array(
-      'prompt' => '--กรุณาเลือก--',
-      'value' => '0',)); */
-                                                            
-//      print_r($this->schoolOption());
       
     $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
         'attribute' => 'school',

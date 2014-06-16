@@ -60,7 +60,9 @@
                                             </p>
                                             <p>
                                                     <?php echo $form->labelEx($model,'level_id'); ?>
-                                                    <?php echo $form->dropDownList($model,'level_id', $option_levels); ?>
+                                                    <?php echo $form->dropDownList($model,'level_id', $option_levels,array(
+                                                                                'prompt' => '--กรุณาเลือก--',
+                                                                                'value' => '',)); ?>
                                                     <?php echo $form->error($model,'level_id'); ?>
                                             </p>
                                             <p>
