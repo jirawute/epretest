@@ -2,7 +2,7 @@
     <div class="answer_top">
         <div class="header_left">
             <?php if($key_ans!=0){?>
-                <a href="javascript:show_prev('<?php echo $answer['session_order'];?>');"></a>
+                <a title="ไปตอนที่ <?php echo $answer['session_order']-1;?>" href="javascript:show_prev('<?php echo $answer['session_order'];?>');"></a>
             <?php }else{?>
                 <span>inactive</span>
             <?php }?>
@@ -15,7 +15,7 @@
         </div>
         <div class="header_right">
             <?php if($last_key!=$key_ans){?>
-                <a href="javascript:show_next('<?php echo $answer['session_order'];?>');"></a>
+                <a title="ไปตอนที่ <?php echo $answer['session_order']+1;?>" href="javascript:show_next('<?php echo $answer['session_order'];?>');"></a>
             <?php }else{?>
                 <span>inactive</span>
             <?php }?>
@@ -64,5 +64,38 @@
             </li>
             <?php } ?>
         </ul>
+        <!--start prev & next for answer sheet-->
+        <ul>
+            <li>
+                <?php if($last_key!=$key_ans){?>
+                    <div class="answer_bottom1">
+                        
+                        <div class="answer_bottom1 header_left">
+                            <!-- if has link <a href="#"></a> -->
+                            <?php if($key_ans!=0){?>
+                                <a title="ไปตอนที่ <?php echo $answer['session_order']-1;?>" href="javascript:show_prev('<?php echo $answer['session_order'];?>');"></a>
+                            <?php }else{?>
+                                <span></span>
+                                <!--<span>inactive</span>-->
+                            <?php }?>
+                        </div>
+                        
+                        <div class="header_center">
+                            <h3>ตอนที่ <?php echo $answer['session_order'];?></h3>
+                        </div>
+
+                        <div class="header_right">
+                            <?php if($last_key!=$key_ans){?>
+                            <a title="ไปตอนที่ <?php echo $answer['session_order']+1;?>" href="javascript:show_next('<?php echo $answer['session_order'];?>');"></a>
+                            <?php }else{?>
+                                <span>inactive</span>
+                            <?php }?>
+                        </div>
+                        
+                    </div>
+                <?php }?>
+            </li>
+        </ul>
+        <!--end prev & next for answer sheet-->
     </div>
 </div>

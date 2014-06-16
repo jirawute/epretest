@@ -2,7 +2,7 @@
      <div class="answer_top">
         <div class="header_left">
             <?php if($key_ans!=0){?>
-                <a href="javascript:show_prev('<?php echo $answer['session_order'];?>');"></a>
+                <a title="ไปตอนที่ <?php echo $answer['session_order']-1;?>"href="javascript:show_prev('<?php echo $answer['session_order'];?>');"></a>
             <?php }else{?>
                 <span>inactive</span>
             <?php }?>
@@ -15,7 +15,7 @@
         </div>
         <div class="header_right">
             <?php if($last_key!=$key_ans){?>
-                <a href="javascript:show_next('<?php echo $answer['session_order'];?>');"></a>
+                <a title="ไปตอนที่ <?php echo $answer['session_order']+1;?>" href="javascript:show_next('<?php echo $answer['session_order'];?>');"></a>
             <?php }else{?>
                 <span>inactive</span>
             <?php }?>
@@ -78,7 +78,7 @@
                                         <li>
                                             <span id="append_<?php echo $i;?>_1_1" class="append" ><?php  echo $ans_1;?></span>
                                                         <input type="radio" id="ans<?php echo $i;?>_1_1_0" name="ans_1_1[<?php echo $i;?>]" onClick="ChangeRadioLabel(this,'<?php echo $i;?>_1_1');" <?php if($ans_1=='0'){?>checked<?php }?> value="0">
-                                                        <label for="ans<?php echo $i;?>_1_1_0">0</label>
+                                                        <label  for="ans<?php echo $i;?>_1_1_0">0</label>
 
                                                         <input type="radio" id="ans<?php echo $i;?>_1_1_1" name="ans_1_1[<?php echo $i;?>]" onClick="ChangeRadioLabel(this,'<?php echo $i;?>_1_1');" <?php if($ans_1=='1'){?>checked<?php }?> value="1">
                                                         <label for="ans<?php echo $i;?>_1_1_1">1</label>
@@ -172,7 +172,7 @@
                                                         <label for="ans<?php echo $i;?>_1_3_8">I</label>
 
                                                         <input type="radio" id="ans<?php echo $i;?>_1_3_9" name="ans_1_3[<?=$i?>]" onClick="ClearForm7(<?=$i?>,'1');">
-                                                        <label for="ans<?php echo $i;?>_1_3_9"  class="wrong">-</label>
+                                                        <label for="ans<?php echo $i;?>_1_3_9" title="ลบ" class="wrong">-</label>
                                         </li>
                                 </ul>
                                 <input type="hidden" name="ans_1[<?php echo $i;?>]" value=""/>
@@ -277,7 +277,7 @@
 
                                                         
                                                         <input type="radio" id="ans<?php echo $i;?>_2_3_9" name="ans_2_3[<?=$i?>]" onClick="ClearForm7(<?=$i?>,'2');">
-                                                        <label for="ans<?php echo $i;?>_2_3_9"  class="wrong">-</label>
+                                                        <label for="ans<?php echo $i;?>_2_3_9" title="ลบ" class="wrong">-</label>
                                         </li>
                                 </ul>
                                 <input type="hidden" name="ans_2[<?php echo $i;?>]" value=""/>
@@ -381,7 +381,7 @@
                                                         <label for="ans<?php echo $i;?>_3_3_8">I</label>
 
                                                         <input type="radio" id="ans<?php echo $i;?>_3_3_9" name="ans_3_3[<?=$i?>]" onClick="ClearForm7(<?=$i?>,'3');">
-                                                        <label for="ans<?php echo $i;?>_3_3_9"  class="wrong">-</label>
+                                                        <label for="ans<?php echo $i;?>_3_3_9" title="ลบ" class="wrong">-</label>
                                         </li>
                                 </ul>
                                 <input type="hidden" name="ans_3[<?php echo $i;?>]" value=""/>
@@ -485,7 +485,7 @@
                                                         <label for="ans<?php echo $i;?>_4_3_8">I</label>
 
                                                         <input type="radio" id="ans<?php echo $i;?>_4_3_9" name="ans_4_3[<?=$i?>]" onClick="ClearForm7(<?=$i?>,'4');">
-                                                        <label for="ans<?php echo $i;?>_4_3_9"  class="wrong">-</label>
+                                                        <label for="ans<?php echo $i;?>_4_3_9" title="ลบ" class="wrong">-</label>
                                         </li>
                                 </ul>
                                 <input type="hidden" name="ans_4[<?php echo $i;?>]" value=""/>
@@ -497,5 +497,6 @@
             </li>
             <?php } ?>
         </ul>
+
     </div>
 </div>
