@@ -86,7 +86,7 @@ class TransferController extends Controller {
     public function sendMail($data) {
         // recipients
         // $to  = "endrophine_nok@hotmail.com";
-        $to = "contact@e-studio.co.th";
+        $to = "epretest@e-studio.co.th";
         $from = $data['email'];
 
         // subject
@@ -218,8 +218,8 @@ class TransferController extends Controller {
             $mail->protocol = 'smtp';
             $mail->parameter = "";
             $mail->hostname = "ssl://smtp.gmail.com";
-            $mail->username = "contact@e-studio.co.th";
-            $mail->password = "estu1q2w3e";
+            $mail->username = "epretest@e-studio.co.th";
+            $mail->password = "epretest1q2w3e";
             $mail->port = "465";
             $mail->timeout = "5";
             $mail->setTo($email_to);

@@ -117,7 +117,7 @@ class SiteController extends Controller
                                 $this->setNewPassword($student->student_id,$password);
                                 $student = $this->loadModel($student->student_id);
                                 $to = $email;
-                                $from = "contact@e-studio.co.th";
+                                $from = "epretest@e-studio.co.th";
                                 $message = '<html>
                                             <head>
                                               <title>แจ้งรหัสผ่านใหม่ของเว็บไซต์ e-pretest.com</title>
@@ -150,8 +150,8 @@ class SiteController extends Controller
 				$subject='=?UTF-8?B?'.base64_encode('แจ้งรหัสผ่านใหม่ของเว็บไซต์ e-pretest.com').'?=';
 				$headers="MIME-Version: 1.0\r\n".
 					 "Content-type: text/html; charset=UTF-8\r\n".
-                                         "From: e-pretest <contact@e-studio.co.th>\r\n".
-                                         "Reply-To: contact@e-studio.co.th\r\n";
+                                         "From: e-pretest <epretest@e-studio.co.th>\r\n".
+                                         "Reply-To: epretest@e-studio.co.th\r\n";
 //                                echo $body;
 //                                exit;
 //                                sendMail($email_to,$email_from, $sender, $subject, $message) 
@@ -319,8 +319,8 @@ class SiteController extends Controller
                 $mail->protocol = 'smtp';
                 $mail->parameter = "";
                 $mail->hostname = "ssl://smtp.gmail.com";
-                $mail->username = "contact@e-studio.co.th";
-                $mail->password = "estu1q2w3e";            
+                $mail->username = "epretest@e-studio.co.th";
+                $mail->password = "epretest1q2w3e";            
                 $mail->port = "465";
                 $mail->timeout = "5";
                 $mail->setTo($email_to);

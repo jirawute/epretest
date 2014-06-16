@@ -747,7 +747,7 @@ class ScholarshipController extends Controller {
     public function sendMail($data) {
         // recipients         
         $to = "contact@e-studio.co.th";
-        $cc = "payment@e-studio.co.th";
+        $cc = "epretest@e-studio.co.th";
         //$bcc  = "kanokwan@khroton.com";
         $from = trim($data['email']);
 

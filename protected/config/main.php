@@ -55,7 +55,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=epretest',
 			'emulatePrepare' => true,
 			'username' => 'yong',
-			'password' => '1123',
+			'password' => '1123S',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
@@ -82,8 +82,8 @@ return array(
                         'transportType'=>'smtp',
                         'transportOptions'=>array(
                                 'host'=>'ssl://smtp.gmail.com',
-                                'username'=>'contact@e-studio.co.th',
-                                'password'=>'estu1q2w3e',
+                                'username'=>'epretest@e-studio.co.th',
+                                'password'=>'epretest1q2w3e',
                                 'port'=>'465',                       
                         ),
                         'viewPath' => 'application.views.mail',             

@@ -21,7 +21,7 @@ $this->breadcrumbs=array(
                 </p>
             </div>
             <div>
-                <h5> อีเมล์ : contact@e-studio.co.th</h5>
+                <h5> อีเมล์ : epretest@e-studio.co.th</h5>
             </div>
             <div style="clear:both"></div>
             <?php if(Yii::app()->user->hasFlash('contact')): ?>
