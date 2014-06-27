@@ -55,7 +55,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=epretest',
 			'emulatePrepare' => true,
 			'username' => 'yong',
-			'password' => '1123S',
+			'password' => '1123',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

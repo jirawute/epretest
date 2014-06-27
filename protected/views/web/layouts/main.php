@@ -46,6 +46,7 @@
             function OpenLink(url) {
                 document.location.href = url;
             }
+            ;
             function ChangeRadioLabel(textValue, id) {
                 document.getElementById('append_' + id).innerHTML = textValue.value;
             }
@@ -185,7 +186,7 @@
                         แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพฯ 10110<br/>
                         Tel: +66 2 665 7445<br/>
                         Fax: +66 2 665 7405<br/>
-                        Email : contact@e-studio.co.th
+                        Email : epretest@e-studio.co.th
                     </p>
                 </div>
 

@@ -1020,8 +1020,8 @@ class StudentController extends Controller {
             $mail->protocol = 'smtp';
             $mail->parameter = "";
             $mail->hostname = "ssl://smtp.gmail.com";
-            $mail->username = "epretest@e-studio.co.th";
-            $mail->password = "epretest1q2w3e";            
+            $mail->username = "contact@e-studio.co.th";
+            $mail->password = "estu1q2w3e";            
             $mail->port = "465";
             $mail->timeout = "5";
             $mail->setTo($email_to);

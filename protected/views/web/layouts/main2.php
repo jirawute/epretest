@@ -79,18 +79,20 @@
 
 <?php if ($exam_info['voice_file'] == 1) { ?>
                 function useMyCredit() {
-                    apprise('ไฟล์ข้อสอบเสียงจะเริ่มทำงานเมื่อคลิก "ยืนยันการทำข้อสอบ" <p><a href="uploads/mp3/voice.mp3" target="_blank">Click here to test the sound</a></p>และเครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                    var x = document.createElement("AUDIO");
+                            x.setAttribute("src", "uploads/mp3/voice.mp3");
+                            x.setAttribute("controls", "controls");
+                            x.setAttribute("autoplay", "autoplay");
+                    apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/>\n\
+             คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
                             useCredit(credit_require, exam_id);
                             //onclick="myFunction()"
-                            var x = document.createElement("AUDIO");
-                            x.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");
-                            x.setAttribute("controls", "controls");
-                            x.setAttribute("autoplay", "autoplay");
+                            var y = document.createElement("AUDIO");
+                            y.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
+                            y.setAttribute("controls", "controls");
+                            y.setAttribute("autoplay", "autoplay");
 
-                            if (useCredit) {<?php $php_play = "autoplay"; ?>
-                                alert('คำเตือน : หากท่านออกจากหน้าทำข้อสอบ หรือ กดปุ่มรีเฟรชหน้า เสียงจะหยุดเล่นทันที');
-                            }
                         } else {
                             OpenLink("index.php?r=student/view");
                         }
@@ -256,10 +258,9 @@
 
                         //return obj;
                         if (time_left < 0) {
-                            clearInterval(cinterval);
                             saveThisForm();
+                            clearInterval(cinterval);
                             alert("หมดเวลาทำข้อสอบแล้วคะ");
-
                             document.forms['ExamForm'].action = "index.php?r=exam/submit&id=" + exam_id;
                             document.forms['ExamForm'].submit();
                         } else {
@@ -305,7 +306,7 @@
                         แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพฯ 10110<br/>
                         Tel: +66 2 665 7445<br/>
                         Fax: +66 2 665 7405<br/>
-                        Email : contact@e-studio.co.th
+                        Email : epretest@e-studio.co.th
                     </p>
                 </div>
                 <div class="grid_3 sitemap">

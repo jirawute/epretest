@@ -86,9 +86,9 @@
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
         <div class="question_content" style="position:absolute"  >
-            <div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
-            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div>
-            <iframe  id="iframe" class="pdfviewer" src="http://docs.google.com/viewer?url=<?php echo "http://www.e-pretest.com/uploads/pdf/" . $exam_info['exam_file']; ?>&embedded=true" width="640px" height="100%" frameborder="0"></iframe>
+            <!--div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
+            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div-->
+            <iframe  id="iframe" class="pdfviewer" src="http://www.e-pretest.com/uploads/pdf/<?=$exam_info['exam_file']?>" width="640px" height="100%" frameborder="0"></iframe>
             
         </div>
     </div>

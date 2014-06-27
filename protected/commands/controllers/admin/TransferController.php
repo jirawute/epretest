@@ -273,7 +273,7 @@ class TransferController extends AdminController
             // Mail it
             //$flgSend = @mail($to, $subject, $message, $headers);
             //Change function send email
-            $flgSend = $this->sendMail($to,'epretest@e-studio.co.th','E-pretest.com',$subject,$message);
+            $flgSend = $this->sendMail($to,'contact@e-studio.co.th','E-pretest.com',$subject,$message);
 
             return $flgSend;
 	}
@@ -283,8 +283,8 @@ class TransferController extends AdminController
                 $mail->protocol = 'smtp';
                 $mail->parameter = "";
                 $mail->hostname = "ssl://smtp.gmail.com";
-                $mail->username = "epretest@e-studio.co.th";
-                $mail->password = "epretest1q2w3e";            
+                $mail->username = "contact@e-studio.co.th";
+                $mail->password = "estu1q2w3e";            
                 $mail->port = "465";
                 $mail->timeout = "5";
                 $mail->setTo($email_to);

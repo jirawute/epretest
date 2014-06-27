@@ -19,7 +19,7 @@
 
     function alertBox(shared, credit_required, test_record_id,student_id) {
         if (shared == 0) {
-            var up_credit = Math.max(5, Math.round(credit_required / 5));
+            var up_credit = Math.max(0, Math.round(credit_required / 10)); //Credit reward = 10% if shared on FB
 //                    var total_shared = getTotalShared();
 //                    up_credit = Math.min(up_credit,15);
             apprise('<img src="http://www.e-pretest.com/images/web/facebook_hover.png" /><br/>ชวนเพื่อนๆมาทำแบบทดสอบกัน พร้อมรับเครดิตเพิ่ม <b>'+up_credit+' เครดิต</b>', {'verify': true, 'textYes': 'ตกลง', 'textNo': 'ยกเลิก'}, function(r) {
@@ -37,7 +37,7 @@
         apprise('<img src="http://www.e-pretest.com/images/web/facebook_hover.png"/>บอกต่อเพื่อนของคุณ แล้วรับเครดิตฟรี', {'verify': true, 'textYes': 'รับเครดิตเพิ่ม ' + up_credit + ' เครดิต', 'textNo': 'กลับหน้าหลัก'}, function(r) {
             if (r){
                 //if (getTotalShared() > total_shared) {
-                    OpenLink("index.php?r=exam/upcredit&id=" + test_record_id + "&credit=" + up_credit);//Credit reward = 10% if shared on FB
+                    OpenLink("index.php?r=exam/upcredit&id=" + test_record_id + "&credit=" + up_credit);
                 /*}else{
                     checkIfShared(total_shared,up_credit,student_id);
                 }*/
@@ -84,9 +84,9 @@
             }
             ?>
 <?php //echo $_SERVER['SERVER_NAME'] ;  ?>
-            <div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
-            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div>
-            <iframe  id="iframe" class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.e-pretest.com/uploads/<?php echo $file_name; ?>&embedded=true" width="640px" height="100%" frameborder="0"></iframe>
+            <!--div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
+            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div-->
+            <iframe  id="iframe" class="pdfviewer" src="http://www.e-pretest.com/uploads/<?php echo $file_name; ?>" width="640px" height="100%" frameborder="0"></iframe>
             <!--<iframe class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.forum.02dual.com%2Fexamfile%2F655topic%2FkeyO-NET53Math.pdf&embedded=true" width="640px" height="100%" frameborder="0"></iframe>-->
         </div>
     </div>
