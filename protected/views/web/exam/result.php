@@ -61,6 +61,29 @@
                 });
     }
 </script>
+
+<script type="text/javascript" src='http://www.scribd.com/javascripts/scribd_api.js'></script>
+
+<script type="text/javascript">
+   
+    var url = 'http://www.e-pretest.com/uploads/answer/<?= $exam_info['answer_file'] ?>';
+    var pub_id = 'pub-87933716448539829813621125';
+    var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
+    var onDocReady = function(e) {
+        scribd_doc.api.setZoom(0.6);
+            $("#loading").hide(1000);
+    }
+    scribd_doc.addEventListener('docReady', onDocReady);
+    scribd_doc.addParam('jsapi_version', 2);
+    // scribd_doc.addParam('height', 550);
+    scribd_doc.addParam('width', 640);
+    scribd_doc.addParam('public', false);
+    scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
+    scribd_doc.addParam('extension', 'pdf');
+    scribd_doc.addParam('title', 'Yong');
+    scribd_doc.write('embedded_doc');
+    
+</script>
 <div class="test_box">
     <div class="question">
         <div class="question_top">
@@ -75,17 +98,11 @@
 
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
-        <div class="question_content" style="position:absolute">
-            <?php
-            if ($exam_info['answer_file']) {
-                $file_name = 'answer/' . $exam_info['answer_file'];
-            } else {
-                $file_name = 'pdf/' . $exam_info['exam_file'];
-            }
-            ?>
-<?php //echo $_SERVER['SERVER_NAME'] ;  ?>
+        <div  id ="loading" class="question_content"style="position: absolute;width: 640px;height: 500px;background: #F5F5F5;z-index: 100;">Loading
+        </div>
+        <div class="question_content"  id='embedded_doc'>
             <!--div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
-            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div-->
+            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div>
             <iframe  id="iframe" class="pdfviewer" src="http://www.e-pretest.com/uploads/<?php echo $file_name; ?>" width="640px" height="100%" frameborder="0"></iframe>
             <!--<iframe class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.forum.02dual.com%2Fexamfile%2F655topic%2FkeyO-NET53Math.pdf&embedded=true" width="640px" height="100%" frameborder="0"></iframe>-->
         </div>

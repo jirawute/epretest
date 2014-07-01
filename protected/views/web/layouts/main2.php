@@ -33,7 +33,8 @@
         ?>
         <script type="text/javascript">
 
-            function saveThisForm() {
+            function
+                    saveThisForm() {
                 document.forms['ExamForm'].action = "index.php?r=exam/save";
                 document.forms['ExamForm'].submit();
             }
@@ -62,13 +63,13 @@
             function ChangeRadioLabel(textValue, id) {
                 document.getElementById('append_' + id).innerHTML = textValue.value;
             }
-            function ClearForm7(i,j) {
-                document.getElementById('append_' + i+'_'+j + '_1').innerHTML = "-";
-                document.getElementById('append_' + i+'_'+j + '_2').innerHTML = "-";
-                document.getElementById('append_' + i+'_'+j + '_3').innerHTML = "-";
-                
-                document.getElementById('ans' + i+'_'+j + '_1').checked=true;
-                document.getElementById('ans' + i+'_'+j + '_2').checked=true;//hide selected radio button
+            function ClearForm7(i, j) {
+                document.getElementById('append_' + i + '_' + j + '_1').innerHTML = "-";
+                document.getElementById('append_' + i + '_' + j + '_2').innerHTML = "-";
+                document.getElementById('append_' + i + '_' + j + '_3').innerHTML = "-";
+
+                document.getElementById('ans' + i + '_' + j + '_1').checked = true;
+                document.getElementById('ans' + i + '_' + j + '_2').checked = true;//hide selected radio button
             }
         </script>
 
@@ -80,11 +81,11 @@
 <?php if ($exam_info['voice_file'] == 1) { ?>
                 function useMyCredit() {
                     var x = document.createElement("AUDIO");
-                            x.setAttribute("src", "uploads/mp3/voice.mp3");
-                            x.setAttribute("controls", "controls");
-                            x.setAttribute("autoplay", "autoplay");
+                    x.setAttribute("src", "uploads/mp3/voice.mp3");
+                    x.setAttribute("controls", "controls");
+                    x.setAttribute("autoplay", "autoplay");
                     apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/>\n\
-             คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                 คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
                             useCredit(credit_require, exam_id);
                             //onclick="myFunction()"
@@ -120,11 +121,9 @@
                             useMyCredit();
 
                         } else {
-
+                            showPDF();
                             if (typeof time_dec == 'undefined') {
                                 clearInterval(cinterval);
-                            } else {
-                                cinterval = setInterval('time_dec()', 1000);
                             }
 
                         }
@@ -146,7 +145,7 @@
                     dataType: 'html',
                     success: function(temp, textStatus, xhr) {
                         if (temp == 'Y') {
-                            cinterval = setInterval('time_dec()', 1000);
+                            showPDF();
                         } else {
 
                             alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้');
@@ -210,8 +209,8 @@
                      alert("หมดเวลาทำข้อสอบแล้วคะ");
                      clearInterval(cinterval);
                      document.location.href = 'index.php?r=exam/answer&id=3bsdf$' + exam_id;
-                     
-                     
+                         
+                         
                      }else{*/
 
                     var time_left = min * 60;
@@ -258,7 +257,7 @@
 
                         //return obj;
                         if (time_left < 0) {
-                            saveThisForm();
+                            //saveThisForm();
                             clearInterval(cinterval);
                             alert("หมดเวลาทำข้อสอบแล้วคะ");
                             document.forms['ExamForm'].action = "index.php?r=exam/submit&id=" + exam_id;

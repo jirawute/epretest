@@ -65,6 +65,33 @@
         $(document).tooltip();
     });
 </script>
+
+<script type="text/javascript" src='http://www.scribd.com/javascripts/scribd_api.js'></script>
+
+<script type="text/javascript">
+    function showPDF() {
+        var url = 'http://www.e-pretest.com/uploads/pdf/<?= $exam_info['exam_file'] ?>';
+        var pub_id = 'pub-87933716448539829813621125';
+        var doc_id = 231517253;
+        var access_key = "key-xT6YcdCiqYt4PFaCW2nn";
+        var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
+        //var scribd_doc = scribd.Document.getDocFromUrl(doc_id, access_key);
+        var onDocReady = function(e) {
+            //scribd_doc.api.setZoom(0.6);
+            $("#loading").hide(1000);
+            cinterval = setInterval('time_dec()', 1000);
+        }
+        scribd_doc.addEventListener('docReady', onDocReady);
+        scribd_doc.addParam('jsapi_version', 2);
+        // scribd_doc.addParam('height', 550);
+        scribd_doc.addParam('width', 640);
+        scribd_doc.addParam('public', false);
+        scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
+        scribd_doc.addParam('extension', 'pdf');
+        scribd_doc.addParam('title', 'Yong');
+        scribd_doc.write('embedded_doc');
+    }
+</script>
 <style>
     label {
         display: inline-block;
@@ -85,12 +112,17 @@
 
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
-        <div class="question_content" style="position:absolute"  >
-            <!--div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
-            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div-->
-            <iframe  id="iframe" class="pdfviewer" src="http://www.e-pretest.com/uploads/pdf/<?=$exam_info['exam_file']?>" width="640px" height="100%" frameborder="0"></iframe>
-            
+        <!--div class="question_content" style="position:absolute"  >
+            <div style="position: absolute;width: 640px;height: 30px;background: #F5F5F5;z-index: 100;left: 0px;"></div>
+             <!--iframe  id="iframe" class="pdfviewer" src="http://www.e-pretest.com/uploads/pdf/<?= $exam_info['exam_file'] ?>" width="640px" height="100%" frameborder="0"></iframe>
+            <div id='embedded_doc' ></div>
+        </div-->
+
+        <div  id ="loading" class="question_content"style="position: absolute;width: 640px;height: 10px;background: #F5F5F5;z-index: 100;">Loading
         </div>
+        <div class="question_content"  id='embedded_doc' >
+        </div>
+
     </div>
     <form name="ExamForm"onsubmit="return confirm('ต้องการส่งคำตอบ?');" method="post" action="index.php?r=exam/submit&id=<?php echo $exam_info['exam_id']; ?>">
         <input type="hidden" name="ExamForm[exam_id]" value="<?php echo $exam_info['exam_id']; ?>"/>
@@ -146,7 +178,7 @@
             }
             ?>
             <div class="answer_bottom" >
-                <input id="saveBtn" type="button" value="บันทึก" class="save_button" onClick="saveThisForm();" title="บันทึกคำตอบระหว่างทำข้อสอบ"-->
+                <input id="saveBtn" type="button" value="บันทึก" class="save_button" onClick="saveThisForm();" title="บันทึกคำตอบระหว่างทำข้อสอบ">
                 <input id="submitBtn" type="submit" value="ส่งคำตอบ" class="submit_button" title="ส่งคำตอบและดูเฉลย" >
             </div>
         </div>
