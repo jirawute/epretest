@@ -180,7 +180,7 @@ if (!Yii::app()->user->id)
                         </li>
                         <li>
                             <input onclick="changeMethodPayment('5');
-            appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_coupon" value="coupon"/>
+            appBtn('โดยคูปอง');" type="radio" name="payment_method" id="payment_coupon" value="coupon"/>
                             <label for="payment_coupon">ใช้คูปองเติมเครดิต</label>
                         </li>
                     </ul>

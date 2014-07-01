@@ -52,12 +52,12 @@ $this->pageTitle=Yii::app()->name;
 		<p class="oneline_description">ชำระเงินผ่านช่องทางต่างๆ ของเรา</p>
 	</div>
 	<div class="box_3step_description two">
-		<p>เลือกข้อสอบจากคลังข้อสอบของเรา</p>
-		<p><a href="<?php echo Yii::app()->createUrl('site/page', array('view'=>'teacher')); ?>">ดูรายชื่อผู้ออกข้อสอบ / ผู้บริหาร</a></p>
+		<p class="oneline_description">เลือกข้อสอบจากคลังข้อสอบของเรา</p>
+		
 	</div>
 	<div class="box_3step_description three">
-		<p>ลงมือทำข้อสอบ</p>
-		<p><a href="<?php echo Yii::app()->createUrl('site/page', array('view'=>'importance')); ?>">ทำไมการทำข้อสอบจึงสำคัญ</a></p>
+		<p class="oneline_description">ลงมือทำข้อสอบ</p>
+		
 	</div>
 </div>
 

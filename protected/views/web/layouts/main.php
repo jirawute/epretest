@@ -72,6 +72,8 @@
                                     <ul>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'about')); ?>">เราคือ?</a></li>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'teacher')); ?>">อาจารย์ออกข้อสอบ</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'importance')); ?>">ทำไมการทำข้อสอบจึงสำคัญ</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'help')); ?>">คำถามที่พบบ่อย</a></li>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>">ติดต่อเรา</a></li>
                                     </ul>
 

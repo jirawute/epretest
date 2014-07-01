@@ -18,7 +18,7 @@ if (!Yii::app()->user->id)
                 <?php
                 $form = $this->beginWidget('CActiveForm', array(
                     'id' => 'transfer-form',
-                    'enableAjaxValidation' => false,
+                    'enableAjaxValidation' => true,
                     'htmlOptions' => array('enctype' => 'multipart/form-data'),
                 ));
                 ?>
@@ -28,7 +28,8 @@ if (!Yii::app()->user->id)
                     <?php echo $form->error($model, 'inv_id'); ?>
                 </p>
                     <?php echo $form->labelEx($model, 'amount'); ?>
-                    <?php echo $form->textField($model, 'amount',array('size' => 20, 'maxlength' => 10)); ?>
+                    <?php foreach($inv_list as $value){$arr = explode('-',$value);break;}
+                    echo $form->textField($model, 'amount',array('value' =>$arr[1]));?> 
                     <?php echo $form->error($model, 'amount'); ?>
                 
                 <p>
@@ -52,18 +53,18 @@ if (!Yii::app()->user->id)
                     <?php echo $form->error($model, 'bank'); ?>
                 </p>
                 <p>
-                    <?php echo $form->labelEx($model, 'date'); ?>
-                    <?php
-                    $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                    <?php echo $form->hiddenField($model, 'date',array('value' => date('d/m/Y'))); 
+                   /* $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'model' => $model,
-                        'attribute' => 'date',
                         'value' => date('d/m/Y'),
+                        'attribute' => 'date',
                         'options' => array(
                             'showAnim' => 'fold',
-                            'changeMonth' => true,
                             'dateFormat' => 'dd/mm/yy',
+                            'changeMonth' => true,
                             'changeYear' => true,
                             'changeDate' => true,
+                            'changeMonth' => true,
                             'showAnim' => 'fold',
                             //'showButtonPanel'=>true,
                             'debug' => true,
@@ -72,7 +73,7 @@ if (!Yii::app()->user->id)
                             'class' => 'shadowdatepicker',
                             'readonly' => "readonly",
                         ),
-                    ));
+                    ));*/
                     ?>
                     <?php echo $form->error($model, 'date'); ?>
                 </p>
@@ -93,11 +94,10 @@ if (!Yii::app()->user->id)
                 </p>
             </div>
             <div class="editinfo_pic_box">
-                <img src="images/web/slip.jpg" alt="" class="news_pic">
+                <img src="images/web/slip.jpg" alt="" class="news_pic"/>
                 <p>
                     <label>อัพโหลดหลักฐานการโอน</label>
                     <?php echo $form->fileField($model, 'images', array('style' => 'border: none;box-shadow:none')); ?>
-
                 </p>
                 <?php echo $form->error($model, 'images'); ?>
                 (รูปภาพนามสกุล .jpg, .jpeg, .png, .gif เท่านั้น)
