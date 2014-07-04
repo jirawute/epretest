@@ -22,19 +22,26 @@ if (!Yii::app()->user->id)
                     'htmlOptions' => array('enctype' => 'multipart/form-data'),
                 ));
                 ?>
-                <p>
-                    <?php echo $form->labelEx($model, 'inv_id'); ?> 
-                    <?php echo $form->dropDownList($model, 'inv_id', $inv_list); ?>
-                    <?php echo $form->error($model, 'inv_id'); ?>
-                </p>
-                    <?php echo $form->labelEx($model, 'amount'); ?>
-                    <?php foreach($inv_list as $value){$arr = explode('-',$value);break;}
-                    echo $form->textField($model, 'amount',array('value' =>$arr[1]));?> 
-                    <?php echo $form->error($model, 'amount'); ?>
+                <table><tr>
+                        <td><p>
+                                <?php echo $form->labelEx($model, 'inv_id'); ?> 
+                                <?php echo $form->dropDownList($model, 'inv_id', $inv_list); ?>
+                            </p></td><td ><p>
+                                <?php echo $form->labelEx($model, 'amount'); ?>
+                                <?php
+                                foreach ($inv_list as $value) {
+                                    $arr = explode('-', $value);
+                                    break;
+                                }
+                                echo $form->textField($model, 'amount', array('style'=>'text-align:center;','value' => $arr[1]));
+                                ?> 
+                                
+                            </p></td></tr></table>
                 
+                                <?php echo $form->error($model, 'inv_id'); ?><?php echo $form->error($model, 'amount'); ?>
                 <p>
-                    <?php echo $form->labelEx($model, 'name');?>
-                    <?php echo $form->textField($model,'name', array('size' => 60, 'maxlength' => 255, 'value' => $student->firstname . " " . $student->lastname)); ?>
+                    <?php echo $form->labelEx($model, 'name'); ?>
+                    <?php echo $form->textField($model, 'name', array('size' => 60, 'maxlength' => 255, 'value' => $student->firstname . " " . $student->lastname)); ?>
                     <?php echo $form->error($model, 'name'); ?>
                 </p>
                 <p>
@@ -53,36 +60,44 @@ if (!Yii::app()->user->id)
                     <?php echo $form->error($model, 'bank'); ?>
                 </p>
                 <p>
-                    <?php echo $form->hiddenField($model, 'date',array('value' => date('d/m/Y'))); 
-                   /* $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                        'model' => $model,
-                        'value' => date('d/m/Y'),
-                        'attribute' => 'date',
-                        'options' => array(
-                            'showAnim' => 'fold',
-                            'dateFormat' => 'dd/mm/yy',
-                            'changeMonth' => true,
-                            'changeYear' => true,
-                            'changeDate' => true,
-                            'changeMonth' => true,
-                            'showAnim' => 'fold',
-                            //'showButtonPanel'=>true,
-                            'debug' => true,
-                        ),
-                        'htmlOptions' => array(
-                            'class' => 'shadowdatepicker',
-                            'readonly' => "readonly",
-                        ),
-                    ));*/
+                    <?php
+                    echo $form->hiddenField($model, 'date', array('value' => date('d/m/Y')));
+                    /* $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                      'model' => $model,
+                      'value' => date('d/m/Y'),
+                      'attribute' => 'date',
+                      'options' => array(
+                      'showAnim' => 'fold',
+                      'dateFormat' => 'dd/mm/yy',
+                      'changeMonth' => true,
+                      'changeYear' => true,
+                      'changeDate' => true,
+                      'changeMonth' => true,
+                      'showAnim' => 'fold',
+                      //'showButtonPanel'=>true,
+                      'debug' => true,
+                      ),
+                      'htmlOptions' => array(
+                      'class' => 'shadowdatepicker',
+                      'readonly' => "readonly",
+                      ),
+                      )); */
                     ?>
                     <?php echo $form->error($model, 'date'); ?>
                 </p>
                 <p>
                     <?php echo $form->labelEx($model, 'detail'); ?>
-                    <?php echo $form->textArea($model, 'detail', array('rows' => 6, 'cols' => 50)); ?>
+                    <?php echo $form->textArea($model, 'detail', array('rows' => 1, 'cols' => 50)); ?>
                     <?php echo $form->error($model, 'detail'); ?>
                 </p>
-                <p class="submit">
+
+            </div><div class="editinfo_pic_box">
+                <img src="images/web/slip.jpg" alt="" class="news_pic"/>
+                <font style="color:red"><?php echo $form->fileField($model, 'images', array('style' => 'border: none;box-shadow:none')); ?></font>
+                <?php echo $form->error($model, 'images'); ?>
+                (รูปภาพนามสกุล .jpg, .jpeg, .png, .gif เท่านั้น)<br/>
+                <div>
+                <p class="submit"><label>อัพโหลด</label>
                     <?php
                     echo CHtml::submitButton('ตกลง', array(
                         'value' => 'ตกลง',
@@ -92,15 +107,7 @@ if (!Yii::app()->user->id)
                     );
                     ?>
                 </p>
-            </div>
-            <div class="editinfo_pic_box">
-                <img src="images/web/slip.jpg" alt="" class="news_pic"/>
-                <p>
-                    <label>อัพโหลดหลักฐานการโอน</label>
-                    <?php echo $form->fileField($model, 'images', array('style' => 'border: none;box-shadow:none')); ?>
-                </p>
-                <?php echo $form->error($model, 'images'); ?>
-                (รูปภาพนามสกุล .jpg, .jpeg, .png, .gif เท่านั้น)
+                </div>
             </div>
 
         </div>

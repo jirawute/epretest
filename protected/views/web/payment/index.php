@@ -3,27 +3,25 @@ if (!Yii::app()->user->id)
     header("Location: ?r=site/login");
 ?>
 <script type="text/javascript">
-    $(function() {
-        var $radios = $('input:radio[id=payment_coupon]');
-        if ($radios.is(':checked') === true) {
-            document.getElementById('coupon').style.display = "";
-            document.getElementById('bank').style.display = "none";
-        }
-    });
-    function checkValidateCouponCode(value) {
+
+    function checkCoupon(){
+            var code = prompt("ใช้คูปอง", "Enter your code here");
         document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/loader.gif"/>';
         $.ajax({
-            url: 'index.php?r=payment/checkcoupon&c=' + value,
+            url: 'index.php?r=payment/checkcoupon&c=' + code,
             type: 'GET',
             dataType: 'html',
             success: function(data, textStatus, xhr) {
                 //alert(data);
                 if (data == 'Y') {
                     document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/exists.png"/>';
-                    document.getElementById('coupon_status').value = 'Y';
-                } else {
+                    
+                    document.forms['payment_form'].action = "index.php?r=payment/coupon&&coupon_code="+code;
+                    document.forms['payment_form'].submit();
+} else {
                     document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/not-exists.png"/>';
-                    document.getElementById('coupon_status').value = 'N';
+                    alert(data);
+                    location.href = "index.php?r=payment/index";
                 }
             },
             error: function(request, status, error) {
@@ -39,32 +37,22 @@ if (!Yii::app()->user->id)
             document.getElementById('creditcard').style.display = "none";
             document.getElementById('paysbuy').style.display = "none";
             document.getElementById('counterservice').style.display = "none";
-            document.getElementById('coupon').style.display = "none";
         } else if (type == '2') {
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "";
             document.getElementById('paysbuy').style.display = "none";
             document.getElementById('counterservice').style.display = "none";
-            document.getElementById('coupon').style.display = "none";
         } else if (type == '3') {
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "none";
             document.getElementById('paysbuy').style.display = "";
             document.getElementById('counterservice').style.display = "none";
-            document.getElementById('coupon').style.display = "none";
         } else if (type == '4') {
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "none";
             document.getElementById('paysbuy').style.display = "none";
             document.getElementById('counterservice').style.display = "";
-            document.getElementById('coupon').style.display = "none";
-        } else {
-            document.getElementById('bank').style.display = "none";
-            document.getElementById('creditcard').style.display = "none";
-            document.getElementById('paysbuy').style.display = "none";
-            document.getElementById('counterservice').style.display = "none";
-            document.getElementById('coupon').style.display = "";
-        }
+        } 
 
     }
     function checkSubmit() {
@@ -77,8 +65,8 @@ if (!Yii::app()->user->id)
                 document.getElementById('credit_point').value = document.getElementById('credit_' + i).value;
             }
         }
-        var temp = document.getElementById('payment_counter_service').checked? "&&amt="+amt:"";
-        
+        var temp = document.getElementById('payment_counter_service').checked ? "&&amt=" + amt : "";
+
         $.ajax({
             url: 'index.php?r=payment/getinvoice' + temp,
             type: 'GET',
@@ -101,23 +89,7 @@ if (!Yii::app()->user->id)
                 } else if (document.getElementById('payment_credit').checked) {
                     document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?c=true&lang=t";
                     document.forms['payment_form'].submit();
-                } else if (document.getElementById('payment_coupon').checked) {
-                    if (document.getElementById('coupon_code').value == '') {
-                        alert('กรุณากรอกรหัสคูปองค่ะ');
-                        document.getElementById('coupon_code').focus();
-                        return false;
-                    }
-                    if (document.getElementById('coupon_status').value != 'Y') {
-                        alert('รหัสไม่ถูกต้องกรุณากรอกรหัสใหม่คะ');
-                        document.getElementById('coupon_code').focus();
-                        return false;
-                    }
-
-
-                    document.forms['payment_form'].action = "index.php?r=payment/coupon";
-                    document.forms['payment_form'].submit();
-
-                }
+                } 
 
             },
             error: function(request, status, error) {
@@ -156,38 +128,27 @@ if (!Yii::app()->user->id)
     <form name="payment_form" id="payment_form" method="post" action="" >
         <div class="grid_10 push_1">
             <div class="credit_box">
-                <div class="credit_pic_1">
-                    <h2>เลือกวิธีการชำระเงิน</h2>
-                    <ul>
-                        <!--li>
-                                <input onclick="changeMethodPayment('3');" type="radio" name="payment_method" id="payment_paysbuy" value="Paysbuy"/>
-                                <label for="payment_paysbuy">ชำระผ่านบริการ PAYSBUY</label>
-                        </li-->
-                        <li>
-                            <input onclick="changeMethodPayment('4');
-            appBtn('ผ่านเคาน์เตอร์เซอร์วิส');" type="radio" name="payment_method" id="payment_counter_service" value="counter_service"/>
+                <div class="credit_pic">
+                    <h2>เติมเครดิต</h2>
+                </div>
+                <div class="credit_select" >
+                    <h2>เลือกวิธีการชำระเงิน</h2><ul><li>
+                            <input onclick="changeMethodPayment('4');appBtn('ผ่านเคาน์เตอร์เซอร์วิส');" 
+                                   type="radio" name="payment_method" id="payment_counter_service" value="counter_service"/>
                             <label for="payment_counter_service">ชำระผ่านเคาน์เตอร์เซอร์วิส</label>
-                        </li>
-                        <li>
+                            
                             <input onclick="changeMethodPayment('1');
             appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_transfer" value="Transfer"/>
-                            <label for="payment_transfer">โอนเงินผ่านบัญชีธนาคาร</label>
-                        </li>
-                        <li>
+                            <label for="payment_transfer">ชำระโดยโอนเงินผ่านบัญชีธนาคาร</label>
+                            
                             <input onclick="changeMethodPayment('2');
             appBtn('ผ่านบัตรเครดิต');" type="radio" name="payment_method" id="payment_credit" value="Credit Card"/>
                             <label for="payment_credit">ชำระผ่านบัตรเครดิต</label>
-                        </li>
-                        <li>
-                            <input onclick="changeMethodPayment('5');
-            appBtn('โดยคูปอง');" type="radio" name="payment_method" id="payment_coupon" value="coupon"/>
+                            
+                            <input onclick="checkCoupon()" type="radio" name="payment_method" id="payment_coupon" value="coupon" />
                             <label for="payment_coupon">ใช้คูปองเติมเครดิต</label>
-                        </li>
-                    </ul>
-    <!--<input type="button" name="Submit" value="ยืนยันการชำระเงิน" onclick="checkSubmit();"/>-->
-                </div>
-                <div class="credit_select1">
-                    <!--<h2>วิธีการชำระเงิน</h2>-->
+
+                        </li></ul>
                     <ul>
                         <li>
                             <div class="pay_bank" id="bank" style="display:none">
@@ -215,31 +176,18 @@ if (!Yii::app()->user->id)
                                 <h3>ชำระผ่านเคาเตอร์เซอร์วิส</h3>
                                 <div class="counterservice"></div>
                             </div>
-                            <div class="pay_box pay_coupon" id="coupon" style="display:none">
-
-                                <h3>ใช้คูปองสมนาคุณเติมเครดิต</h3>
-
-                                <div class="bank">
-                                    <p>กรุณากรอกรหัสคูปองที่ใช้ค่ะ (กรอกรหัส 6 หลัก)</p>
-                                    <input type="text" name="coupon_code" id="coupon_code" onblur="checkValidateCouponCode(this.value)" size="10" maxlength="6" />&nbsp;
-                                    <input type="hidden" name="coupon_status" id="coupon_status" value="">
-                                    <div class="grid_4 push_4 goback">
-                                        <a href="" onclick="checkSubmit();">ยืนยัน</a>
-                                    </div>
-                                    <span id="spin"></span>
-                                </div>
-
-                            </div>
                         </li>
                     </ul>
-                </div>
 
-
-                <div class="credit_pic">
-                    <h2>เติมเครดิต</h2>
                 </div>
-                <div class="credit_select">
-                    <h2>เลือกจำนวนเครดิตที่ต้องการเติม</h2>
+            </div>
+
+        </div>
+        <div class="clear" ></div>
+        <div class="grid_10 push_1" >
+            <div class="credit_option">
+                <div class="pay_select" id="spin" >
+
                     <?php
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
@@ -247,37 +195,24 @@ if (!Yii::app()->user->id)
                     $criteria->params = array(':status' => 1);
                     $criteria->order = 'credit_order';
                     $credits = Credit::model()->findAll($criteria);
-                    ?>
-                    <ul>
-
-                        <?php
+                    
                         $i = 1;
                         foreach ($credits as $credit) {
                             ?>
-                            <li>
+                    
                                 <input type="radio" id="tick_<?php echo $i ?>" name="tick" value="<?php echo $credit->credit_amount; ?>" />
                                 <input type="hidden" id="desc_<?php echo $i; ?>" name="desc_<?php echo $i; ?>" value="<?php echo $credit->credit_desc; ?>"/>
                                 <input type="hidden" id="credit_<?php echo $i; ?>" name="credit_<?php echo $i; ?>" value="<?php echo $credit->credit_point; ?>"/>
-                                <label for="tick_<?php echo $credit->credit_id; ?>">
+                                <label for ="tick_<?php echo $i ?>">
                                     <h3><?php echo number_format($credit->credit_point); ?> เครดิต</h3>
-                                    <p><?php echo number_format($credit->credit_amount); ?> บาท</p>
+                                    <?php echo number_format($credit->credit_amount); ?> บาท (ฟรี<?php echo (number_format($credit->credit_point * 100 / $credit->credit_amount) - 100) . "%)"; ?> 
                                 </label>
-                            </li>
                             <?php
                             $i++;
                         }
                         ?>
                         <input type="Hidden" id="credit_point" Name="credit_point" value=""/>
-                    </ul>
-
-                </div>
-            </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="grid_10 push_1">
-            <div class="credit_option">
-                <div class="pay_select">
+                    
                     <input id='confirmBtn' type="button" name="Submit" value="ยืนยันการชำระเงิน" onclick="checkSubmit();"/>
                     <div id="counterAlert" style="display:none">                        
                         กรุณากดปุ่ม <font color="#11100" style="font-size:150%"><strong>สิ้นสุดการทำรายการ</strong></font> ทุกครั้งหลังพิมพ์เพื่อให้รายการสมบูรณ์<br />

@@ -67,12 +67,12 @@
                         <div class="aboutus">
 
                             <ul class="aboutus_nav">
-                                <li><a href="javascript:void(0);">About Us</a>
+                                <li><a href="javascript:void(0);">About us</a>
 
                                     <ul>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'about')); ?>">เราคือ?</a></li>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'teacher')); ?>">อาจารย์ออกข้อสอบ</a></li>
-                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'importance')); ?>">ทำไมการทำข้อสอบจึงสำคัญ</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'importance')); ?>">ทำไมต้องฝึกทำข้อสอบ</a></li>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'help')); ?>">คำถามที่พบบ่อย</a></li>
                                         <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>">ติดต่อเรา</a></li>
                                     </ul>
@@ -142,12 +142,14 @@
 
                                 </ul>
                             </li>
-                            <li class="last"><a href="<?php echo Yii::app()->createUrl('site/page&view=help'); ?>"><span>ช่วยเหลือ</span></a>
-<!--                                <ul>
-                                    <li><a href="<?php //echo Yii::app()->createUrl('student/history'); ?>"><span>ประวัติการทำข้อสอบ</span></a></li>
-                                    <li><a href="<?php //echo Yii::app()->createUrl('student/viewall'); ?>"><span>สถิติการทำข้อสอบทั้งหมด</span></a></li>
-
-                                </ul>-->
+                            <li class="has-sub"><a href="#"><span>ช่วยเหลือ</span></a>
+<ul>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'about')); ?>">เราคือ?</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'teacher')); ?>">อาจารย์ออกข้อสอบ</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'importance')); ?>">ทำไมต้องฝึกทำข้อสอบ</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'help')); ?>">คำถามที่พบบ่อย</a></li>
+                                        <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>">ติดต่อเรา</a></li>
+                                    </ul>
                             </li>
                             <li class="last"><a href="<?php echo Yii::app()->createUrl('site/logout'); ?>"><span>ออกจากระบบ</span></a></li>
                         </ul>

@@ -174,16 +174,6 @@ $(function(){
                                                                     )); ?>
                                                                 <?php echo $form->error($model,'date'); ?>
                                                         </p>
-							<!--p>
-								<label>สนใจทำข้อสอบวิชา</label>
-                                                                <?php echo $form->textField($model,'subject',array('class'=>'input')); ?>
-                                                                <?php echo $form->error($model,'subject'); ?>
-                                                        </p>
-                                                        <div class="row">
-                                                                <label>คณะที่สนใจ</label>
-                                                                <?php echo $form->textField($model,'faculty',array('size'=>60,'maxlength'=>255)); ?>
-                                                                <?php echo $form->error($model,'faculty'); ?>
-                                                        </div-->
 							
 
 							<div class="editpass">

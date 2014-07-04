@@ -28,7 +28,7 @@ $this->menu=array(
 		'address',
 		'birthday',
 		'subject',
-		'faculty',
+		'free_coupon',
 		'phone',
 		'image',
 		'credit',

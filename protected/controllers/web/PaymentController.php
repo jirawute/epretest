@@ -384,28 +384,34 @@ class PaymentController extends Controller {
     public function actionCheckCoupon() {
 
         $code = $_GET['c'];
+        if(strlen($code)==6){
+        $student_id = Yii::app()->user->id;
+        $model = Student::model()->findByPk($student_id);
+        if($model->free_coupon==1){
+            echo "เกินโควต้า! คูปองสมนาคุณสามารถใช้ได้ 1 ใบต่อ 1 บัญชีเท่านั้น"; return;//Free coupon used
+        }
+        
+        }
         $condition = array(
-            'condition' => 'number=:number AND status=:status',
-            'params' => array(':number' => $code, ':status' => 1),
+            'condition' => 'number=:number ',
+            'params' => array(':number' => $code),
         );
 
         $model = Coupon::model()->find($condition);
-        if (count($model) <= 0) {
-            echo 'N';
-        } else {
-            echo 'Y';
+        if ($model==null) {
+            echo 'รหัสไม่ถูกต้อง';// No such coupon or is expired
+        } else if($model->status ==2) {
+            echo 'คูปองใบนี้ถูกใช้งานแล้ว';
+        }else{
+            echo 'Y';// This coupon is usable
         }
     }
 
     public function actionCoupon() {
 
-
-//          echo "<br> ===> ";
-//          echo "<pre>";
-//          print_r($_POST);
-//          echo "</pre>";
         $student_id = Yii::app()->user->id;
-        $code = $_POST['coupon_code'];
+        $code = $_GET['coupon_code'];
+        
         $condition = array(
             'condition' => 'number=:number AND status=:status',
             'params' => array(':number' => $code, ':status' => 1),
@@ -424,6 +430,7 @@ class PaymentController extends Controller {
         $coupon->save();
 
         $student = $this->loadStudentById($student_id);
+        $student->free_coupon = 1;
         $student->credit = $student->credit + $coupon_credit;
         $student->save();
         Yii::app()->user->setFlash('success', '<h3>เติมเครดิตเรียบร้อยแล้วค่ะ</h3>');

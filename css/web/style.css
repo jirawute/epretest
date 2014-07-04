@@ -1141,11 +1141,10 @@ body {
 }
 #content .test_box {
   overflow: hidden;
-  //height: 580px;
-  //height: 600px;
+ /* height: 600px;*/
 }
 #content .test_box .question {
-  //height: 100%;
+  height: 100%;
   width: 640px;
   float: left;
 }
@@ -2526,7 +2525,7 @@ ul#exam_list li a:hover {
   background: url(../../images/web/icon_credit_refill.png) center no-repeat;
   width: 210px;
   height: 124px;
-  margin: 90px 0 0 10px;
+  margin: 10px 0 0 10px;
 }
 #content .credit_box .credit_pic_1 {
   float: left;
@@ -2552,15 +2551,6 @@ ul#exam_list li a:hover {
   text-shadow: 0 1px #ba6808;
   color: #fff;
 }
-#content .credit_box .credit_pic_1 h2 {
-  margin: 0 0 0;
-  font-size: 2.6em;
-  text-align: center;
-  font-weight: normal;
-  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
-  text-shadow: 0 1px #ba6808;
-  color: #fff;
-}
 #content .credit_box .credit_select {
   width: 380px;
   float: right;
@@ -2574,21 +2564,7 @@ ul#exam_list li a:hover {
   border-left: 1px solid #e3702b;
   padding: 30px 0 15px 40px;
 }
-#content .credit_box .credit_select1 {
-  width: 380px;
-  height: 150px;
-  //width: 100%;
-  float: right;
-  position: relative;
-  background: url(../../images/web/bg_box_credit.png) bottom #ffffff;
-  -webkit-border-radius: 10px 0px 0px 10px;
-  -moz-border-radius: 10px 0px 0px 10px;
-  -o-border-radius: 10px 0px 0px 10px;
-  -ms-border-radius: 10px 0px 0px 10px;
-  border-radius: 10px 0px 0px 10px;
-  border-left: 1px solid #e3702b;
-  padding: 30px 0 15px 40px;
-}
+
 #content .credit_box .credit_select h2 {
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-weight: normal;
@@ -2603,7 +2579,7 @@ ul#exam_list li a:hover {
   color: #000020;
   margin: 5px 0 12px;
 }
-#content .credit_box .credit_select ul li {
+/*#content .credit_box .credit_select ul li {
   display: block;
   width: 172px;
   margin: 3px 0 16px;
@@ -2611,67 +2587,66 @@ ul#exam_list li a:hover {
 }
 #content .credit_box .credit_select1 ul li {
   display: block;
-  //display: list-item;
   width: 340px;
   margin: 3px 0 16px;
   float: left;
-}
-#content .credit_box .credit_select ul li input {
+}*/
+#content .credit_box .credit_select  input {
   float: left;
   margin: 3px 10px 0 0;
   cursor: pointer;
 }
-#content .credit_box .credit_select1 ul li input {
+#content .credit_box .credit_select1  input {
   float: left;
   margin: 3px 10px 0 0;
   cursor: pointer;
 }
-#content .credit_box .credit_select ul li label {
+#content .credit_box .credit_select  label {
   float: left;
   display: block;
   width: 75%;
   cursor: pointer;
 }
-#content .credit_box .credit_select1 ul li label {
+#content .credit_box .credit_select1  label {
   font-size: 1.8em;
   float: left;
   display: block;
   width: 75%;
   cursor: pointer;
 }
-#content .credit_box .credit_select ul li label h3 {
+#content .credit_box .credit_select  label h3 {
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-weight: normal;
   font-size: 2.1em;
   line-height: 1.2em;
   color: #e3702b;
 }
-#content .credit_box .credit_select1 ul li label h3 {
+#content .credit_box .credit_select1  label h3 {
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-weight: normal;
   font-size: 2.1em;
   line-height: 1.2em;
   color: #e3702b;
 }
-#content .credit_box .credit_select ul li label p {
+#content .credit_box .credit_select  label p {
   font-size: 1.2em;
   color: #555;
 }
-#content .credit_box .credit_select1 ul li label p {
+#content .credit_box .credit_select1  label p {
   font-size: 1.2em;
   color: #555;
 }
-#content .credit_box .credit_select ul li input[type="radio"] + label:hover h3 {
+#content .credit_box .credit_select  input[type="radio"] + label:hover h3 {
   text-decoration: underline;
 }
-#content .credit_box .credit_select1 ul li input[type="radio"] + label:hover h3 {
+#content .credit_box .credit_select1  input[type="radio"] + label:hover h3 {
   text-decoration: underline;
 }
-#content .credit_box .credit_select ul li input[type="radio"]:checked + label h3 {
+#content .credit_box .credit_select  input[type="radio"]:checked + label h3 {
   text-shadow: 0 0 15px #ffb660;
   text-decoration: underline;
 }
-#content .credit_box .credit_select1 ul li input[type="radio"]:checked + label h3 {
+#content .credit_box .credit_select1  input[type="radio"]:checked + label h3 {
   text-shadow: 0 0 15px #ffb660;
   text-decoration: underline;
 }
@@ -2755,7 +2730,7 @@ ul#exam_list li a:hover {
   color: #ff6c00;
 }
 #content .credit_option .pay_select li {
-  font-size: 1.1em;
+  font-size: 1.1em;  
   line-height: 2.2em;
   color: #333;
 }
@@ -2764,12 +2739,12 @@ ul#exam_list li a:hover {
   line-height: 2.2em;
   color: #333;
 }
-#content .credit_option .pay_select li input {
+/*#content .credit_option .pay_select li input {
   cursor: pointer;
 }
 #content .credit_select1 li input {
   cursor: pointer;
-}
+}*/
 #content .credit_option .pay_select li label {
   position: relative;
   top: 2px;
@@ -3116,7 +3091,7 @@ ul#exam_list li a:hover {
   margin: 0 0 0 30px;
   line-height: 1.6em;
 }
-/*New Button*/
+/*New Button
 
 #content .login_signup .signup_box .submit_button {
   margin: 2px auto;

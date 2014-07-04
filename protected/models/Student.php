@@ -14,7 +14,7 @@
  * @property string $address
  * @property string $birthday
  * @property string $subject
- * @property string $faculty
+ * @property string $free_coupon
  * @property string $phone
  * @property string $image
  * @property integer $credit
@@ -59,7 +59,7 @@ class Student extends CActiveRecord
                         array('credit,status', 'numerical', 'integerOnly'=>true),
 			array('firstname, lastname', 'length', 'max'=>42),
                         array('sid', 'length', 'max'=>32),
-			array('address, subject, faculty, school, email_friends', 'length', 'max'=>255),
+			array('address, subject,  school, email_friends', 'length', 'max'=>255),
 			array('email', 'length', 'max'=>96),
                         array('email', 'email','message'=>'รูปแบบอีเมล์ไม่ถูกต้อง'),
 			array('phone', 'length', 'max'=>15),
@@ -107,7 +107,7 @@ class Student extends CActiveRecord
 			'image' => 'รูปประจำตัว',
 			'credit' => 'เครดิต',
                         'subject' => 'วิชาที่สนใจ',
-                        'faculty' => 'คณะที่สนใจ',
+                        'free_coupon' => 'ใช้คูปองฟรี',
                         'username' => 'ชื่อผู้ใช้',
                         'password' => 'รหัสผ่าน',
                         'status' => 'สถานะ',
@@ -139,7 +139,7 @@ class Student extends CActiveRecord
 		$criteria->compare('image',$this->image,true);
                 $criteria->compare('credit',$this->credit);
                 $criteria->compare('subject',$this->subject,true);
-                $criteria->compare('faculty',$this->faculty,true);
+                $criteria->compare('free_coupon',$this->free_coupon,true);
                 $criteria->compare('username',$this->username,true);
                 $criteria->compare('status',$this->status);
                 $criteria->compare('email_friends',$this->email_friends,true);

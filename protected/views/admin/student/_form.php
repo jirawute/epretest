@@ -161,9 +161,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'faculty'); ?>
-		<?php echo $form->textField($model,'faculty',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'faculty'); ?>
+		<?php echo $form->labelEx($model,'free_coupon'); ?>
+		<?php echo $form->textField($model,'free_coupon',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'free_coupon'); ?>
 	</div>
 
 	<div class="row">
