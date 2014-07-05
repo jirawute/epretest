@@ -53,6 +53,14 @@
         <?php echo $form->fileField($model, 'answer_file', array('style' => 'border: none;box-shadow:none')); ?>
 <?php echo $form->error($model, 'answer_file'); ?>
     </div>
+    <div class="row"><?php echo $form->textField($model, 'exam_doc_id'); ?> </div>
+    <div class="row"><?php echo $form->textField($model, 'exam_access_key'); ?> </div>
+    <div class="row"><?php echo $form->textField($model, 'answer_doc_id'); ?> </div>
+    <div class="row"><?php echo $form->textField($model, 'answer_access_key'); ?> </div>
+    <div class="row">
+        <?php echo $form->labelEx($model, 'score_total'); ?>
+        <?php echo $form->textField($model, 'score_total'); ?>
+    </div>
     <div class="row" >
         <?php echo $form->labelEx($model, 'voice_file'); ?>
         <?php echo $form->dropDownList($model, 'voice_file', array('0' => 'No Voice', '1' => 'With Voice')); ?>

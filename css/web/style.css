@@ -1745,7 +1745,6 @@ body {
   /*margin: 0 auto;
   padding: 4px 30px;*/
   color: #fff;
-  color: #77B32F;
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-size: 2.2em;
   font-weight: normal;
@@ -1767,11 +1766,12 @@ body {
 #content .test_box .answer .answer_bottom .submit_button:hover {
   border: solid 1px #fb9151;
   background-color: #ff7521;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));
+  background-color:green;
+/*  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));
   background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));
   background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.03));*/
 }
 #content .test_box .answer .answer_bottom .submit_button:active {
   background-color: #f95e00;
@@ -1789,7 +1789,6 @@ body {
   /*margin: 0 auto;
   padding: 4px 30px;*/
   color: #fff;
-  color: #77B32F;
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-size: 2.2em;
   font-weight: normal;
