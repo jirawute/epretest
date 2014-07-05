@@ -450,3 +450,213 @@ REQUEST_URI=/epretest/index.php?r=student/update
 in C:\AppServ\www\epretest\protected\controllers\web\StudentController.php (353)
 in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\AppServ\www\epretest\index.php (11)
+2014/07/04 12:44:03 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/07/04 17:26:09 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/07/05 06:08:59 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/07/05 06:20:16 [error] [exception.CException] exception 'CException' with message 'Property "Student.faculty" is not defined.' in C:\AppServ\www\epretest\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\AppServ\www\epretest\framework\db\ar\CActiveRecord.php(144): CComponent->__get('faculty')
+#1 C:\AppServ\www\epretest\framework\web\helpers\CHtml.php(2145): CActiveRecord->__get('faculty')
+#2 C:\AppServ\www\epretest\framework\web\helpers\CHtml.php(1875): CHtml::resolveValue(Object(Student), 'faculty')
+#3 C:\AppServ\www\epretest\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(Student), 'faculty', Array)
+#4 C:\AppServ\www\epretest\framework\web\widgets\CActiveForm.php(655): CHtml::activeTextField(Object(Student), 'faculty', Array)
+#5 C:\AppServ\www\epretest\protected\views\admin\student\_search.php(80): CActiveForm->textField(Object(Student), 'faculty', Array)
+#6 C:\AppServ\www\epretest\framework\web\CBaseController.php(127): require('C:\AppServ\www\...')
+#7 C:\AppServ\www\epretest\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\AppServ\www\...', Array, true)
+#8 C:\AppServ\www\epretest\framework\web\CController.php(870): CBaseController->renderFile('C:\AppServ\www\...', Array, true)
+#9 C:\AppServ\www\epretest\protected\views\admin\student\admin.php(38): CController->renderPartial('_search', Array)
+#10 C:\AppServ\www\epretest\framework\web\CBaseController.php(127): require('C:\AppServ\www\...')
+#11 C:\AppServ\www\epretest\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\AppServ\www\...', Array, true)
+#12 C:\AppServ\www\epretest\framework\web\CController.php(870): CBaseController->renderFile('C:\AppServ\www\...', Array, true)
+#13 C:\AppServ\www\epretest\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#14 C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php(129): CController->render('admin', Array)
+#15 C:\AppServ\www\epretest\framework\web\actions\CInlineAction.php(50): StudentController->actionIndex()
+#16 C:\AppServ\www\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#17 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#18 C:\AppServ\www\epretest\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#19 C:\AppServ\www\epretest\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#20 C:\AppServ\www\epretest\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\AppServ\www\epretest\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\AppServ\www\epretest\framework\web\CController.php(292): CFilterChain->run()
+#23 C:\AppServ\www\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\AppServ\www\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#25 C:\AppServ\www\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('student')
+#26 C:\AppServ\www\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#27 C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#28 [internal function]: WebApplicationEndBehavior->runEnd('admin')
+#29 C:\AppServ\www\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#30 [internal function]: CComponent->__call('runEnd', Array)
+#31 C:\AppServ\www\epretest\admin.php(11): CWebApplication->runEnd('admin')
+#32 {main}
+REQUEST_URI=/epretest/admin/student
+HTTP_REFERER=http://localhost/epretest/admin
+---
+2014/07/05 06:26:39 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:26:42 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:26:53 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:26:55 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:28:24 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:28:26 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:28:37 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:58:49 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 06:59:05 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:15:30 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:17:19 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:17:55 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:17:58 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:19:16 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:19:19 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:19:23 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:19:25 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:19:38 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:20:15 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 07:20:19 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:06 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:08 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:10 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:13 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:14 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:18 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:35:21 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:36:23 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:36:26 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:37:38 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:38:00 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:38:04 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:38:34 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:38:36 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:54:28 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:54:30 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:54:36 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:56:19 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 12:59:55 [warning] [application] Failed to set unsafe attribute "free_coupon" of "Student".
+in C:\AppServ\www\epretest\protected\controllers\admin\StudentController.php (124)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/05 13:06:37 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)

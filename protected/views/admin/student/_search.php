@@ -76,8 +76,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'faculty'); ?>
-		<?php echo $form->textField($model,'faculty',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->label($model,'free_coupon'); ?>
+		<?php echo $form->dropDownList($model, 'free_coupon', array('used'=>1,'unused'=>0));  ?>
 	</div>
 
 	<div class="row">

@@ -35,23 +35,19 @@ if (!Yii::app()->user->id)
         if (type == '1') {
             document.getElementById('bank').style.display = "";
             document.getElementById('creditcard').style.display = "none";
-            document.getElementById('paysbuy').style.display = "none";
-            document.getElementById('counterservice').style.display = "none";
+            document.getElementById('counter').style.display = "none";
         } else if (type == '2') {
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "";
-            document.getElementById('paysbuy').style.display = "none";
-            document.getElementById('counterservice').style.display = "none";
+            document.getElementById('counter').style.display = "none";
         } else if (type == '3') {
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "none";
-            document.getElementById('paysbuy').style.display = "";
-            document.getElementById('counterservice').style.display = "none";
+            document.getElementById('counter').style.display = "none";
         } else if (type == '4') {
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "none";
-            document.getElementById('paysbuy').style.display = "none";
-            document.getElementById('counterservice').style.display = "";
+            document.getElementById('counter').style.display = "";
         } 
 
     }
@@ -132,19 +128,20 @@ if (!Yii::app()->user->id)
                     <h2>เติมเครดิต</h2>
                 </div>
                 <div class="credit_select" >
-                    <h2>เลือกวิธีการชำระเงิน</h2><ul><li>
+                    <h2>เลือกวิธีการชำระเงิน</h2>
+                    <ul><li>
                             <input onclick="changeMethodPayment('4');appBtn('ผ่านเคาน์เตอร์เซอร์วิส');" 
                                    type="radio" name="payment_method" id="payment_counter_service" value="counter_service"/>
                             <label for="payment_counter_service">ชำระผ่านเคาน์เตอร์เซอร์วิส</label>
-                            
+                        </li><li>
                             <input onclick="changeMethodPayment('1');
             appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_transfer" value="Transfer"/>
                             <label for="payment_transfer">ชำระโดยโอนเงินผ่านบัญชีธนาคาร</label>
-                            
+                        </li><li>
                             <input onclick="changeMethodPayment('2');
             appBtn('ผ่านบัตรเครดิต');" type="radio" name="payment_method" id="payment_credit" value="Credit Card"/>
                             <label for="payment_credit">ชำระผ่านบัตรเครดิต</label>
-                            
+                             </li><li>
                             <input onclick="checkCoupon()" type="radio" name="payment_method" id="payment_coupon" value="coupon" />
                             <label for="payment_coupon">ใช้คูปองเติมเครดิต</label>
 
@@ -153,7 +150,7 @@ if (!Yii::app()->user->id)
                         <li>
                             <div class="pay_bank" id="bank" style="display:none">
                                 <!--<div class="credit_select">-->
-                                <h3>ข้อมูลสำหรับการโอนเงิน</h3>
+                                <h2>ข้อมูลสำหรับการโอนเงิน</h2>
 
                                 <div class="bank">
                                     <h4>ธนาคารกสิกรไทย</h4>
@@ -164,16 +161,10 @@ if (!Yii::app()->user->id)
                                 </div>
 
                             </div>
-                            <div class="pay_box pay_creditcard" id="creditcard" style="display:none">
-                                <h3>ชำระผ่านบัตรเครดิต</h3>
+                            <div class="pay_box pay_creditcard" id="creditcard" style="display:none"> 
                                 <div class="visa_mastercard"></div>
                             </div>
-                            <div class="pay_box pay_paysbuy" id="paysbuy" style="display:none">
-                                <h3>ชำระผ่านบริการ PAYSBUY</h3>
-                                <div class="paysbuy"></div>
-                            </div>
-                            <div class="pay_box pay_counterservice" id="counterservice" style="display:none">
-                                <h3>ชำระผ่านเคาเตอร์เซอร์วิส</h3>
+                            <div class="pay_box pay_counterservice" id="counter" style="display:none">
                                 <div class="counterservice"></div>
                             </div>
                         </li>
@@ -199,14 +190,14 @@ if (!Yii::app()->user->id)
                         $i = 1;
                         foreach ($credits as $credit) {
                             ?>
-                    
+                    <li>
                                 <input type="radio" id="tick_<?php echo $i ?>" name="tick" value="<?php echo $credit->credit_amount; ?>" />
                                 <input type="hidden" id="desc_<?php echo $i; ?>" name="desc_<?php echo $i; ?>" value="<?php echo $credit->credit_desc; ?>"/>
                                 <input type="hidden" id="credit_<?php echo $i; ?>" name="credit_<?php echo $i; ?>" value="<?php echo $credit->credit_point; ?>"/>
                                 <label for ="tick_<?php echo $i ?>">
                                     <h3><?php echo number_format($credit->credit_point); ?> เครดิต</h3>
                                     <?php echo number_format($credit->credit_amount); ?> บาท (ฟรี<?php echo (number_format($credit->credit_point * 100 / $credit->credit_amount) - 100) . "%)"; ?> 
-                                </label>
+                                </label></li>
                             <?php
                             $i++;
                         }

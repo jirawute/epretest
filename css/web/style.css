@@ -1185,8 +1185,8 @@ body {
   height: 69px;
 }
 #content .test_box .answer .answer_bottom1 {
-  //background: url(../../images/web/bottom_answer_2.png);
-  //background: url(../../images/web/bottom_answer.png);
+  background: url(../../images/web/bottom_answer_2.png);
+  background: url(../../images/web/bottom_answer.png);
   height: 50px;
 }
 #content .test_box .answer .answer_top h2 {
@@ -1745,7 +1745,7 @@ body {
   /*margin: 0 auto;
   padding: 4px 30px;*/
   color: #fff;
-  //color: #77B32F;
+  color: #77B32F;
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-size: 2.2em;
   font-weight: normal;
@@ -1789,7 +1789,7 @@ body {
   /*margin: 0 auto;
   padding: 4px 30px;*/
   color: #fff;
-  //color: #77B32F;
+  color: #77B32F;
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
   font-size: 2.2em;
   font-weight: normal;
@@ -2525,19 +2525,19 @@ ul#exam_list li a:hover {
   background: url(../../images/web/icon_credit_refill.png) center no-repeat;
   width: 210px;
   height: 124px;
-  margin: 10px 0 0 10px;
+  margin: 30px 0 0 10px;
 }
 #content .credit_box .credit_pic_1 {
   float: left;
-  //float: none;
-  //background: url(../../images/web/icon_credit_refill.png) center no-repeat;
+  float: none;
+  background: url(../../images/web/icon_credit_refill.png) center no-repeat;
   width: 210px;
   height: 124px;
-  margin: 30px 0 0 10px;
+  /*margin: 20px 0 0 10px;*/
 }
 #content .credit_box .credit_pic_1 li {
   float: left;
-  //float: top;
+  float: top;
   font-size: 1.5em;
   width: 210x;
   margin: 5px 0 0 10px;
@@ -2579,24 +2579,14 @@ ul#exam_list li a:hover {
   color: #000020;
   margin: 5px 0 12px;
 }
-/*#content .credit_box .credit_select ul li {
+#content .credit_box .credit_select ul li {
   display: block;
-  width: 172px;
+  width: 272px;
   margin: 3px 0 16px;
   float: left;
 }
-#content .credit_box .credit_select1 ul li {
-  display: block;
-  width: 340px;
-  margin: 3px 0 16px;
-  float: left;
-}*/
+
 #content .credit_box .credit_select  input {
-  float: left;
-  margin: 3px 10px 0 0;
-  cursor: pointer;
-}
-#content .credit_box .credit_select1  input {
   float: left;
   margin: 3px 10px 0 0;
   cursor: pointer;
@@ -2606,13 +2596,7 @@ ul#exam_list li a:hover {
   display: block;
   width: 75%;
   cursor: pointer;
-}
-#content .credit_box .credit_select1  label {
-  font-size: 1.8em;
-  float: left;
-  display: block;
-  width: 75%;
-  cursor: pointer;
+  font-size: 1.5em;
 }
 #content .credit_box .credit_select  label h3 {
   font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
@@ -2621,35 +2605,19 @@ ul#exam_list li a:hover {
   line-height: 1.2em;
   color: #e3702b;
 }
-#content .credit_box .credit_select1  label h3 {
-  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
-  font-weight: normal;
-  font-size: 2.1em;
-  line-height: 1.2em;
-  color: #e3702b;
-}
 #content .credit_box .credit_select  label p {
-  font-size: 1.2em;
-  color: #555;
-}
-#content .credit_box .credit_select1  label p {
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: #555;
 }
 #content .credit_box .credit_select  input[type="radio"] + label:hover h3 {
   text-decoration: underline;
 }
-#content .credit_box .credit_select1  input[type="radio"] + label:hover h3 {
-  text-decoration: underline;
-}
+
 #content .credit_box .credit_select  input[type="radio"]:checked + label h3 {
   text-shadow: 0 0 15px #ffb660;
   text-decoration: underline;
 }
-#content .credit_box .credit_select1  input[type="radio"]:checked + label h3 {
-  text-shadow: 0 0 15px #ffb660;
-  text-decoration: underline;
-}
+
 #content .credit_box .credit_select:after,
 #content .credit_box .credit_select:before {
   right: 100%;
@@ -2730,10 +2698,20 @@ ul#exam_list li a:hover {
   color: #ff6c00;
 }
 #content .credit_option .pay_select li {
+    list-style-type: none;
   font-size: 1.1em;  
   line-height: 2.2em;
   color: #333;
 }
+#content .credit_option .pay_select li:hover {
+    background:burlywood; 
+}
+#content .credit_option .pay_select li label {
+  position: relative;
+  top: 2px;
+  cursor: pointer;
+}
+
 #content .credit_select1 li {
   font-size: 1.1em;
   line-height: 2.2em;
@@ -2745,11 +2723,7 @@ ul#exam_list li a:hover {
 #content .credit_select1 li input {
   cursor: pointer;
 }*/
-#content .credit_option .pay_select li label {
-  position: relative;
-  top: 2px;
-  cursor: pointer;
-}
+
 #content .credit_select1 li label {
   position: relative;
   top: 2px;
@@ -3091,7 +3065,7 @@ ul#exam_list li a:hover {
   margin: 0 0 0 30px;
   line-height: 1.6em;
 }
-/*New Button
+/*New Button*/
 
 #content .login_signup .signup_box .submit_button {
   margin: 2px auto;
@@ -3814,7 +3788,6 @@ ul#exam_list li a:hover {
 
 #content .credit_option .pay_bank,
 #content .credit_option .pay_creditcard,
-#content .credit_option .pay_paysbuy,
 #content .credit_option .pay_counterservice,
 #content .credit_option .pay_coupon
 {
@@ -3831,20 +3804,15 @@ ul#exam_list li a:hover {
 #content .credit_option .pay_creditcard:before {
   top: 73%;
 }
-
-#content .credit_option .pay_paysbuy:after,
-#content .credit_option .pay_paysbuy:before {
-  top: 75%;
-}
-
 #content .credit_option .pay_counterservice:after,
 #content .credit_option .pay_counterservice:before {
   top: 75%;
 }
-
-#content .credit_option .pay_coupon:after,
-#content .credit_option .pay_coupon:before {
-  top: 75%;
+.counterservice {
+  width: 260px;
+  height: 72px;
+  display: block;
+  background: url(../../images/web/counterservice.png) no-repeat;
 }
 
 .visa_mastercard {
@@ -3854,27 +3822,8 @@ ul#exam_list li a:hover {
   background: url(../../images/web/visa_mastercard.png) no-repeat;
 }
 
-#content .credit_option .pay_paysbuy {
-  margin-top: 6px;
-}
 
-.paysbuy {
-  width: 400px;
-  height: 72px;
-  display: block;
-  background: url(../../images/web/paysbuy.png) no-repeat;
-}
 
-#content .credit_option .pay_counterservice {
-  margin-top: 35px;
-}
-
-.counterservice {
-  width: 260px;
-  height: 72px;
-  display: block;
-  background: url(../../images/web/counterservice.png) no-repeat;
-}
 #content .credit_option .pay_coupon {
   margin-top: 75px;
 }

@@ -393,7 +393,7 @@ class PaymentController extends Controller {
         
         }
         $condition = array(
-            'condition' => 'number=:number ',
+            'condition' => 'number=:number',
             'params' => array(':number' => $code),
         );
 

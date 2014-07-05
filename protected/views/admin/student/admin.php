@@ -67,18 +67,22 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 //		),
             	array(
 			'name'=> 'status',
-			'value'=> '($data->status)? \'Activate\' : \'Deactivate\'',
+			'value'=> '($data->status)? \'Active\' : \'Inactive\'',
 			'htmlOptions'=>array('style'=>'text-align: left; width: 80px;'),
-                        'filter'=>array('1'=>'Activate','0'=>'Deactivate'),
+                        'filter'=>array('1'=>'Active','0'=>'Inactive'),
 		),
-            
+            array(
+			'name'=> 'free_coupon',
+			'value'=> '($data->free_coupon)? \'used\' : \'unused\'',
+			'htmlOptions'=>array('style'=>'text-align: left; width: 80px;'),
+                        'filter'=>array('1'=>'used','0'=>'unused'),
+		),
 		'email',
 		/*
 		
 		'address',
 		'birthday',
 		'subject',
-		'faculty',
 		'phone',
 		'image',
 		'credit',
