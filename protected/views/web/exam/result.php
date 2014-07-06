@@ -67,12 +67,18 @@
 
 <script type="text/javascript">
 
-    var url = 'http://www.e-pretest.com/uploads/answer/<?= $exam_info['answer_file'] ?>';
-    var pub_id = 'pub-87933716448539829813621125';
-    var doc_id = <?= $exam_info['answer_doc_id'] ?>;
-    var access_key = '<?= $exam_info['answer_access_key'] ?>';
-    //var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
-    var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
+    function showPDF(){
+    $("#loading").show();
+
+        var url = 'http://www.e-pretest.com/uploads/answer/<?= $exam_info['answer_file'] ?>';
+        var pub_id = 'pub-87933716448539829813621125';
+        var doc_id = '<?= $exam_info['answer_doc_id'] ?>';
+        var access_key = '<?= $exam_info['answer_access_key'] ?>';
+        if (doc_id == '') {
+            var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
+        } else {
+            var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
+        }
     var onDocReady = function(e) {
         scribd_doc.api.setZoom(0.6);
         $("#loading").hide(1000);
@@ -86,7 +92,7 @@
     scribd_doc.addParam('extension', 'pdf');
     scribd_doc.addParam('title', 'Yong');
     scribd_doc.write('embedded_doc');
-
+}
 </script>
 <div class="test_box">
     <div class="question">
@@ -102,7 +108,8 @@
 
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
-        <div  id ="loading" class="question_content"style="position: absolute;width: 640px;height: 500px;background: #F5F5F5;z-index: 100;">Loading
+        <div  id ="loading" class="loading"style="display:none; position: absolute;width: 640px;height: 500px;background: #F5F5F5;z-index: 100;">
+            <img src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
         </div>
         <div class="question_content"  id='embedded_doc'>
             <!--div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>

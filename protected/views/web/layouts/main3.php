@@ -46,6 +46,9 @@
 
         </script>
         <script type="text/javascript">
+            $(document).ready(function() {
+                showPDF();
+            });
             function OpenLink(url) {
                 document.location.href = url;
             }

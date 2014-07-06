@@ -881,3 +881,43 @@ in C:\AppServ\www\epretest\admin.php (11)
 in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (56)
 in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 10:51:09 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/07/06 10:59:11 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\AppServ\www\epretest\protected\controllers\web\SiteController.php (265)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\index.php (11)
+2014/07/06 13:42:13 [warning] [application] Failed to set unsafe attribute "exam_doc_id" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 13:42:13 [warning] [application] Failed to set unsafe attribute "exam_access_key" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 13:42:13 [warning] [application] Failed to set unsafe attribute "answer_doc_id" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 13:42:13 [warning] [application] Failed to set unsafe attribute "answer_access_key" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 16:30:39 [warning] [application] Failed to set unsafe attribute "exam_doc_id" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 16:30:39 [warning] [application] Failed to set unsafe attribute "exam_access_key" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 16:30:39 [warning] [application] Failed to set unsafe attribute "answer_doc_id" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)
+2014/07/06 16:30:39 [warning] [application] Failed to set unsafe attribute "answer_access_key" of "Exam".
+in C:\AppServ\www\epretest\protected\controllers\admin\ExamController.php (157)
+in C:\AppServ\www\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\AppServ\www\epretest\admin.php (11)

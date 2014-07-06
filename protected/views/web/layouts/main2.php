@@ -88,7 +88,7 @@
                      คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
                             useCredit(credit_require, exam_id);
-                            //onclick="myFunction()"
+                            
                             var y = document.createElement("AUDIO");
                             y.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
                             y.setAttribute("controls", "controls");
@@ -104,7 +104,7 @@
                     apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
                             useCredit(credit_require, exam_id);
-                            $("#loading").show();
+                            
                         } else {
                             OpenLink("index.php?r=student/view");
                         }
@@ -145,10 +145,10 @@
                     type: 'GET',
                     dataType: 'html',
                     success: function(temp, textStatus, xhr) {
-                        if (temp == 'Y') {
+                        if (temp == 'Y'){
                             showPDF();
-                        } else {
-
+                            
+                        }else{
                             alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้');
                             OpenLink("index.php?r=student/view");
                         }
