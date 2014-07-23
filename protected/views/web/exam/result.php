@@ -18,7 +18,7 @@
     }
 
     function alertBox(shared, credit_required, test_record_id, student_id) {
-        if (shared == 0) {
+        if (shared === 0) {
             var up_credit = Math.max(0, Math.round(credit_required / 10)); //Credit reward = 10% if shared on FB
 //                    var total_shared = getTotalShared();
 //                    up_credit = Math.min(up_credit,15);
@@ -67,32 +67,36 @@
 
 <script type="text/javascript">
 
-    function showPDF(){
-    $("#loading").show();
+    function showPDF() {
+          $("#loading").show();
 
         var url = 'http://www.e-pretest.com/uploads/answer/<?= $exam_info['answer_file'] ?>';
         var pub_id = 'pub-87933716448539829813621125';
         var doc_id = '<?= $exam_info['answer_doc_id'] ?>';
         var access_key = '<?= $exam_info['answer_access_key'] ?>';
-        if (doc_id == '') {
+        if (doc_id === '') {
             var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
         } else {
+            //alert(doc_id);
             var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
         }
-    var onDocReady = function(e) {
-        scribd_doc.api.setZoom(0.6);
-        $("#loading").hide(1000);
+        var onDocReady = function(e) {
+            scribd_doc.api.setZoom(0.6);
+            $("#loading").hide(1000);
+        };
+        scribd_doc.addEventListener('docReady', onDocReady);
+        scribd_doc.addParam('jsapi_version', 2);
+        var h1 = $('#answer_sheet').height();
+        
+        var h2 = $('#h2').height();
+        alert(h1+":"+h2);
+        scribd_doc.addParam('height', h1);
+        scribd_doc.addParam('width', 640);
+        scribd_doc.addParam('public', false);
+        scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
+        scribd_doc.addParam('extension', 'pdf');
+        scribd_doc.write('embedded_doc');
     }
-    scribd_doc.addEventListener('docReady', onDocReady);
-    scribd_doc.addParam('jsapi_version', 2);
-    // scribd_doc.addParam('height', 550);
-    scribd_doc.addParam('width', 640);
-    scribd_doc.addParam('public', false);
-    scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
-    scribd_doc.addParam('extension', 'pdf');
-    scribd_doc.addParam('title', 'Yong');
-    scribd_doc.write('embedded_doc');
-}
 </script>
 <div class="test_box">
     <div class="question">
@@ -108,18 +112,14 @@
 
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
-        <div  id ="loading" class="loading"style="display:none; position: absolute;width: 640px;height: 500px;background: #F5F5F5;z-index: 100;">
-            <img src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
+        <div  id ="loading" style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">
+            <img class="loading" src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
         </div>
-        <div class="question_content"  id='embedded_doc'>
-            <!--div style="position: absolute;width: 20px;height: 30px;background: #F5F5F5;z-index: 100;left: 615px;"></div>
-            <div style="position: absolute;width: 600px;height: 800px;background: #0;z-index: 100;left: 0px;top:30px;"></div>
-            <iframe  id="iframe" class="pdfviewer" src="http://www.e-pretest.com/uploads/<?php echo $file_name; ?>" width="640px" height="100%" frameborder="0"></iframe>
-            <!--<iframe class="pdfviewer" src="http://docs.google.com/viewer?url=http%3A%2F%2Fwww.forum.02dual.com%2Fexamfile%2F655topic%2FkeyO-NET53Math.pdf&embedded=true" width="640px" height="100%" frameborder="0"></iframe>-->
+        <div class="question_content"  id='embedded_doc' style="height:100%">
         </div>
     </div>
     <form name="ExamForm" method="post" action="">
-        <div class="answer">
+        <div class="answer" id="answer_sheet">
             <?php
             $testrecord = TestRecord::model()->loadTestRecord($test_record_id);
             $student_id = Yii::app()->user->id;
@@ -159,7 +159,7 @@
                 echo $this->renderPartial('_form0');
             }
             ?>
-            <div class="answer_bottom">
+            <div class="answer_bottom" id="h2">
 
                 <input onclick="<? echo 'alertBox(' . $testrecord['elapse_time'] . ',' . $exam_info['credit_required'] . ',' . $test_record_id . ',' . $student_id . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
 

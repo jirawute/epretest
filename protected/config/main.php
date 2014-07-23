@@ -52,7 +52,7 @@ return array(
 			//'authFile'=>''
 		),
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=epretest',
+			'connectionString' => 'mysql:host=localhost;dbname=epretest_estudio',
 			'emulatePrepare' => true,
 			'username' => 'yong',
 			'password' => '1123',

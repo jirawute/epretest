@@ -77,7 +77,7 @@
         var pub_id = 'pub-87933716448539829813621125';
         var doc_id = '<?= $exam_info['exam_doc_id'] ?>';
         var access_key = '<?= $exam_info['exam_access_key'] ?>';
-        if (doc_id == '') {
+        if (doc_id === '') {
             var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
         } else {
             var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
@@ -87,10 +87,11 @@
             scribd_doc.api.setZoom(0.6);
             $("#loading").hide(1000);
             cinterval = setInterval('time_dec()', 1000);
-        }
+        };
         scribd_doc.addEventListener('docReady', onDocReady);
         scribd_doc.addParam('jsapi_version', 2);
-        // scribd_doc.addParam('height', 550);
+        var h1 = $('#answer_sheet').height();
+        scribd_doc.addParam('height', h1);
         scribd_doc.addParam('width', 640);
         scribd_doc.addParam('public', false);
         scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
@@ -125,7 +126,7 @@
             <div id='embedded_doc' ></div>
         </div-->
 
-        <div  id ="loading" class="loading"style="display:none; position: absolute;width: 640px;height: 500px;background: #F5F5F5;z-index: 100;">
+        <div  id ="loading" class="loading"style="display:none; position: absolute;width: 640px;height: 600px;background: #F5F5F5;z-index: 100;">
             <img src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
         </div>
         <div class="question_content"  id='embedded_doc' style="position: absolute;">
@@ -138,7 +139,7 @@
         <input type="hidden" name="ExamForm[score]" value="00.00"/>
         <input type="hidden" name="ExamForm[elapse_time]" id="elapse_time" value="0" /><!--set to default - > will be used to identify if this test is shared on FB-->
         <input type="hidden" name="ExamForm[status]" value="1"/>
-        <div class="answer">
+        <div class="answer" id="answer_sheet">
             <?php
 //            $num_row = count($count_selected);
 //            echo $num_row;
