@@ -1,5 +1,5 @@
 <?php
-$username = "yong";
+$username = "root";
 $password = "1123";
 $hostname = "localhost";
 

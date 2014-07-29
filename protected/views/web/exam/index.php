@@ -84,14 +84,14 @@
         }
 
         var onDocReady = function(e) {
-            scribd_doc.api.setZoom(0.6);
+          //  scribd_doc.api.setZoom(0.6);
             $("#loading").hide(1000);
             cinterval = setInterval('time_dec()', 1000);
         };
         scribd_doc.addEventListener('docReady', onDocReady);
         scribd_doc.addParam('jsapi_version', 2);
         var h1 = $('#answer_sheet').height();
-        scribd_doc.addParam('height', h1);
+        scribd_doc.addParam('height', h1-20);
         scribd_doc.addParam('width', 640);
         scribd_doc.addParam('public', false);
         scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
@@ -105,6 +105,11 @@
         display: inline-block;
         width: 5em;
     }
+    img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
 <div class="test_box">
     <div class="question" onmousedown="return false" ><!--lock whole sheet to prevent copy-->
@@ -126,8 +131,8 @@
             <div id='embedded_doc' ></div>
         </div-->
 
-        <div  id ="loading" class="loading"style="display:none; position: absolute;width: 640px;height: 600px;background: #F5F5F5;z-index: 100;">
-            <img src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
+        <div  id ="loading"style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">
+            <img src="./images/web/loading1.gif"  class="center" onclick="location.reload();"alt="Be patient..." />
         </div>
         <div class="question_content"  id='embedded_doc' style="position: absolute;">
         </div>

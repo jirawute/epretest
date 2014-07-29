@@ -11,6 +11,12 @@ if ($subject['exam_type'] == 'Exam') {
   echo "</pre>"; */
 ?>
 <style type="text/css">
+    img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+    
     @media print {
         body * {
             visibility:hidden;
@@ -156,11 +162,15 @@ if ($subject['exam_type'] == 'Exam') {
 </div>
 
 <div class="clear"></div>
-<? if($msg){?>
+<? if($msg!=""){?>
     <div class="grid_12 dialog" id="dialogBox">
 
         <div class="text">
             <p><?=$msg?></p>
+                    
+    <img src="./images/popup_promotion.gif" class="center">
+ 
+    </img>
         </div>
 
         <div class="close" onclick="closeDialogBox();">x</div>

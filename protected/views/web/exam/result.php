@@ -81,7 +81,7 @@
             var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
         }
         var onDocReady = function(e) {
-            scribd_doc.api.setZoom(0.6);
+            //scribd_doc.api.setZoom(0.6);
             $("#loading").hide(1000);
         };
         scribd_doc.addEventListener('docReady', onDocReady);
@@ -89,8 +89,8 @@
         var h1 = $('#answer_sheet').height();
         
         var h2 = $('#h2').height();
-        alert(h1+":"+h2);
-        scribd_doc.addParam('height', h1);
+        $('#loading').append(h1+":"+h2);
+        scribd_doc.addParam('height', h1-20);
         scribd_doc.addParam('width', 640);
         scribd_doc.addParam('public', false);
         scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
@@ -98,6 +98,14 @@
         scribd_doc.write('embedded_doc');
     }
 </script>
+<style>
+  
+    img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  </style>  
 <div class="test_box">
     <div class="question">
         <div class="question_top">
@@ -113,7 +121,7 @@
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
         <div  id ="loading" style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">
-            <img class="loading" src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
+            <img class="center" src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
         </div>
         <div class="question_content"  id='embedded_doc' style="height:100%">
         </div>

@@ -41,7 +41,6 @@
             })();
 
         </script>
-
         <script type="text/javascript">
             function OpenLink(url) {
                 document.location.href = url;
