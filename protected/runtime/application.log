@@ -1418,3 +1418,244 @@ in C:\xampp\htdocs\project\epretest\protected\controllers\web\StudentController.
 in C:\xampp\htdocs\project\epretest\protected\controllers\web\SiteController.php (265)
 in C:\xampp\htdocs\project\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\xampp\htdocs\project\epretest\index.php (11)
+2014/07/31 02:53:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\xampp\htdocs\project\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\project\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\project\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\project\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\project\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\project\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\project\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\project\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\project\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\project\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\project\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\project\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\project\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\project\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\project\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\project\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\project\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\project\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\project\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\project\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\project\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/project/epretest/
+---
+2014/07/31 02:54:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\xampp\htdocs\project\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\project\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\project\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\project\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\project\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\project\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\project\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\project\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\project\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\project\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\project\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\project\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\project\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\project\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\project\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\project\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\project\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\project\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\project\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\project\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\project\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/project/epretest/
+---
+2014/07/31 09:54:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'yong'@'localhost' (using password: YES)' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 09:57:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'yong'@'localhost' to database 'epretest_estudio'' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 09:57:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'yong'@'localhost' to database 'epretest_estudio'' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 09:57:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'yong'@'localhost' to database 'epretest_estudio'' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 09:57:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'yong'@'localhost' to database 'epretest_estudio'' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 09:57:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1044] Access denied for user 'yong'@'localhost' to database 'epretest_estudio'' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 09:57:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\xampp\htdocs\2014\epretest\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\2014\epretest\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(615): CApplication->getDb()
+#5 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(2263): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\2014\epretest\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Information))
+#7 C:\xampp\htdocs\2014\epretest\protected\models\Information.php(28): CActiveRecord::model('Information')
+#8 C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php(45): Information::model()
+#9 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#15 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#17 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#18 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#19 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#20 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#21 {main}
+REQUEST_URI=/2014/epretest/
+---
+2014/07/31 10:24:48 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php (265)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)

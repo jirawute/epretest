@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/web/custom.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/web/apprise.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/web/cssmenu.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5">
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/less-1.3.3.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/selectivizr-min.js"></script>
@@ -25,6 +26,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.ellipsis.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/apprise-1.5.full.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -39,6 +41,17 @@
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(ga, s);
             })();
+            $(document).ready(function() {
+                $(".fancybox")
+                        .attr('rel', 'gallery')
+                        .fancybox({
+                    padding: 0
+                });
+
+
+// Launch fancyBox on first element
+                $(".fancybox").eq(0).trigger('click');
+            });
 
         </script>
         <script type="text/javascript">
@@ -56,7 +69,7 @@
 
     <body>
         <div class="container_12">
-<?php if (Yii::app()->user->isGuest) { ?>
+            <?php if (Yii::app()->user->isGuest) { ?>
                 <div id="header" class="grid_12">
 
                     <h1 class="logo"><a href="index.php">eStudio</a></h1>
@@ -119,7 +132,7 @@
                         </form>
                     </div>
                 </div>
-<?php } else { ?>
+            <?php } else { ?>
                 <div id="header" class="grid_12">
                     <h1 class="logo"><a href="index.php">eStudio</a></h1>
                     <div id="cssmenu">
@@ -142,26 +155,26 @@
                                 </ul>
                             </li>
                             <li class="has-sub"><a href="#"><span>ช่วยเหลือ</span></a>
-<ul>
-                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'about')); ?>">เราคือ?</a></li>
-                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'teacher')); ?>">อาจารย์ออกข้อสอบ</a></li>
-                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'importance')); ?>">ทำไมต้องฝึกทำข้อสอบ</a></li>
-                                        <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'help')); ?>">คำถามที่พบบ่อย</a></li>
-                                        <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>">ติดต่อเรา</a></li>
-                                    </ul>
+                                <ul>
+                                    <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'about')); ?>">เราคือ?</a></li>
+                                    <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'teacher')); ?>">อาจารย์ออกข้อสอบ</a></li>
+                                    <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'importance')); ?>">ทำไมต้องฝึกทำข้อสอบ</a></li>
+                                    <li><a href="<?php echo Yii::app()->createUrl('site/page', array('view' => 'help')); ?>">คำถามที่พบบ่อย</a></li>
+                                    <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>">ติดต่อเรา</a></li>
+                                </ul>
                             </li>
                             <li class="last"><a href="<?php echo Yii::app()->createUrl('site/logout'); ?>"><span>ออกจากระบบ</span></a></li>
                         </ul>
                     </div>
                     <div class="credit">
                         <div class="credit_text">
-    <?php $student = Student::model()->findByPk(Yii::app()->user->id); ?>
+                            <?php $student = Student::model()->findByPk(Yii::app()->user->id); ?>
                             <span class="your_credit"></span><span class="points"><?php echo $student->credit; ?></span>
                         </div>
                     </div>
 
                 </div>
-<?php } ?>
+            <?php } ?>
 
 
 
