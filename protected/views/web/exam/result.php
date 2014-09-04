@@ -19,6 +19,8 @@
 
     function alertBox(shared, credit_required, test_record_id, student_id) {
         if (shared === 0) {
+            alert("share0");
+        /*
             var up_credit = Math.max(0, Math.round(credit_required / 10)); //Credit reward = 10% if shared on FB
 //                    var total_shared = getTotalShared();
 //                    up_credit = Math.min(up_credit,15);
@@ -28,7 +30,7 @@
                 } else {
                     OpenLink("index.php?r=student/view");
                 }
-            });
+            });*/
         } else {
             OpenLink("index.php?r=student/view");
         }

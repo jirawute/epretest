@@ -25,22 +25,20 @@
                 ?>
                 <?php foreach($Exams  as $Exam) { ?>
                 <?php
-                
                     $testRecord =new TestRecord;
                     $test = $testRecord->getTestRecordDetailByStudentIdExamId($student_id, $Exam->exam_id);
+
                     $status_test = $test['status'];
                     switch($status_test){
-                        case 1: $class='mark_resume';$title='กำลังทำ';break;
-                        case 2: $class='mark_true';$title='ทำแล้ว';break;
-                        default:$class='mark_none';$title='ยังไม่ได้ทำ';break;
+                        case 1: $td = '<td class="mark_resume" title="กำลังทำ"><span>¨</span></td>';break;
+                        case 2: $td = '<td class="mark_true" title="ทำแล้ว"><span>»</span></td>';break;
+                        default:$td= '<td class="mark_non" title="ยังไม่ได้ทำ"><span>«</span></td>';break;
                     }
-                if($Exam->text_file=='Free'){$class='mark_false';$title='ฟรี';}
-
                     $exam_id = $Exam->exam_id;
 
                 ?>
             <tr onclick="CheckandGo('<?php echo $status_test;?>','<?php echo $exam_id; ?>')"> 
-                <td class="<?=$class?>" title="<?=$title?>"><span>«</span></td>
+                        <?echo $td?>
                         <td class="date_added"><?php echo date('d/m/Y',strtotime($Exam->date_added));?></td>
                         <td class="subject"><?php echo $Exam->name;?></td>
                         <td class="number"><?php echo $Exam->credit_required;?></td>

@@ -23,9 +23,9 @@ class ExamController extends Controller {
                 'exam_info' => $exam_info,
                 'session_list' => $session_list,
             ));
-        } else if ($_GET['id'] == '$30') {
+        } else if ($_GET['id'] == 'NZ') {
             // for testing only
-            $exam_id = 30; // Can change
+            $exam_id = 82; // Can change
             $exam = new Exam;
             $exam_info = $exam->getExamDetailById($exam_id);
             $session = new Session;

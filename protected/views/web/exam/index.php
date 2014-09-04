@@ -91,7 +91,8 @@
         scribd_doc.addEventListener('docReady', onDocReady);
         scribd_doc.addParam('jsapi_version', 2);
         var h1 = $('#answer_sheet').height();
-        scribd_doc.addParam('height', h1-20);
+        //scribd_doc.addParam('height', h1-20);
+		scribd_doc.addParam('height', 475);
         scribd_doc.addParam('width', 640);
         scribd_doc.addParam('public', false);
         scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5

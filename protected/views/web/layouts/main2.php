@@ -77,8 +77,18 @@
         <script type="text/javascript">
             var exam_id = <?php echo $exam_id ?>;
             var credit_require = <?php echo $exam_info['credit_required']; ?>;
-
-<?php if ($exam_info['voice_file'] == 1) { ?>
+<?php if($exam_info['credit_required']==0) { ?>
+                function useMyCredit() {
+                    apprise('เมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/>  คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
+                        if (r) {
+                            showPDF();
+                            
+                        } else {
+                            OpenLink("index.php?r=student/view");
+                        }
+                    });
+                }
+<?php } else if ($exam_info['voice_file'] == 1) { ?>
                 function useMyCredit() {
                     var x = document.createElement("AUDIO");
                     x.setAttribute("src", "uploads/mp3/voice.mp3");
@@ -99,7 +109,7 @@
                         }
                     });
                 }
-<? } else { ?>
+<?php } else { ?>
                 function useMyCredit() {
                     apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
                         if (r) {
@@ -110,7 +120,7 @@
                         }
                     });
                 }
-<? } ?>
+<?php } ?>
             $(document).ready(function() {
                 $.ajax({
                     url: '?r=exam/checkRecord&exam_id=' + exam_id,
@@ -199,20 +209,6 @@
                     var exam_id = <?php echo $exam_id ?>;
 
                     var min = <?php echo $start_countdown; ?>;
-
-                    /*             var status = <?php echo $status; ?>
-                     alert(status);
-                     if(status==2){
-                     alert("คุณเคยทำข้อสอบนี้แล้วคะ");
-                     clearInterval(cinterval);
-                     document.location.href = 'index.php?r=exam/answer&id=3bsdf$' + exam_id;
-                     }else if(min==0){
-                     alert("หมดเวลาทำข้อสอบแล้วคะ");
-                     clearInterval(cinterval);
-                     document.location.href = 'index.php?r=exam/answer&id=3bsdf$' + exam_id;
-                         
-                         
-                     }else{*/
 
                     var time_left = min * 60;
 

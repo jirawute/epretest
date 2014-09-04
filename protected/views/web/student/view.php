@@ -11,12 +11,6 @@ if ($subject['exam_type'] == 'Exam') {
   echo "</pre>"; */
 ?>
 <style type="text/css">
-    img.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-    
     @media print {
         body * {
             visibility:hidden;
@@ -167,7 +161,6 @@ if ($subject['exam_type'] == 'Exam') {
 
         <div class="text">
             <p><?=$msg?></p>
-                    
         </div>
 
         <div class="close" onclick="closeDialogBox();">x</div>

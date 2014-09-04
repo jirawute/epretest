@@ -54,8 +54,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=epretest_estudio',
 			'emulatePrepare' => true,
-			'username' => 'yong',
-			'password' => '1123',
+			'username' => 'epretest',
+			'password' => 'epre1q2w3e',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

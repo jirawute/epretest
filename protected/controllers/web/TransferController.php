@@ -58,7 +58,6 @@ class TransferController extends Controller {
             $data['images'] = $model->images;
 
             if ($model->save()) {
-                //echo $model->date;exit();
                 if ($images) {
                     $images->saveAs($this->upload_path . $model->images);
                 }

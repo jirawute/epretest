@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 ?>
 
 <div class="entry">
-	<h1 class="entry-title">ทำไมต้องฝึกทำข้อสอบ</h1>
+	<h1 class="entry-title">ทำไมการทำข้อสอบจึงสำคัญ</h1>
 	<div class="entry-content">
 		<p>พอใกล้สอบทีไร  มักจะมีน้อง ๆ ถามว่า...</p>
         <p><font color="#FC9403"> <strong>&quot;ทำยังไงดีคะ/ครับ...อ่านหนังสือไม่ทันแล้ว?&rdquo;</strong><br />
