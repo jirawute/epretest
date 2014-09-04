@@ -1,4 +1,4 @@
-<?php
+        <?php
 
 class ExamController extends Controller {
 
@@ -9,7 +9,7 @@ class ExamController extends Controller {
         $this->layout = '//layouts/exam';
         //check Login
         if (Yii::app()->user->id) {
-            list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
+            $exam_id = $_GET['id'];
 
             $exam = new Exam;
             $exam_info = $exam->getExamDetailById($exam_id);
@@ -95,7 +95,7 @@ class ExamController extends Controller {
 
             $this->saveExamForm();
 
-            $this->redirect(Yii::app()->createUrl('exam/index', array('id' => "#02B13$" . $exam_id)));
+            $this->redirect(Yii::app()->createUrl('exam/index', array('id' => $exam_id)));
         }
     }
 

@@ -27,7 +27,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/apprise-1.5.full.js"></script>
 
         <?php
-        list($other1, $exam_id, $other2) = explode('$', $_GET['id']);
+        $exam_id= $_GET['id'];
         $exam = new Exam;
         $exam_info = $exam->getExamDetailById($exam_id);
         ?>
@@ -159,7 +159,7 @@
                             showPDF();
                             
                         }else{
-                            alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้');
+                            alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้ จำเป็นต้องมีเครดิตขั้นต่ำ: '+credit_require);
                             OpenLink("index.php?r=student/view");
                         }
                     }

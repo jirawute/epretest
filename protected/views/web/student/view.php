@@ -100,7 +100,7 @@ if ($subject['exam_type'] == 'Exam') {
                 }
             });
         } else {
-            OpenLink('index.php?r=exam&id=32@%3$' + exam_id+'$aw8'); 
+            OpenLink('index.php?r=exam&id=' + exam_id); 
         }
 
     }

@@ -17,20 +17,19 @@
 
     }
 
-    function alertBox(shared, credit_required, test_record_id, student_id) {
-        if (shared === 0) {
-            alert("share0");
-        /*
+    function alertBox( credit_required, test_record_id, student_id) {
+        if (true) {
+                    OpenLink("index.php?r=student/view");
+                }else {
+           // OpenLink("index.php?r=student/view");
             var up_credit = Math.max(0, Math.round(credit_required / 10)); //Credit reward = 10% if shared on FB
 //                    var total_shared = getTotalShared();
-//                    up_credit = Math.min(up_credit,15);
+//                    up_credit = Math.min(up_credit,5);
             apprise('<img src="http://www.e-pretest.com/images/web/facebook_hover.png" /><br/>ชวนเพื่อนๆมาทำแบบทดสอบกัน พร้อมรับเครดิตเพิ่ม <b>' + up_credit + ' เครดิต</b>', {'verify': true, 'textYes': 'ตกลง', 'textNo': 'ยกเลิก'}, function(r) {
                 if (r) {
                     checkIfShared(0, up_credit, test_record_id, student_id);
-                } else {
-                    OpenLink("index.php?r=student/view");
-                }
-            });*/
+                } 
+            });
         } else {
             OpenLink("index.php?r=student/view");
         }
@@ -171,7 +170,7 @@
             ?>
             <div class="answer_bottom" id="h2">
 
-                <input onclick="<? echo 'alertBox(' . $testrecord['elapse_time'] . ',' . $exam_info['credit_required'] . ',' . $test_record_id . ',' . $student_id . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
+                <input onclick="<?php echo 'alertBox('. $exam_info['credit_required'] . ',' . $test_record_id . ',' . $student_id . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
 
             </div>
         </div>
