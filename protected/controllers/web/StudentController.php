@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 require_once('mail.php');
 
@@ -28,7 +28,7 @@ class StudentController extends Controller {
     public $upload_path;
 
     public function init() {
-        $this->upload_path = Yii::app()->basePath . '\..\uploads\student\\';
+        $this->upload_path = Yii::app()->basePath . '/../uploads/student/';
     }
 
     public function actions() {
@@ -64,20 +64,21 @@ class StudentController extends Controller {
                 $level_id = $model->level_id;
             }
             @ $msg = $_GET['msg'];
-            /*if(!$msg && !$model->credit){
-            $msg= "E-Pretest ยินดีต้อนรับค่ะ ที่นี่บริการข้อสอบออนไลน์ที่ได้มาตรฐาน น้องๆที่สนใจสามารถคลิกรายวิชาที่ปรากฏตามด้านล่างเพื่อสั่งซื้อชุดข้อสอบ
-                เมื่อสั่งซื้อแล้ว ชุดข้อสอบจะจัดเก็บอยู่ในคลังข้อสอบส่วนตัวที่น้องๆสามารถคลิกเพื่อทำข้อสอบได้ตลอด 24 ชั่วโมง ขอให้โชคดีค่ะ";
-            }*/
-       //     Yii::app()->user->setState('isOffline',false,false);//set online
-            Yii::app()->user->setState('isOffline',true,false);//set offline
-          
-if(Yii::app()->user->getState('isOffline')){
-$msg= "สวัสดีค่ะน้องๆ ขณะนี้ท่านกำลังทดสอบระบบออฟไลน์ของ E-Pretest.com คะแนนที่ได้จะไม่ได้รับการบันทึกเข้าระบบ
+            /* if(!$msg && !$model->credit){
+              $msg= "E-Pretest ยินดีต้อนรับค่ะ ที่นี่บริการข้อสอบออนไลน์ที่ได้มาตรฐาน น้องๆที่สนใจสามารถคลิกรายวิชาที่ปรากฏตามด้านล่างเพื่อสั่งซื้อชุดข้อสอบ
+              เมื่อสั่งซื้อแล้ว ชุดข้อสอบจะจัดเก็บอยู่ในคลังข้อสอบส่วนตัวที่น้องๆสามารถคลิกเพื่อทำข้อสอบได้ตลอด 24 ชั่วโมง ขอให้โชคดีค่ะ";
+              } */
+            //  Yii::app()->user->setState('isOffline',false,false);//set online
+    Yii::app()->user->setState('isOffline', true, false); //set offline
+
+            if (Yii::app()->user->getState('isOffline')) {
+                $msg = "สวัสดีค่ะน้องๆ ขณะนี้ท่านกำลังทดสอบระบบออฟไลน์ของ E-Pretest.com คะแนนที่ได้จะไม่ได้รับการบันทึกเข้าระบบ
  กรุณาล็อกอินและกลับมาใช้งานอีกครั้งที่ www.e-pretest.com ขอบคุณค่ะ";
-  }else{
-  $msg= "สวัสดีค่ะน้องๆ ขณะนี้ E-Pretest.com ร่วมกับโครงการศึกษาต่อประเทศนิวซีแลนด์ จัดทำ
+            } else {
+                $msg = "สวัสดีค่ะน้องๆ ขณะนี้ E-Pretest.com ร่วมกับโครงการศึกษาต่อประเทศนิวซีแลนด์ จัดทำ
 <a href='http://www.e-pretest.com/index.php?r=exam&id=$82'>ชุดข้อสอบวัดบุคลิกภาพและอาชีพ (DISC)</a> กดลิงค์แล้วเข้าไปทดลองได้ฟรีเลยค่ะ
-";}
+";
+            }
             $level_info = Level::model()->findByPk($level_id);
 
             if (isset($_GET['subject'])) {
@@ -154,7 +155,7 @@ $msg= "สวัสดีค่ะน้องๆ ขณะนี้ท่าน
                 'subject_id' => $subject_id,
                 'subject' => $subject,
                 'TestRecord' => $TestRecord,
-                'msg' =>$msg,
+                'msg' => $msg,
             ));
         } else {
             $this->redirect(Yii::app()->createUrl('site/login'));
@@ -304,7 +305,7 @@ $msg= "สวัสดีค่ะน้องๆ ขณะนี้ท่าน
             if (isset($_POST['Student'])) {
 
                 // Define image's location
-                $imageLocation = Yii::app()->basePath . "\..\uploads\student\\";
+                $imageLocation = Yii::app()->basePath . "/../uploads/student/";
 
                 // query table where ID = currnet ID
                 $studentInfo = Student::model()->find("student_id = " . $model->student_id);
@@ -626,8 +627,7 @@ $msg= "สวัสดีค่ะน้องๆ ขณะนี้ท่าน
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-        }
-        else
+        } else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
     }
 

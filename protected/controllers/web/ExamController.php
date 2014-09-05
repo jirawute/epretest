@@ -1,4 +1,4 @@
- <?php
+<?php
 
 class ExamController extends Controller {
 
@@ -208,8 +208,7 @@ class ExamController extends Controller {
                 $testRecord->saveFirstLogTestRecord($exam_id, $student_id);
             }
         }
-        echo false;echo true;
-        
+     echo isQualified;
     }
 
     public function actionUpcredit() {
