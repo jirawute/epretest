@@ -4,9 +4,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/layouts/main3.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/exam/_form4.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/exam/index.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/controllers/web/ExamController.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/exam/_form6.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/exam/_form8.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/exam/_form7.php</file>
             <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/exam/result.php</file>
-            <file>file:/C:/xampp/htdocs/2014/epretest/protected/controllers/web/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/controllers/web/StudentController.php</file>
+            <file>file:/C:/xampp/htdocs/2014/epretest/protected/views/web/layouts/main2.php</file>
         </group>
     </open-files>
 </project-private>

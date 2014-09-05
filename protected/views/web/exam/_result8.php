@@ -53,7 +53,7 @@
                 ?>
                 <li>
                         <span><?php echo $i;?></span>
-                        <input style="<?php echo $style;?>" type="text" id="ans<?php echo $i;?>_1" name="ans[<?php echo $i;?>]" readonly   maxlength="12" value="<?php if(isset($value1)) echo $value1;?>">
+                        <input style="<?php echo $style;?>" type="text" id="ans<?php echo $i;?>_1" name="ans[<?php echo $i;?>]" readonly   maxlength="12" value="<?php if(isset($value)) echo $value;?>">
                         <?php  if($test['answer']!=$test['selected']){echo $test['answer'];}?>
                         
                         <input type="hidden" name="ans[<?php echo $i;?>]" value="<?php if(isset($test['selected'])) echo $test['selected'];?>">

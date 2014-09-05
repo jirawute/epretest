@@ -62,17 +62,14 @@
 
 <script type="text/javascript">
 
-    function showPDF() {
+    function showPDF() { cinterval = setInterval('time_dec()', 1000);//for offline
         $("#loading").show();
-        var doc_id = '<?= $exam_info['exam_doc_id'] ?>';
-        var access_key = '<?= $exam_info['exam_access_key'] ?>';
-        if(true<?php //echo Yii::app()->user->getState('isOffline'); ?>){
-            
-                cinterval = setInterval('time_dec()', 1000);
-             } 
-        else if (doct_id === '') {
+        
+        var doc_id = '<?php echo $exam_info['exam_doc_id'];?>';
+        var access_key = '<?php echo $exam_info['exam_access_key'] ?>';
+        if (doc_id === '') {
             alert("Need to be fixed");
-            //  var url = 'http://www.e-pretest.com/uploads/pdf/<?= $exam_info['exam_file'] ?>';
+            //  var url = 'http://www.e-pretest.com/uploads/pdf/<?php echo $exam_info['exam_file'] ?>';
             //  var pub_id = 'pub-87933716448539829813621125';
             //var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
         } else {
@@ -92,8 +89,8 @@
         scribd_doc.addParam('extension', 'pdf');
         scribd_doc.addParam('title', 'Yong');
         scribd_doc.write('embedded_doc');
-        
-    }    
+
+    }
 </script>
 <style>
     label {
@@ -130,7 +127,8 @@
 
                 <p>It appears you don't have a PDF plugin for this browser.</p>
 
-            </object><?php } else { ?>
+            </object>
+        <?php } else { ?>
             <div  id ="loading"style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">
                 <img src="./images/web/loading1.gif"  class="center" onclick="location.reload();"alt="Be patient..." />
             </div>
@@ -182,7 +180,7 @@
                             echo $this->renderPartial('_form7', array('answer' => $answer, 'key_ans' => $key_ans, 'last_key' => $last_key, 'exam_id' => $exam_info['exam_id']));
                             break;
                         case 8:
-                            echo $this->renderPartial('_form8', array('answer' => $answer, 'key_ans' => $key_ans, 'last_key' => $last_key, 'exam_id' => $exam_info['exam_id'])); 
+                            echo $this->renderPartial('_form8', array('answer' => $answer, 'key_ans' => $key_ans, 'last_key' => $last_key, 'exam_id' => $exam_info['exam_id']));
                             break;
                         default:
                             echo $this->renderPartial('_form0');

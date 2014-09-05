@@ -990,3 +990,295 @@ REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
 in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php (103)
 in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 10:39:46 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php (265)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 11:01:52 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php (265)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 11:02:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=20
+---
+2014/09/05 11:03:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=40
+---
+2014/09/05 11:03:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=40
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=40
+---
+2014/09/05 11:03:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=31
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=31
+---
+2014/09/05 14:47:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=84
+---
+2014/09/05 15:16:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:17:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:17:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:28:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=38
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:29:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:30:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:30:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 15:58:26 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php (265)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 15:58:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
+2014/09/05 16:01:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(95): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSave()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('save')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/save')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/save
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=38
+---
