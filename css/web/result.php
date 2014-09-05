@@ -17,20 +17,21 @@
 
     }
 
-    function alertBox( credit_required, test_record_id, student_id) {
-        if (true) {
-                    OpenLink("index.php?r=student/view");
-                }else {
-           // OpenLink("index.php?r=student/view");
+    function alertBox(shared, credit_required, test_record_id, student_id) {
+        if (shared === 0) {
             var up_credit = Math.max(0, Math.round(credit_required / 10)); //Credit reward = 10% if shared on FB
 //                    var total_shared = getTotalShared();
-//                    up_credit = Math.min(up_credit,5);
+//                    up_credit = Math.min(up_credit,15);
             apprise('<img src="http://www.e-pretest.com/images/web/facebook_hover.png" /><br/>ชวนเพื่อนๆมาทำแบบทดสอบกัน พร้อมรับเครดิตเพิ่ม <b>' + up_credit + ' เครดิต</b>', {'verify': true, 'textYes': 'ตกลง', 'textNo': 'ยกเลิก'}, function(r) {
                 if (r) {
                     checkIfShared(0, up_credit, test_record_id, student_id);
-                } 
+                } else {
+                    OpenLink("index.php?r=student/view");
+                }
             });
-        } 
+        } else {
+            OpenLink("index.php?r=student/view");
+        }
     }
     function checkIfShared(total_shared, up_credit, test_record_id, student_id) {
         window.open("http://www.facebook.com/share.php?u=www.e-pretest.com/fbsharepage.php", "_blank", "menubar=1,resizable=1,width=600,height=400");
@@ -88,8 +89,11 @@
         var h1 = $('#answer_sheet').height();
         
         var h2 = $('#h2').height();
-        $('#loading').append(h1+":"+h2);
-        scribd_doc.addParam('height', h1-20);
+		var h3 = $('#embedded_doc').height();
+		
+        $('#loading').append(h1+":"+h2+":"+h3);
+        //scribd_doc.addParam('height', h1-20);
+		scribd_doc.addParam('height', 500);
         scribd_doc.addParam('width', 640);
         scribd_doc.addParam('public', false);
         scribd_doc.addParam('mode', 'list');  // only 'list', 'slideshow' support HTML5
@@ -122,7 +126,7 @@
         <div  id ="loading" style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">
             <img class="center" src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
         </div>
-        <div class="question_content"  id='embedded_doc' style="height:100%">
+        <div class="question_content"  id='embedded_doc' style="height: 100%;">
         </div>
     </div>
     <form name="ExamForm" method="post" action="">
@@ -168,7 +172,7 @@
             ?>
             <div class="answer_bottom" id="h2">
 
-                <input onclick="<?php echo 'alertBox('. $exam_info['credit_required'] . ',' . $test_record_id . ',' . $student_id . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
+                <input onclick="<? echo 'alertBox(' . $testrecord['elapse_time'] . ',' . $exam_info['credit_required'] . ',' . $test_record_id . ',' . $student_id . ')'; ?>" type="button" value="กลับสู่หน้าหลัก" class="submit_button">
 
             </div>
         </div>

@@ -152,12 +152,11 @@
             function useCredit(credit_require, exam_id) {
                 $.ajax({
                     url: '?r=exam/usecredit&credit=' + credit_require + '&id=' + exam_id,
-                    type: 'GET',
+                    type: 'POST',
                     dataType: 'html',
-                    success: function(temp, textStatus, xhr) {
-                        if (temp == 'Y'){
-                            showPDF();
-                            
+                    success: function(data) {
+                        if(data){
+                            showPDF();                            
                         }else{
                             alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้ จำเป็นต้องมีเครดิตขั้นต่ำ: '+credit_require);
                             OpenLink("index.php?r=student/view");

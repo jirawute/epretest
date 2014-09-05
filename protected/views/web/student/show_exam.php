@@ -23,8 +23,7 @@
                     $Exams = Exam::model()->findAll($exam_criteria);
                     
                 ?>
-                <?php foreach($Exams  as $Exam) { ?>
-                <?php
+                <?php foreach($Exams  as $Exam) {
                     $testRecord =new TestRecord;
                     $test = $testRecord->getTestRecordDetailByStudentIdExamId($student_id, $Exam->exam_id);
 
@@ -38,7 +37,7 @@
 
                 ?>
             <tr onclick="CheckandGo('<?php echo $status_test;?>','<?php echo $exam_id; ?>')"> 
-                        <?echo $td?>
+                        <?php echo $td?>
                         <td class="date_added"><?php echo date('d/m/Y',strtotime($Exam->date_added));?></td>
                         <td class="subject"><?php echo $Exam->name;?></td>
                         <td class="number"><?php echo $Exam->credit_required;?></td>

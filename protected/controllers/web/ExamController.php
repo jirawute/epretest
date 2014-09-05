@@ -1,4 +1,4 @@
-        <?php
+ <?php
 
 class ExamController extends Controller {
 
@@ -72,7 +72,6 @@ class ExamController extends Controller {
                 case 1: $td = '<td class="mark_resume" title="กำลังทำ"><span>¨</span></td>';
                     break;
                 case 2: $td = '<td class="mark_true" title="ทำแล้ว"><span>»</span></td>';
-                    $go_to .="/answer";
                     break;
                 default:$td = '<td class="mark_non" title="ยังไม่ได้ทำ"><span>«</span></td>';
                     break;
@@ -189,7 +188,7 @@ class ExamController extends Controller {
     }
 
     public function actionUsecredit() {
-        $status = "N";
+        $isQualified = false;
 
         if (Yii::app()->user->id) {
             $student_id = Yii::app()->user->id;
@@ -200,17 +199,17 @@ class ExamController extends Controller {
             $student = new Student;
             $old_credit = $student->getCreditStudentById($student_id);
 
-            $credit = $old_credit - $credit_require;
+            $credit_remain = $old_credit - $credit_require;
 
-            if ($credit >= 0) {
-                $status = "Y";
-                $student->updateNewCredit($credit, $student_id);
+            if ($credit_remain >= 0) {
+                $isQualified=true;
+                $student->updateNewCredit($credit_remain, $student_id);
                 $testRecord = new TestRecord;
                 $testRecord->saveFirstLogTestRecord($exam_id, $student_id);
             }
         }
-
-        echo $status;
+        echo false;echo true;
+        
     }
 
     public function actionUpcredit() {
