@@ -825,3 +825,168 @@ HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=20
 in C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php (265)
 in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
 in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 10:09:17 [error] [php] Undefined variable: mp3 (C:\xampp\htdocs\2014\epretest\protected\views\web\exam\index.php:185)
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(870): ExamController->renderFile()
+#1 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(783): ExamController->renderPartial()
+#2 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(25): ExamController->render()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionIndex()
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): ExamController->runAction()
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#8 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#11 unknown(0): WebApplicationEndBehavior->runEnd()
+#12 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->__call()
+#14 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/2014/epretest/index.php?r=exam&id=84
+in C:\xampp\htdocs\2014\epretest\protected\views\web\exam\index.php (185)
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php (25)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+2014/09/05 10:10:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=84
+---
+2014/09/05 10:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:237
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(255): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=84
+---
+2014/09/05 10:22:02 [error] [php] Undefined index: ExamForm (C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:103)
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): ExamController->runAction()
+#1 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#6 unknown(0): WebApplicationEndBehavior->runEnd()
+#7 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#8 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->__call()
+#9 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php (103)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 10:22:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:238
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(256): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=84
+---
+2014/09/05 10:23:19 [error] [php] Undefined index: ExamForm (C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:103)
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): ExamController->runAction()
+#1 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#6 unknown(0): WebApplicationEndBehavior->runEnd()
+#7 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#8 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->__call()
+#9 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php (103)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 10:23:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:236
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(254): ExamController->loadTestRecord(NULL)
+#1 C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php(107): ExamController->saveExamForm()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\actions\CInlineAction.php(50): ExamController->actionSubmit()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): CController->run('submit')
+#7 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController('exam/submit')
+#8 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CApplication->run()
+#10 [internal function]: WebApplicationEndBehavior->runEnd('web')
+#11 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\2014\epretest\index.php(11): CComponent->__call('runEnd', Array)
+#13 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd('web')
+#14 {main}
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=84
+---
+2014/09/05 10:23:59 [error] [php] Undefined index: ExamForm (C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:103)
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): ExamController->runAction()
+#1 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#6 unknown(0): WebApplicationEndBehavior->runEnd()
+#7 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#8 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->__call()
+#9 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php (103)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)
+2014/09/05 10:24:57 [error] [php] Undefined index: ExamForm (C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php:103)
+Stack trace:
+#0 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(287): ExamController->runAction()
+#1 C:\xampp\htdocs\2014\epretest\framework\web\CController.php(266): ExamController->runActionWithFilters()
+#2 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(276): ExamController->run()
+#3 C:\xampp\htdocs\2014\epretest\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\xampp\htdocs\2014\epretest\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php(26): CWebApplication->run()
+#6 unknown(0): WebApplicationEndBehavior->runEnd()
+#7 C:\xampp\htdocs\2014\epretest\framework\base\CComponent.php(261): call_user_func_array()
+#8 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->__call()
+#9 C:\xampp\htdocs\2014\epretest\index.php(11): CWebApplication->runEnd()
+REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=84
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\ExamController.php (103)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)

@@ -100,7 +100,7 @@ class ExamController extends Controller {
 
     // actionSubmit not edit
     public function actionSubmit() {
-        //print_r($_POST['ExamForm']);exit();
+        //print_r($_POST['ExamForm']);
         $this->layout = '//layouts/answer';
         if (isset($_POST['ExamForm'])) {
             $exam_id = $_POST['ExamForm']['exam_id'];
@@ -247,8 +247,8 @@ class ExamController extends Controller {
     public function saveExamForm() {//get ExamForm and save
         $exam_id = $_POST['ExamForm']['exam_id'];
         $student_id = $_POST['ExamForm']['student_id'];
-
         $testRecord = new TestRecord;
+        //echo 'st:'.$student_id;echo 'exam'.$exam_id;
         $test_record_id = $testRecord->getIdByStudentIdExamId($student_id, $exam_id);
 
         $model = $this->loadTestRecord($test_record_id);

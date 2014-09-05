@@ -66,15 +66,19 @@
         $("#loading").show();
         var doc_id = '<?= $exam_info['exam_doc_id'] ?>';
         var access_key = '<?= $exam_info['exam_access_key'] ?>';
-        if (doc_id === '') {
-            var url = 'http://www.e-pretest.com/uploads/pdf/<?= $exam_info['exam_file'] ?>';
-            var pub_id = 'pub-87933716448539829813621125';
-            var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
+        if(true<?php //echo Yii::app()->user->getState('isOffline'); ?>){
+            
+                cinterval = setInterval('time_dec()', 1000);
+             } 
+        else if (doct_id === '') {
+            alert("Need to be fixed");
+            //  var url = 'http://www.e-pretest.com/uploads/pdf/<?= $exam_info['exam_file'] ?>';
+            //  var pub_id = 'pub-87933716448539829813621125';
+            //var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
         } else {
             var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
         }
         var onDocReady = function(e) {
-            //  scribd_doc.api.setZoom(0.6);
             $("#loading").hide(1000);
             cinterval = setInterval('time_dec()', 1000);
         };
@@ -89,35 +93,7 @@
         scribd_doc.addParam('title', 'Yong');
         scribd_doc.write('embedded_doc');
         
-    }
-    function showPDFxxx() {
-        var doc_id = '<?= $exam_info['exam_doc_id'] ?>';
-        var access_key = '<?= $exam_info['exam_access_key'] ?>';
-        if (doct_id === '') {
-            alert("Yong");
-            //  var url = 'http://www.e-pretest.com/uploads/pdf/<?= $exam_info['exam_file'] ?>';
-            //  var pub_id = 'pub-87933716448539829813621125';
-            //var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
-        } else {
-            var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
-            $("#loading").show();
-            scribd_doc.addEventListener('docReady', onDocReady);
-            scribd_doc.addParam('jsapi_version', 2);
-            var h1 = $('#answer_sheet').height();
-            //scribd_doc.addParam('height', h1-20);
-            scribd_doc.addParam('height', 475);
-            scribd_doc.addParam('width', 640);
-            scribd_doc.addParam('public', false);
-            scribd_doc.addParam('mode', 'list'); // only 'list', 'slideshow' support HTML5
-            scribd_doc.addParam('extension', 'pdf');
-            scribd_doc.addParam('title', 'Yong');
-            scribd_doc.write('embedded_doc');
-            var onDocReady = function(e) {
-                $("#loading").hide(1000);
-                cinterval = setInterval('time_dec()', 1000);
-            };
-        }
-    }
+    }    
 </script>
 <style>
     label {
@@ -206,7 +182,7 @@
                             echo $this->renderPartial('_form7', array('answer' => $answer, 'key_ans' => $key_ans, 'last_key' => $last_key, 'exam_id' => $exam_info['exam_id']));
                             break;
                         case 8:
-                            echo $this->renderPartial('_form8', array('answer' => $answer, 'key_ans' => $key_ans, 'last_key' => $last_key, 'exam_id' => $exam_info['exam_id'], 'mp3' => $mp3)); //Send path MP3 file to _form8
+                            echo $this->renderPartial('_form8', array('answer' => $answer, 'key_ans' => $key_ans, 'last_key' => $last_key, 'exam_id' => $exam_info['exam_id'])); 
                             break;
                         default:
                             echo $this->renderPartial('_form0');
