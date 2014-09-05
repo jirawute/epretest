@@ -821,3 +821,7 @@ Stack trace:
 REQUEST_URI=/2014/epretest/index.php?r=exam/submit&id=20
 HTTP_REFERER=http://localhost/2014/epretest/index.php?r=exam&id=20
 ---
+2014/09/05 09:41:07 [warning] [application] Failed to set unsafe attribute "hddnValue" of "LoginForm".
+in C:\xampp\htdocs\2014\epretest\protected\controllers\web\SiteController.php (265)
+in C:\xampp\htdocs\2014\epretest\protected\components\WebApplicationEndBehavior.php (26)
+in C:\xampp\htdocs\2014\epretest\index.php (11)

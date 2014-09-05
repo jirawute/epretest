@@ -68,27 +68,22 @@
 
     function showPDF() {
           $("#loading").show();
-
-        var url = 'http://www.e-pretest.com/uploads/answer/<?= $exam_info['answer_file'] ?>';
-        var pub_id = 'pub-87933716448539829813621125';
         var doc_id = '<?= $exam_info['answer_doc_id'] ?>';
         var access_key = '<?= $exam_info['answer_access_key'] ?>';
         if (doc_id === '') {
+        var url = 'http://www.e-pretest.com/uploads/answer/<?= $exam_info['answer_file'] ?>';
+        var pub_id = 'pub-87933716448539829813621125';
             var scribd_doc = scribd.Document.getDocFromUrl(url, pub_id);
         } else {
-            //alert(doc_id);
             var scribd_doc = scribd.Document.getDoc(doc_id, access_key);
         }
         var onDocReady = function(e) {
-            //scribd_doc.api.setZoom(0.6);
             $("#loading").hide(1000);
         };
         scribd_doc.addEventListener('docReady', onDocReady);
         scribd_doc.addParam('jsapi_version', 2);
-        var h1 = $('#answer_sheet').height();
-        
+        var h1 = $('#answer_sheet').height();        
         var h2 = $('#h2').height();
-        $('#loading').append(h1+":"+h2);
         scribd_doc.addParam('height', h1-20);
         scribd_doc.addParam('width', 640);
         scribd_doc.addParam('public', false);
@@ -119,11 +114,18 @@
 
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
+        <?php if (Yii::app()->user->getState('isOffline')) { ?>
+            <object class = "question_content" data="uploads/pdf/<?= $exam_info['exam_file'] ?>" type="application/pdf" width="100%" height="100%">
+
+                <p>It appears you don't have a PDF plugin for this browser.</p>
+
+            </object><?php } else { ?>
         <div  id ="loading" style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">
             <img class="center" src="./images/web/loading1.gif" onclick="location.reload();"alt="Be patient..." />
         </div>
         <div class="question_content"  id='embedded_doc' style="height:100%">
         </div>
+            <?php }?>
     </div>
     <form name="ExamForm" method="post" action="">
         <div class="answer" id="answer_sheet">
