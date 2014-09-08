@@ -1,4 +1,4 @@
-
+﻿
 <script>
     function show_next(order) {
 
@@ -115,7 +115,7 @@
             <h3><?php echo $exam_info['name']; ?></h3>
         </div>
         <?php if (Yii::app()->user->getState('isOffline')) { ?>
-            <object class = "question_content" data="uploads/pdf/<?= $exam_info['exam_file'] ?>" type="application/pdf" width="100%" height="100%">
+            <object class = "question_content" data="uploads/answer/<?= $exam_info['answer_file'] ?>" type="application/pdf" width="100%" height="100%">
 
                 <p>It appears you don't have a PDF plugin for this browser.</p>
 
