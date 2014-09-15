@@ -215,3 +215,4 @@ protected/runtime/*
 #Mr Developer
 .mr.developer.cfg
 /nbproject/private/
+/protected/runtime
