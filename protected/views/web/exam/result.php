@@ -117,7 +117,7 @@
         <?php if (Yii::app()->user->getState('isOffline')) { ?>
             <object class = "question_content" data="uploads/answer/<?= $exam_info['answer_file'] ?>" type="application/pdf" width="100%" height="100%">
 
-                <p>It appears you don't have a PDF plugin for this browser.</p>
+                <p>Cannot find the file</p>
 
             </object><?php } else { ?>
             <div  id ="loading" style="display:none; position: absolute;width: 640px;background: #F5F5F5;z-index: 100;">

@@ -48,7 +48,7 @@
                 ?>
                 <li>
                         <span><?php echo $i;?></span>
-                        <input  type="text" id="ans<?php echo $i;?>_1" name="ans[<?php echo $i;?>]"  placeholder="" maxlength="12" value="<?php if(isset($value)) echo $value;?>">  
+                        <input  type="text" id="ans<?php echo $i;?>_1" name="ans[<?php echo $i;?>]"  placeholder="" maxlength="30" value="<?php if(isset($value)) echo $value;?>">  
 
                         <input type="hidden" name="session_id[<?php echo $i;?>]" value="<?php echo $session_id;?>"/>
                         <input type="hidden" name="session_type8" value="8"/>

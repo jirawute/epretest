@@ -156,17 +156,17 @@ if ($subject['exam_type'] == 'Exam') {
 </div>
 
 <div class="clear"></div>
-<? if($msg){?>
+<?php if($msg){?>
     <div class="grid_12 dialog" id="dialogBox">
 
         <div class="text">
-            <p><?=$msg?></p>
+            <p><?php echo $msg;?></p>
         </div>
 
         <div class="close" onclick="closeDialogBox();">x</div>
 
     </div>
-<?}?>
+<?php }?>
 <div class="clear"></div>
 <!-- Start Selected -->
 <div class="grid_12 title_bar">

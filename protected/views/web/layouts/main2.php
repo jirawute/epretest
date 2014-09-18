@@ -79,8 +79,9 @@
             var credit_require = <?php echo $exam_info['credit_required']; ?>;
 <?php if ($exam_info['voice_file'] == 1) { ?>
                 function useMyCredit() {
+                    
                     var x = document.createElement("AUDIO");
-                    x.setAttribute("src", "uploads/mp3/voice.mp3");
+                    x.src = "http://www.e-pretest.com/uploads/mp3/voice.mp3";
                     x.setAttribute("controls", "controls");
                     x.setAttribute("autoplay", "autoplay");
                     apprise('<b>มีข้อสอบเสียง</b><br/>\n\
@@ -89,7 +90,7 @@
                             useCredit(credit_require, exam_id);
                             
                             var y = document.createElement("AUDIO");
-                            y.setAttribute("src", "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
+                            y.setAttribute("src", "http://www.e-pretest.com/uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
                             y.setAttribute("controls", "controls");
                             y.setAttribute("autoplay", "autoplay");
 
@@ -115,9 +116,9 @@
                     url: '?r=exam/checkRecord&exam_id=' + exam_id,
                     type: 'GET',
                     dataType: 'html',
-                    success: function(data, textStatus, xhr) {
+                    success: function(isStarted, textStatus, xhr) {
                         //alert(data);
-                        if (data == 0) {
+                        if (isStarted == 0) {
                             useMyCredit();
 
                         } else {

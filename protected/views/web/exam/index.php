@@ -1,4 +1,4 @@
-<?
+﻿<?
 //session_start();
 //session_register("chk_play");
 ?>
@@ -62,9 +62,9 @@
 
 <script type="text/javascript">
 
-    function showPDF() { cinterval = setInterval('time_dec()', 1000);//for offline
+    function showPDF() {
+       // cinterval = setInterval('time_dec()', 1000);//for offline
         $("#loading").show();
-        
         var doc_id = '<?php echo $exam_info['exam_doc_id'];?>';
         var access_key = '<?php echo $exam_info['exam_access_key'] ?>';
         if (doc_id === '') {
@@ -125,7 +125,7 @@
         <?php if (Yii::app()->user->getState('isOffline')) { ?>
             <object class = "question_content" data="uploads/pdf/<?= $exam_info['exam_file'] ?>" type="application/pdf" width="100%" height="100%">
 
-                <p>It appears you don't have a PDF plugin for this browser.</p>
+                <p>Cannot find the file</p>
 
             </object>
         <?php } else { ?>
