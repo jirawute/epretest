@@ -23,7 +23,7 @@ class ExamController extends Controller {
                 'exam_info' => $exam_info,
                 'session_list' => $session_list,
             ));
-        } else if ($_GET['id'] == 'NZ') {
+        } /*else if ($_GET['id'] == 'NZ') {
             // for testing only
             $exam_id = 82; // Can change
             $exam = new Exam;
@@ -34,7 +34,7 @@ class ExamController extends Controller {
                 'exam_info' => $exam_info,
                 'session_list' => $session_list,
             ));
-        } else {
+        } */else {
             $this->redirect(Yii::app()->createUrl('site/login'));
         }
     }
@@ -202,13 +202,13 @@ class ExamController extends Controller {
             $credit_remain = $old_credit - $credit_require;
 
             if ($credit_remain >= 0) {
-                $isQualified=true;
+                $isQualified = true;
                 $student->updateNewCredit($credit_remain, $student_id);
                 $testRecord = new TestRecord;
                 $testRecord->saveFirstLogTestRecord($exam_id, $student_id);
             }
         }
-     echo isQualified;
+        echo $isQualified;
     }
 
     public function actionUpcredit() {
@@ -261,7 +261,7 @@ class ExamController extends Controller {
             }
         }
         /////////////////Answer Type 5//////////////////
-        if (isset($_POST['session_type5'])) {
+       else if (isset($_POST['session_type5'])) {
             if (isset($_POST['ansA'])) {
 
                 foreach ($_POST['ansA'] as $key5 => $v5) {
@@ -296,7 +296,7 @@ class ExamController extends Controller {
             }
         }
         /////////////////Answer Type 6/////////////////
-        if (isset($_POST['session_type6'])) {
+        else if (isset($_POST['session_type6'])) {
             if (isset($_POST['ans6A'])) {
 
                 foreach ($_POST['ans6A'] as $key6 => $v6) {
@@ -371,7 +371,7 @@ class ExamController extends Controller {
             }
         }
         /////////////////Answer Type 7//////////////////
-        if (isset($_POST['session_type7'])) {
+       else if (isset($_POST['session_type7'])) {
 
 
             if (isset($_POST['ans_1']) || isset($_POST['ans_2']) || isset($_POST['ans_3']) || isset($_POST['ans_4'])) {
@@ -407,9 +407,11 @@ class ExamController extends Controller {
                 }//end foreach
             }//end if isset
         }//end type 7
-
+        //
         if (isset($_POST['ans'])) {
-            $selected = $_POST['ans'];
+            
+                $eliminated = array(",","'",".");
+            $selected = str_replace($eliminated, "",$_POST['ans']);
             $session_id_list = $_POST['session_id'];
 
             $this->SaveTesting($exam_id, $student_id, $selected, $session_id_list);
@@ -418,14 +420,14 @@ class ExamController extends Controller {
         return $test_record_id;
     }
 
-    public function saveTesting($exam_id, $student_id, $select, $session_id_list) {
+    public function saveTesting($exam_id, $student_id, $selected, $session_id_list) {
         $model = new Answer;
         $testRecord = new TestRecord;
         $testing = new Testing;
 
         $test_record_id = $testRecord->getIdByStudentIdExamId($student_id, $exam_id);
         $data = array();
-        foreach ($select as $key => $value) {
+        foreach ($selected as $key => $value) {
             $session_id = $session_id_list[$key];
             $session = $this->loadSessionById($session_id);
 
@@ -433,14 +435,15 @@ class ExamController extends Controller {
             $answer = $model->getAnswerDetail($session_id, $key);
             //ตรวจคำตอบแบบที่7 - หรับหรับแบบอื่นๆ แค่เช็คว่าตรงกัน
             if ($answer_type_id == 7) {
-                $score = $this->Cal_Ans7($answer['answer'], $value,$answer['score_item']);
-            } else {
-
-                if (trim($answer['answer']) == trim($value)) {
-                    $score = $answer['score_item'];
-                } else {
+                $score = $this->Cal_Ans7($answer['answer'], $value, $answer['score_item']);
+            } else if($value!=""){
+                $ans = strtolower(trim($answer['answer']));
+                $val = strtolower(trim($value));
+            
+                    $score = strpos(" ".$ans,$val)==false? 0:$answer['score_item'];
+            }    else {
                     $score = 0;
-                }
+                
             }
 
             $data[$key]['test_record_id'] = $test_record_id;
@@ -470,8 +473,8 @@ class ExamController extends Controller {
         //exit;
     }
 
-    private function Cal_Ans7($answer, $value,$score_item) {
-$value=trim($value,'-');
+    private function Cal_Ans7($answer, $value, $score_item) {
+        $value = trim($value, '-');
         $selected = array();
         for ($i = 0; $i * 3 < strlen($value); $i++) {
             $selected[$i] = substr($value, $i * 3, 3);
@@ -487,7 +490,7 @@ $value=trim($value,'-');
             if ($v != NULL) {
                 $pos = strpos($answer, $v);
                 if ($pos === false) {
-                   $score -=3; //decrease 3 if wrong
+                    $score -=3; //decrease 3 if wrong
                 } else {
                     $score +=$score_item;
                 }

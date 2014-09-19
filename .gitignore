@@ -216,3 +216,4 @@ protected/runtime/*
 .mr.developer.cfg
 /nbproject/private/
 /protected/runtime
+/nbproject/private/private.xml

@@ -27,7 +27,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/apprise-1.5.full.js"></script>
 
         <?php
-        $exam_id= $_GET['id'];
+        $exam_id = $_GET['id'];
         $exam = new Exam;
         $exam_info = $exam->getExamDetailById($exam_id);
         ?>
@@ -38,15 +38,15 @@
                 document.forms['ExamForm'].action = "index.php?r=exam/save";
                 document.forms['ExamForm'].submit();
             }
-            window.onbeforeunload = function() {
+            window.onbeforeunload = function () {
                 saveThisForm();
-            }
+            };
 
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-41611206-2']);
             _gaq.push(['_trackPageview']);
 
-            (function() {
+            (function () {
                 var ga = document.createElement('script');
                 ga.type = 'text/javascript';
                 ga.async = true;
@@ -77,49 +77,45 @@
         <script type="text/javascript">
             var exam_id = <?php echo $exam_id ?>;
             var credit_require = <?php echo $exam_info['credit_required']; ?>;
+            var message = 'เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" \n\
+                    จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว\n\
+ สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ';
+            function createNewTest() {
+
 <?php if ($exam_info['voice_file'] == 1) { ?>
-                function useMyCredit() {
-                    
+                    message = "<b>มีข้อสอบเสียง</b><br/>\n\
+                กรุณาปรับระดับความดังของลำโพงให้เหมาะสม" + message;
                     var x = document.createElement("AUDIO");
                     x.src = "http://www.e-pretest.com/uploads/mp3/voice.mp3";
                     x.setAttribute("controls", "controls");
                     x.setAttribute("autoplay", "autoplay");
-                    apprise('<b>มีข้อสอบเสียง</b><br/>\n\
-            กรุณาปรับระดับความดังของลำโพงให้เหมาะสม', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
-                        if (r) {
-                            useCredit(credit_require, exam_id);
-                            
+
+
+<?php } ?>
+                apprise(message, {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function (r) {
+                    if (r) {
+                        useCredit(credit_require, exam_id);
+
+<?php if ($exam_info['voice_file'] == 1) { ?>
                             var y = document.createElement("AUDIO");
                             y.setAttribute("src", "http://www.e-pretest.com/uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
                             y.setAttribute("controls", "controls");
                             y.setAttribute("autoplay", "autoplay");
-
-                        } else {
-                            OpenLink("index.php?r=student/view");
-                        }
-                    });
-                }
-<?php } else { ?>
-                function useMyCredit() {
-                    apprise('เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ', {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function(r) {
-                        if (r) {
-                            useCredit(credit_require, exam_id);
-                            
-                        } else {
-                            OpenLink("index.php?r=student/view");
-                        }
-                    });
-                }
 <?php } ?>
-            $(document).ready(function() {
+                    } else {
+                        OpenLink("index.php?r=student/view");
+                    }
+                });
+            }
+            $(document).ready(function () {
                 $.ajax({
                     url: '?r=exam/checkRecord&exam_id=' + exam_id,
                     type: 'GET',
                     dataType: 'html',
-                    success: function(isStarted, textStatus, xhr) {
+                    success: function (isStarted, textStatus, xhr) {
                         //alert(data);
                         if (isStarted == 0) {
-                            useMyCredit();
+                            createNewTest();
 
                         } else {
                             showPDF();
@@ -131,7 +127,7 @@
 
 
                     },
-                    error: function(request, status, error) {
+                    error: function (request, status, error) {
                         alert("Error: " + error + "\nResponseText: " + request.responseText);
                     }
                 });
@@ -144,11 +140,11 @@
                     url: '?r=exam/usecredit&credit=' + credit_require + '&id=' + exam_id,
                     type: 'POST',
                     dataType: 'html',
-                    success: function(data) {
-                        if(data){
-                            showPDF();                            
-                        }else{
-                            alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้ จำเป็นต้องมีเครดิตขั้นต่ำ: '+credit_require);
+                    success: function (data) {
+                        if (data) {
+                            showPDF();
+                        } else {
+                            alert('ขออภัยค่ะ ไม่สามารถตัดเครดิตได้ จำเป็นต้องมีเครดิตขั้นต่ำ: ' + credit_require);
                             OpenLink("index.php?r=student/view");
                         }
                     }
@@ -304,7 +300,7 @@
                     </ul>
                 </div>
                 <div id="fb-root"></div>
-                <script>(function(d, s, id) {
+                <script>(function (d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id))
                             return;
@@ -324,14 +320,14 @@
 
         <script>
 
-            (function() {
+            (function () {
                 function stuffForRezieAndReady() {
 
                     $(".question_content").height(Math.floor($(window).height() * 77 / 100));
 
                     $(".answer_content").height(Math.floor($(window).height() * 77 / 100 - 60));
 
-                    $(function() {
+                    $(function () {
                         var minHeight = Math.floor($(window).height() - 370);
                         $('#content').css({'min-height': minHeight});
                     });
@@ -354,33 +350,33 @@
 //		});
 //	});
 
-            $(".menu_test ul.menu_list li ul li a").click(function() {
+            $(".menu_test ul.menu_list li ul li a").click(function () {
                 $(".list_test > .list_test_unselect").hide();
                 $(".list_test > .list_test_box").css({visibility: "visible"});
                 $(".menu_test ul.menu_list li ul li a").removeAttr('style');
                 $(this).css("background", "#ff9c00");
             });
 
-            $(".about_dialog .close").click(function() {
+            $(".about_dialog .close").click(function () {
                 $(".about_dialog").slideUp(500);
                 $(".about_dialog .pic").fadeOut(100);
             });
 
-            $(".menu_tab_home a:nth-child(1), .menu_tab a:nth-child(1)").click(function() {
+            $(".menu_tab_home a:nth-child(1), .menu_tab a:nth-child(1)").click(function () {
                 $(this).addClass("selected");
                 $(this).siblings("a:nth-child(2)").removeClass("selected");
                 $(this).parent().siblings(".menu_tab1").show();
                 $(this).parent().siblings(".menu_tab2").hide();
             });
 
-            $(".menu_tab_home a:nth-child(2), .menu_tab a:nth-child(2)").click(function() {
+            $(".menu_tab_home a:nth-child(2), .menu_tab a:nth-child(2)").click(function () {
                 $(this).addClass("selected");
                 $(this).siblings("a:nth-child(1)").removeClass("selected");
                 $(this).parent().siblings(".menu_tab1").hide();
                 $(this).parent().siblings(".menu_tab2").show();
             });
 
-            $(".credit_box .credit_select ul li input:radio").bind("click", function() {
+            $(".credit_box .credit_select ul li input:radio").bind("click", function () {
                 $(this).parents().eq(8).find('.credit_option').slideDown("slow");
                 $(this).parents().eq(8).find('.credit_box').animate({'top': '-=25px'}, 'slow');
                 $(this).parents().eq(8).find('.goback a').animate({'top': '-=15px'}, 'slow');
@@ -391,9 +387,9 @@
 
         <script>
 
-            $(function() {
+            $(function () {
                 var $post = $(".blink");
-                setInterval(function() {
+                setInterval(function () {
                     $post.toggleClass("blink");
                 }, 1000);
             });

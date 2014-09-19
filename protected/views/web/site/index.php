@@ -29,7 +29,7 @@ $this->pageTitle=Yii::app()->name;
 <div class="grid12 box_3step">
 	<div class="box_3step_block one">
 		<div class="number num1"></div>
-            <a class="fancybox" rel="group" href="./images/popup_promotion.gif">
+            <!--a class="fancybox" rel="group" href="./images/popup_promotion.gif"-->
 		<div class="pic_orange one_o"></div>
 		<div class="pic_black one_b"></div></a>
 		<h4>เติม</h4>

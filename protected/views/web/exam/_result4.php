@@ -40,25 +40,21 @@
                     $test['answer'] = Answer::model()->getAnswerBySession($session['session_id'], $i);
                     
 
-                    if(is_array($test)){
-                    $value = explode(".",$test['selected']);
-                    $value1 = $value[0];
-                    $value2 = $value[1];
+                    if($test['selected']){
+                    $value1 = floor( $test['selected']);
+                    $value2 =  $test['selected']*100%100;
                     }
                     if($test['answer']!=$test['selected']){
                         $style="border:2px solid red";
-                    }else if ($test['answer']==$test['selected']){
-                        $style="border:2px solid #313131";
-                    }else{
-                        $style=" ";
+                    }else {
+                        $style="border:2px solid green";
                     }
                 ?>
                 <li>
                         <span><?php echo $i;?></span>
                         <input class="number_4" style="<?php echo $style;?>" type="text" id="ans<?php echo $i;?>_1" name="ans1[<?php echo $i;?>]" readonly  placeholder="0000" maxlength="4" value="<?php if(isset($value1)) echo $value1;?>">.
                         <input class="number_2" style="<?php echo $style;?>" type="text" id="ans<?php echo $i;?>_2" name="ans2[<?php echo $i;?>]" readonly  placeholder="00" maxlength="2" value="<?php if(isset($value2)) echo $value2;?>"> 
-                        <?php  if($test['answer']!=$test['selected']){echo $test['answer'];}?>
-                        
+                        <font color="red !important"><?php  if($test['answer']!=$test['selected']){echo $test['answer'];}?>        </font>                
                         <input type="hidden" name="ans[<?php echo $i;?>]" value="<?php if(isset($test['selected'])) echo $test['selected'];?>">
                         <input type="hidden" name="session_id[<?php echo $i;?>]" value="<?php echo $session_id;?>"/>
                         <input type="hidden" name="session_type" value="4"/>
