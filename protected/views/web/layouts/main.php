@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta http-equiv="content-language" content="th" />
         <meta name="description" content="e-pretest คลังข้อสอบออนไลน์ รวบรวมข้อสอบเข้ามหาวิทยาลัย (Admissions) ทั้ง O-net, GAT, PAT, 7 วิชาสามัญ และแบบฝึกหัดข้อสอบภาษาต่าง ๆ " />
-        <meta name="keywords" content="ข้อสอบ o net, สอบ o net , o-net, โอเน็ต, ข้อสอบโอเน็ต, GAT PAT, สอบ GAT PAT, ข้อสอบ GAT PAT, 7 วิชาสามัญ, 7 วิชา, 7 สามัญ, วิชา สามัญ, สอบ 7 วิชา, วิชา 7 สามัญ, ข้อสอบออนไลน์, เตรียมสอบ, แอดมินชั่น, Admissions" />
+        <meta name="keywords" content="ข้อสอบ o net,ข้อสอบออนไลน์,IELTS, HSK, สอบ o net , o-net, โอเน็ต, ข้อสอบโอเน็ต, GAT PAT, สอบ GAT PAT, ข้อสอบ GAT PAT, 7 วิชาสามัญ, 7 วิชา, 7 สามัญ, วิชา สามัญ, สอบ 7 วิชา, วิชา 7 สามัญ, เตรียมสอบ, แอดมินชั่น, Admissions" />
         <meta name="robots" content="index,follow" />
         <meta name="author" content="E-pretest.com" />
 

@@ -53,11 +53,11 @@ $this->pageTitle=Yii::app()->name;
 		<p class="oneline_description">ชำระเงินผ่านช่องทางต่างๆ ของเรา</p>
 	</div>
 	<div class="box_3step_description two">
-		<p class="oneline_description">เลือกข้อสอบจากคลังข้อสอบของเรา</p>
+            <p class="oneline_description">เลือกข้อสอบจากคลังข้อสอบของเรา</p>
 		
 	</div>
 	<div class="box_3step_description three">
-		<p class="oneline_description">ลงมือทำข้อสอบ</p>
+            <p class="oneline_description">ลงมือทำ<h1>ข้อสอบ</h1></p>
 		
 	</div>
 </div>
@@ -74,7 +74,7 @@ $this->pageTitle=Yii::app()->name;
 <!-- Hall of Frames -->
 <div class="grid_12 title_bar">
 	<span class="before"></span>
-	<h2>ชุดทดสอบในแต่ละชั้นปี</h2>
+	<h2>คลังข้อสอบ</h2>
 	<span class="after"></span>
 </div>
 
@@ -196,10 +196,10 @@ $this->pageTitle=Yii::app()->name;
 <div class="clear"></div>
 
 
-<!-- Information >
+<!-- Information -->
 <div class="grid_12 title_bar">
 	<span class="before"></span>
-	<h2>อัพเดตข่าวสาร</h2>
+	<h2>สาระน่ารู้</h2>
 	<span class="after"></span>
 </div>
 
@@ -212,7 +212,9 @@ $this->pageTitle=Yii::app()->name;
                 <?php }else{?>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/no-pic.jpg" width="220" height="220" border="0"/>
                 <?php }?>
-		<h3 class="news_title" style="height:100px"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>"><?php echo $information->title; ?></a></h3>
+                <?php echo $information->description; ?>
+                
+		<!--h3 class="news_title" style="height:100px"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>"><?php echo $information->title; ?></a></h3-->
 		<p class="news_timestamp"><?php echo date('j F Y', strtotime($information->date_added)); ?></p>
 		<p class="readmore"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>">อ่านต่อ...</a></p>
 		</div>
@@ -222,7 +224,7 @@ $this->pageTitle=Yii::app()->name;
 
 <div class="clear"></div>
 
-<div class="go_news"><a href="<?php echo Yii::app()->createUrl('information') ?>">ดูข่าวทั้งหมด</a></div>
+<div class="go_news"><a href="<?php echo Yii::app()->createUrl('information') ?>">ดูทั้งหมด</a></div>
 
 <div class="clear"></div><!-- close Information -->
 

@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta http-equiv="content-language" content="th" />
         <meta name="description" content="e-pretest คลังข้อสอบออนไลน์ รวบรวมข้อสอบเข้ามหาวิทยาลัย (Admissions) ทั้ง O-net, GAT, PAT, 7 วิชาสามัญ และแบบฝึกหัดข้อสอบภาษาต่าง ๆ " />
-        <meta name="keywords" content="ข้อสอบ o net, สอบ o net , o-net, โอเน็ต, ข้อสอบโอเน็ต, GAT PAT, สอบ GAT PAT, ข้อสอบ GAT PAT, 7 วิชาสามัญ, 7 วิชา, 7 สามัญ, วิชา สามัญ, สอบ 7 วิชา, วิชา 7 สามัญ, ข้อสอบออนไลน์, เตรียมสอบ, แอดมินชั่น, Admissions" />
+        <meta name="keywords" content="ข้อสอบ,ข้อสอบออนไลน์,IELTS, HSK, o net, สอบ o net , o-net, โอเน็ต, ข้อสอบโอเน็ต, GAT PAT, สอบ GAT PAT, ข้อสอบ GAT PAT, 7 วิชาสามัญ, 7 วิชา, 7 สามัญ, วิชา สามัญ, สอบ 7 วิชา, วิชา 7 สามัญ, เตรียมสอบ, แอดมินชั่น, Admissions" />
         <meta name="robots" content="index,follow" />
         <meta name="author" content="E-pretest.com" />
 
@@ -76,22 +76,22 @@
 
         <script type="text/javascript">
             var exam_id = <?php echo $exam_id ?>;
-            var credit_require = <?php echo $exam_info['credit_required']; ?>;
+            var credit_require = <?php echo $exam_info['credit_required'];?>;
             var message = 'เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" \n\
                     จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว\n\
  สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ';
-            function createNewTest() {
-
+          
+    function createNewTest() {
+        //var fullPath = "";
+        var fullPath = "http://www.e-pretest.com/";  
 <?php if ($exam_info['voice_file'] == 1) { ?>
-        var fullPath = "" when Offline
-        //var fullPath = "http://www.e-pretest.com/";
+        
                     message = "<b>มีข้อสอบเสียง</b><br/>\n\
                 กรุณาปรับระดับความดังของลำโพงให้เหมาะสม" + message;
                     var x = document.createElement("AUDIO");
                     x.src = fullPath+"uploads/mp3/voice.mp3";
                     x.setAttribute("controls", "controls");
                     x.setAttribute("autoplay", "autoplay");
-
 
 <?php } ?>
                 apprise(message, {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function (r) {
@@ -258,7 +258,7 @@
                 <div id="header" class="grid_12 do_exercise">
                     <!--div class="point_detail">
                         แนะนำ : หากโหลดข้อสอบไม่ขึ้น ให้กดที่ปุ่ม Refresh ด้านล่าง
-                    </div-->
+                    </div---->
                     <div class="time_countdown time_countdown_mini">
                         <span class="time_icon"></span>
                         <div class="time_text" id="timeTxt"><span id="countdown"><?php echo $time_limit; ?></span></div>
