@@ -428,21 +428,25 @@ class ExamController extends Controller {
         $test_record_id = $testRecord->getIdByStudentIdExamId($student_id, $exam_id);
         $data = array();
         foreach ($selected as $key => $value) {
+            
+                $score = 0;
             $session_id = $session_id_list[$key];
             $session = $this->loadSessionById($session_id);
 
             $answer_type_id = $session->answer_type_id;
             $answer = $model->getAnswerDetail($session_id, $key);
-            //ตรวจคำตอบแบบที่7 - หรับหรับแบบอื่นๆ แค่เช็คว่าตรงกัน
+            //ตรวจคำตอบแบบที่7 ,8- หรับหรับแบบอื่นๆ แค่เช็คว่าตรงกัน
             if ($answer_type_id == 7) {
                 $score = $this->Cal_Ans7($answer['answer'], $value, $answer['score_item']);
-            } else if($value!=""){
-                $ans = strtolower(trim($answer['answer']));
+            } else if($answer_type_id ==8){
                 $val = strtolower(trim($value));
-            
-                    $score = strpos(" ".$ans,$val)==false? 0:$answer['score_item'];
+                $ans = explode(",",strtolower(trim($answer['answer'])));
+            foreach($ans as $item){
+                if($item==$val){$score = $answer['score_item'];break;
+               }
+            }
             }    else {
-                    $score = 0;
+                    $score = $value==$answer['answer']?$answer['score_item']:0;
                 
             }
 

@@ -41,10 +41,15 @@
                         $isCorrect = false;
 
                         $selected = strtolower(trim($test['selected']));
-                        $answer = strtolower(trim($test['answer']));
-                        if ($test['selected']) {
-                            $isCorrect = strpos(" " . $answer, $selected);
+                        $answers = explode(",", strtolower(trim($test['answer'])));
+                        foreach ($answers as $ans) {
+                            if ($ans == $selected) {
+                                $isCorrect = true;
+                                break;
+                            }
                         }
+
+
                         if (!$isCorrect) {
                             $style = "border:2px solid red";
                         } else {
@@ -56,12 +61,12 @@
                             <input style="<?php echo $style; ?>" type="text" id="ans<?php echo $i; ?>_1" name="ans[<?php echo $i; ?>]" readonly   maxlength="30" value="<?php echo $selected; ?>">
                             <font color="red !important"><?php
                             if (!$isCorrect) {
-                                echo $answer;
+                                echo $test['answer'];
                             }
                             ?></font>
 
                         </li>
-                    <?php
+                        <?php
                     }
                 }
                 ?>
