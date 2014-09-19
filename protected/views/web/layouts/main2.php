@@ -83,10 +83,12 @@
             function createNewTest() {
 
 <?php if ($exam_info['voice_file'] == 1) { ?>
+        var fullPath = "" when Offline
+        //var fullPath = "http://www.e-pretest.com/";
                     message = "<b>มีข้อสอบเสียง</b><br/>\n\
                 กรุณาปรับระดับความดังของลำโพงให้เหมาะสม" + message;
                     var x = document.createElement("AUDIO");
-                    x.src = "http://www.e-pretest.com/uploads/mp3/voice.mp3";
+                    x.src = fullPath+"uploads/mp3/voice.mp3";
                     x.setAttribute("controls", "controls");
                     x.setAttribute("autoplay", "autoplay");
 
@@ -98,7 +100,7 @@
 
 <?php if ($exam_info['voice_file'] == 1) { ?>
                             var y = document.createElement("AUDIO");
-                            y.setAttribute("src", "http://www.e-pretest.com/uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
+                            y.setAttribute("src", fullPath+"uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
                             y.setAttribute("controls", "controls");
                             y.setAttribute("autoplay", "autoplay");
 <?php } ?>

@@ -41,9 +41,8 @@
                     $test = $testing->getAllTestingRecord($test_record_id,$i);
 
                     if(is_array($test)){
-                    $value = explode(".",$test['selected']);
-                    $value1 = $value[0];
-                    $value2 = $value[1];
+                    $value1 = floor( $test['selected']);
+                    $value2 =  $test['selected']*100%100;
                     }
 
                   
