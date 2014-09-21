@@ -14,62 +14,8 @@ $this->pageTitle=Yii::app()->name;
 </div>
 
 <div class="clear"></div><!-- close Top Banner -->
-<div class="ads" align="center"><br/>
-<iframe width="100%" height="450"  src="http://www.youtube.com/embed/z-ZFpbpLuhc" frameborder="0" allowfullscreen></iframe>
-</div>
-<!-- 3 Step easy -->
-<div class="grid_12 title_bar">
-	<span class="before"></span>
-	<h2>ทำข้อสอบได้ง่ายๆ ใน 3 ขั้นตอน</h2>
-	<span class="after"></span>
-</div>
 
-<div class="clear"></div>
 
-<div class="grid12 box_3step">
-	<div class="box_3step_block one">
-		<div class="number num1"></div>
-            <!--a class="fancybox" rel="group" href="./images/popup_promotion.gif"-->
-		<div class="pic_orange one_o"></div>
-		<div class="pic_black one_b"></div></a>
-		<h4>เติม</h4>
-	</div>
-	<div class="arrow a_1"></div>
-	<div class="box_3step_block two">
-		<div class="number num2"></div>
-		<div class="pic_orange two_o"></div>
-		<div class="pic_black two_b"></div>
-		<h4>เลือก</h4>
-	</div>
-	<div class="arrow a_2"></div>
-	<div class="box_3step_block three">
-		<div class="number num3"></div>
-		<div class="pic_orange three_o"></div>
-		<div class="pic_black three_b"></div>
-		<h4>ทำ</h4>
-	</div>
-	<div class="clear"></div>
-	<div class="box_3step_description one">
-		<p class="oneline_description">ชำระเงินผ่านช่องทางต่างๆ ของเรา</p>
-	</div>
-	<div class="box_3step_description two">
-            <p class="oneline_description">เลือกข้อสอบจากคลังข้อสอบของเรา</p>
-		
-	</div>
-	<div class="box_3step_description three">
-            <p class="oneline_description">ลงมือทำ<h1>ข้อสอบ</h1></p>
-		
-	</div>
-</div>
-
-<div class="clear"></div><!-- close 3 Step easy -->
-
-<!--แก้ไข-->
-
-<div class="go_signup">
-	<a href="<?php echo Yii::app()->createUrl('student/view') ?>">เริ่มตะลุยโจทย์!</a>
-	<hr>
-</div>
 
 <!-- Hall of Frames -->
 <div class="grid_12 title_bar">
@@ -191,10 +137,65 @@ $this->pageTitle=Yii::app()->name;
 </div>
 <?php } ?>
 
-<div class="clear"></div><!-- Hall of Frames -->
+<div class="clear"></div><!-- Hall of Fames -->
+<!--เริ่มตะลุย-->
+
+<div class="go_signup">
+	<a href="<?php echo Yii::app()->createUrl('student/view') ?>">เริ่มตะลุยโจทย์!</a>
+	<hr>
+</div>
+
+<div class="clear"></div>
+<!-- 3 Step easy -->
+<div class="grid_12 title_bar">
+	<span class="before"></span>
+	<h2>ทำข้อสอบได้ง่ายๆ ใน 3 ขั้นตอน</h2>
+	<span class="after"></span>
+</div>
 
 <div class="clear"></div>
 
+<div class="grid12 box_3step">
+	<div class="box_3step_block one">
+		<div class="number num1"></div>
+            <!--a class="fancybox" rel="group" href="./images/popup_promotion.gif"-->
+		<div class="pic_orange one_o"></div>
+		<div class="pic_black one_b"></div></a>
+		<h4>เติม</h4>
+	</div>
+	<div class="arrow a_1"></div>
+	<div class="box_3step_block two">
+		<div class="number num2"></div>
+		<div class="pic_orange two_o"></div>
+		<div class="pic_black two_b"></div>
+		<h4>เลือก</h4>
+	</div>
+	<div class="arrow a_2"></div>
+	<div class="box_3step_block three">
+		<div class="number num3"></div>
+		<div class="pic_orange three_o"></div>
+		<div class="pic_black three_b"></div>
+		<h4>ทำ</h4>
+	</div>
+	<div class="clear"></div>
+	<div class="box_3step_description one">
+		<p class="oneline_description">ชำระเงินผ่านช่องทางต่างๆ ของเรา</p>
+	</div>
+	<div class="box_3step_description two">
+            <p class="oneline_description">เลือกข้อสอบจากคลังข้อสอบของเรา</p>
+		
+	</div>
+	<div class="box_3step_description three">
+            <p class="oneline_description">ลงมือทำ<h1>ข้อสอบ</h1></p>
+		
+	</div>
+</div>
+
+<div class="clear"></div><!-- close 3 Step easy -->
+
+<div class="ads" align="center"><br/>
+<iframe width="100%" height="450"  src="http://www.youtube.com/embed/z-ZFpbpLuhc" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <!-- Information -->
 <div class="grid_12 title_bar">
@@ -212,11 +213,12 @@ $this->pageTitle=Yii::app()->name;
                 <?php }else{?>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/no-pic.jpg" width="220" height="220" border="0"/>
                 <?php }?>
+                <h3><?php echo $information->title;?></h3>
                 <?php echo $information->description; ?>
                 
 		<!--h3 class="news_title" style="height:100px"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>"><?php echo $information->title; ?></a></h3-->
 		<p class="news_timestamp"><?php echo date('j F Y', strtotime($information->date_added)); ?></p>
-		<p class="readmore"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>">อ่านต่อ...</a></p>
+		<!--p class="readmore"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>">อ่านต่อ...</a></p-->
 		</div>
 	</div>
 	<?php } ?>
