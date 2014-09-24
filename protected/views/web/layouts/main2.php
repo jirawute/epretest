@@ -41,11 +41,9 @@
             window.onbeforeunload = function () {
                 saveThisForm();
             };
-
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-41611206-2']);
             _gaq.push(['_trackPageview']);
-
             (function () {
                 var ga = document.createElement('script');
                 ga.type = 'text/javascript';
@@ -54,8 +52,6 @@
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(ga, s);
             })();
-
-
             function OpenLink(url) {
                 document.location.href = url;
             }
@@ -67,42 +63,45 @@
                 document.getElementById('append_' + i + '_' + j + '_1').innerHTML = "-";
                 document.getElementById('append_' + i + '_' + j + '_2').innerHTML = "-";
                 document.getElementById('append_' + i + '_' + j + '_3').innerHTML = "-";
-
                 document.getElementById('ans' + i + '_' + j + '_1').checked = true;
-                document.getElementById('ans' + i + '_' + j + '_2').checked = true;//hide selected radio button
+                document.getElementById('ans' + i + '_' + j + '_2').checked = true; //hide selected radio button
             }
         </script>
 
 
         <script type="text/javascript">
             var exam_id = <?php echo $exam_id ?>;
-            var credit_require = <?php echo $exam_info['credit_required'];?>;
+            var credit_require = <?php echo $exam_info['credit_required']; ?>;
             var message = 'เครดิตของคุณจะถูกหักไป ' + credit_require + ' เครดิต<br/>และเมื่อคลิก "ยืนยันการทำข้อสอบ" \n\
                     จะเป็นการเริ่มทำข้อสอบเสมือนจริง<br/>เวลาจะเริ่มเดินและไม่สามารถย้อนกลับมาทำข้อสอบชุดนี้ได้ใหม่<br/> เมื่อส่งคำตอบแล้ว\n\
  สามารถกลับมาดูเฉลยแบบละเอียดได้โดยไม่จำกัดเวลา<br/> คำเตือน : ห้ามคลิกออกจากโปรแกรมและห้ามคลิกปุ่มย้อนกลับระหว่างทำข้อสอบ';
-          
-    function createNewTest() {
-        //var fullPath = "";
-        var fullPath = "http://www.e-pretest.com/";  
+            function createNewTest() {
+                //var fullPath = "";
+                var fullPath = "http://www.e-pretest.com/";
 <?php if ($exam_info['voice_file'] == 1) { ?>
-        
-                    message = "<b>มีข้อสอบเสียง</b><br/>\n\
-                กรุณาปรับระดับความดังของลำโพงให้เหมาะสม" + message;
-                    var x = document.createElement("AUDIO");
-                    x.src = fullPath+"uploads/mp3/voice.mp3";
+ var x = document.createElement("AUDIO");
+                    x.src = fullPath + "uploads/mp3/voice.mp3";
                     x.setAttribute("controls", "controls");
-                    x.setAttribute("autoplay", "autoplay");
+                    x.preload = "auto";x.play();
+                    x.addEventListener("canplaythrough", function () {
+                                alert('มีข้อสอบเสียง! กรุณาปรับระดับความดังของลำโพงให้เหมาะสม หากไม่ได้ยินเสียงนี้กรุณากดยกเลิก');
+                                
+                            }, false);
 
 <?php } ?>
                 apprise(message, {'verify': true, 'textYes': 'ยืนยันการทำข้อสอบ', 'textNo': 'ยกเลิก'}, function (r) {
                     if (r) {
                         useCredit(credit_require, exam_id);
-
 <?php if ($exam_info['voice_file'] == 1) { ?>
                             var y = document.createElement("AUDIO");
-                            y.setAttribute("src", fullPath+"uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3");//
-                            y.setAttribute("controls", "controls");
-                            y.setAttribute("autoplay", "autoplay");
+                            y.src = fullPath + "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3"; //
+                            y.setAttribute("controls", "default controls");
+                            y.setAttribute("preload", "auto");
+
+                            y.addEventListener("canplaythrough", function () {
+                                alert('Start listening part!');
+                                y.play();
+                            }, false);
 <?php } ?>
                     } else {
                         OpenLink("index.php?r=student/view");
@@ -118,7 +117,6 @@
                         //alert(data);
                         if (isStarted == 0) {
                             createNewTest();
-
                         } else {
                             showPDF();
                             if (typeof time_dec == 'undefined') {
@@ -133,10 +131,7 @@
                         alert("Error: " + error + "\nResponseText: " + request.responseText);
                     }
                 });
-
             });
-
-
             function useCredit(credit_require, exam_id) {
                 $.ajax({
                     url: '?r=exam/usecredit&credit=' + credit_require + '&id=' + exam_id,
@@ -151,7 +146,6 @@
                         }
                     }
                 });
-
             }
         </script>
 
@@ -159,6 +153,7 @@
     </head>
 
     <body onbeforeunload="saveThisForm()" >
+
 
         <div class="container_12">
             <?php if (Yii::app()->user->isGuest) { ?>
@@ -192,19 +187,13 @@
                 <script language="javascript">
 
                     var test_rec_id = <?php echo $test_record_id; ?>;
-
                     var exam_id = <?php echo $exam_id ?>;
-
                     var min = <?php echo $start_countdown; ?>;
-
                     var time_left = min * 60;
-
                     //var cinterval;
 
                     var elapse_time;
-
                     var timeTxt = "time_text";
-
                     function time_dec() {
                         if (time_left < 300) {
                             if (timeTxt == 'time_text') {
@@ -215,14 +204,10 @@
                             document.getElementById("timeTxt").setAttribute('class', timeTxt);
                         }
                         var hours = Math.floor(time_left / (60 * 60));
-
                         var divisor_for_minutes = time_left % (60 * 60);
                         var minutes = Math.floor(divisor_for_minutes / 60);
-
                         var divisor_for_seconds = divisor_for_minutes % 60;
                         var seconds = Math.ceil(divisor_for_seconds);
-
-
                         if (hours < 10) {
                             hours = "0" + hours;
                         }
@@ -238,7 +223,6 @@
 
                         time_left--;
                         var obj = hours + ':' + minutes + ':' + seconds;
-
                         //return obj;
                         if (time_left < 0) {
                             //saveThisForm();
@@ -310,8 +294,7 @@
                         js.id = id;
                         js.src = "//connect.facebook.net/th_TH/all.js#xfbml=1";
                         fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
+                    }(document, 'script', 'facebook-jssdk'));</script>
                 <div class="social">
                     <div class="fb-like-box" data-href="https://www.facebook.com/estudiothailand" data-width="290" data-height="192" data-show-faces="true" data-stream="false" data-border-color="#cccccc" data-header="false"></div>
                 </div>
@@ -326,9 +309,7 @@
                 function stuffForRezieAndReady() {
 
                     $(".question_content").height(Math.floor($(window).height() * 77 / 100));
-
                     $(".answer_content").height(Math.floor($(window).height() * 77 / 100 - 60));
-
                     $(function () {
                         var minHeight = Math.floor($(window).height() - 370);
                         $('#content').css({'min-height': minHeight});
@@ -337,11 +318,8 @@
 
                 $(window).on("resize", stuffForRezieAndReady);
                 $(document).on("ready", stuffForRezieAndReady);
-
             })();
-
             $(".answer_content > ul").children("li:odd").css("background", "#e8e8e8");
-
 //	$(function(){
 //		$("h2.profile_name").each(function(i){
 //			len=$(this).text().length;
@@ -358,34 +336,28 @@
                 $(".menu_test ul.menu_list li ul li a").removeAttr('style');
                 $(this).css("background", "#ff9c00");
             });
-
             $(".about_dialog .close").click(function () {
                 $(".about_dialog").slideUp(500);
                 $(".about_dialog .pic").fadeOut(100);
             });
-
             $(".menu_tab_home a:nth-child(1), .menu_tab a:nth-child(1)").click(function () {
                 $(this).addClass("selected");
                 $(this).siblings("a:nth-child(2)").removeClass("selected");
                 $(this).parent().siblings(".menu_tab1").show();
                 $(this).parent().siblings(".menu_tab2").hide();
             });
-
             $(".menu_tab_home a:nth-child(2), .menu_tab a:nth-child(2)").click(function () {
                 $(this).addClass("selected");
                 $(this).siblings("a:nth-child(1)").removeClass("selected");
                 $(this).parent().siblings(".menu_tab1").hide();
                 $(this).parent().siblings(".menu_tab2").show();
             });
-
             $(".credit_box .credit_select ul li input:radio").bind("click", function () {
                 $(this).parents().eq(8).find('.credit_option').slideDown("slow");
                 $(this).parents().eq(8).find('.credit_box').animate({'top': '-=25px'}, 'slow');
                 $(this).parents().eq(8).find('.goback a').animate({'top': '-=15px'}, 'slow');
                 $(".credit_box .credit_select ul li input:radio").unbind();
-            });
-
-        </script>
+            });</script>
 
         <script>
 
@@ -394,9 +366,7 @@
                 setInterval(function () {
                     $post.toggleClass("blink");
                 }, 1000);
-            });
-
-        </script>
+            });</script>
 
         <script type="text/javascript" src="js/jquery.dataTables.myconfig.js"></script>
 

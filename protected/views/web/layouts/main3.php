@@ -28,14 +28,19 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/apprise-1.5.full.js"></script>
         <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>
         <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-
+        <?php
+        $student = Student::model()->findByPk(Yii::app()->user->id);
+        $exam_id = $_GET['id'];
+        $exam = Exam::model()->findByPk($exam_id);
+        $exam_info = $exam->getExamDetailById($exam_id);
+        ?>
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-41611206-2']);
             _gaq.push(['_trackPageview']);
 
-            (function() {
+            (function () {
                 var ga = document.createElement('script');
                 ga.type = 'text/javascript';
                 ga.async = true;
@@ -46,8 +51,19 @@
 
         </script>
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 showPDF();
+                //var fullPath = "";
+                var fullPath = "http://www.e-pretest.com/";
+<?php if ($exam_info['voice_file'] == 1) { ?>
+        
+                          //  var y = document.createElement("AUDIO");
+                            var y = document.getElementById("audio1");
+                            y.src = fullPath + "uploads/mp3/<?php echo $exam_info['exam_id']; ?>.mp3"; //
+                            y.controls = true;
+                            y.setAttribute("preload", "auto");
+
+<?php } ?>
             });
             function OpenLink(url) {
                 document.location.href = url;
@@ -62,8 +78,10 @@
     </head>
 
     <body>
+        <audio id="audio1">
+</audio>
         <div class="container_12"onmousedown="return false" ><!--lock whole sheet to prevent copy-->
-<?php if (Yii::app()->user->isGuest) { ?>
+            <?php if (Yii::app()->user->isGuest) { ?>
                 <div id="header" class="grid_12">
 
                     <h1 class="logo"><a href="index.php">eStudio</a></h1>
@@ -124,49 +142,48 @@
                         </form>
                     </div>
                 </div>
-            <?php
+                <?php
             } else {
-                $student = Student::model()->findByPk(Yii::app()->user->id);
-                $exam_id =  $_GET['id'];
-                $exam = Exam::model()->findByPk($exam_id);
-                
-                if($exam['status']==1){//show detail only if exam status =1
-                $student_id = $student->student_id;
-                $testRecoed = new TestRecord;
 
-                $row = $testRecoed->getTestRecordDetailByStudentIdExamId($student_id, $exam_id);
-                $test_static = $testRecoed->getTestRecordDetailByExamId($exam_id);
-                
+                if ($exam['status'] == 1) {//show detail only if exam status =1
+                    $student_id = $student->student_id;
+                    $testRecoed = new TestRecord;
 
-                /* Find Rank by exam_id and student_id */
-                $test_all = $testRecoed->getAllTestRecordByExamId($exam_id);
-                foreach ($test_all as $key => $static) {
-                    if ($student_id == $static['student_id']) {
-                        $test_rank = ($key + 1);
-                    } else {
-                        $test_rank = ($key);
+                    $row = $testRecoed->getTestRecordDetailByStudentIdExamId($student_id, $exam_id);
+                    $test_static = $testRecoed->getTestRecordDetailByExamId($exam_id);
+
+
+                    /* Find Rank by exam_id and student_id */
+                    $test_all = $testRecoed->getAllTestRecordByExamId($exam_id);
+                    foreach ($test_all as $key => $static) {
+                        if ($student_id == $static['student_id']) {
+                            $test_rank = ($key + 1);
+                        } else {
+                            $test_rank = ($key);
+                        }
                     }
-                }
 //                            echo "<br> ===> ";
 //                            echo "<pre>";
 //                            print_r($test_all);
 //                            echo "</pre>";
 //                            echo $test_rank;
-                $score = explode('.', $row['score']);
-                foreach ($score as $value) {
-                    
-                }
-                if ($value == '00') {
-                    $score = number_format($row['score']);
-                } else {
-                    $score = $row['score'];
-                }
+                    $score = explode('.', $row['score']);
+                    foreach ($score as $value) {
+                        
+                    }
+                    if ($value == '00') {
+                        $score = number_format($row['score']);
+                    } else {
+                        $score = $row['score'];
+                    }
                 }
                 ?>
                 <div id="header" class="grid_12 do_exercise">
 
                     <div class="point_detail">
-                        <div class="box">คะแนนเฉลี่ย : <?php $exam_id; echo number_format($test_static['score_avg']); ?></div>
+                        <div class="box">คะแนนเฉลี่ย : <?php $exam_id;
+            echo number_format($test_static['score_avg']);
+                ?></div>
                         <div class="box">คะแนนสูงสุด : <?php echo number_format($test_static['score_max']); ?></div>
                         <div class="box">คุณได้ลำดับที่ : <?php echo $test_rank; ?></div>
                         <div class="box">จากผู้เข้าสอบทั้งหมด : <?php echo number_format($test_static['student_total']); ?> คน</div>
@@ -174,24 +191,24 @@
                     <div style="float:left;margin:10px">
                         <!--<a name="fb_share" type="button" share_url="http://www.e-pretest.com/fbsharepage.php">Share Facebook</a>-->
                         <!--<a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php"  share_url="http://www.e-pretest.com/index.php?r=exam/answer&id=10">Share</a>-->
-    <?php
-    $parm = $exam_id . "-" . $score . "-" . intval($exam->score_total) . "-" . $test_rank . "-" . $test_static['student_total'];
-    $url = "www.e-pretest.com/fbsharescore.php?parm=" . $parm;
-    //echo $url;
-    ?>
+                        <?php
+                        $parm = $exam_id . "-" . $score . "-" . intval($exam->score_total) . "-" . $test_rank . "-" . $test_static['student_total'];
+                        $url = "www.e-pretest.com/fbsharescore.php?parm=" . $parm;
+                        //echo $url;
+                        ?>
                         <script type="text/javascript">
-                function fbshare()
-                {
-                    window.open("http://www.facebook.com/share.php?u=<?php echo $url ?>", "Facebook_Share", "menubar=1,resizable=1,width=600,height=400");
-                    //window.open("http://www.javascript-coder.com","mywindow","menubar=1,resizable=1,width=900,height=500");
-                }
+                            function fbshare()
+                            {
+                                window.open("http://www.facebook.com/share.php?u=<?php echo $url ?>", "Facebook_Share", "menubar=1,resizable=1,width=600,height=400");
+                                //window.open("http://www.javascript-coder.com","mywindow","menubar=1,resizable=1,width=900,height=500");
+                            }
                         </script>
                         <a href="javascript:fbshare()">
                             <img src="http://www.e-pretest.com/images/web/facebook.png" />
                         </a>
                     </div>
                     <div class="time_countdown time_countdown_mini_long">                                    
-                        <div class="time_text"><span class="point">คะแนนที่ได้:</span><?php echo  $score . "/" . intval($exam->score_total); ?></div>
+                        <div class="time_text"><span class="point">คะแนนที่ได้:</span><?php echo $score . "/" . intval($exam->score_total); ?></div>
                     </div>
 
                 </div>
@@ -237,7 +254,7 @@
                     </ul>
                 </div>
                 <div id="fb-root"></div>
-                <script>(function(d, s, id) {
+                <script>(function (d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id))
                             return;
@@ -257,13 +274,13 @@
 
         <script>
 
-            (function() {
+            (function () {
                 function stuffForRezieAndReady() {
                     $(".question_content").height(Math.floor($(window).height() * 77 / 100));
 
                     $(".answer_content").height(Math.floor($(window).height() * 77 / 100 - 60));
 
-                    $(function() {
+                    $(function () {
                         var minHeight = Math.floor($(window).height() - 370);
                         $('#content').css({'min-height': minHeight});
                     });
@@ -286,7 +303,7 @@
 //		});
 //	});
 
-            $(".menu_test ul.menu_list li ul li a").click(function() {
+            $(".menu_test ul.menu_list li ul li a").click(function () {
                 $(".list_test > .list_test_unselect").hide();
                 $(".list_test > .list_test_box").css({visibility: "visible"});
                 $(".menu_test ul.menu_list li ul li a").removeAttr('style');
@@ -295,27 +312,27 @@
             });
 
 
-            $(".about_dialog .close").click(function() {
+            $(".about_dialog .close").click(function () {
                 $(".about_dialog").slideUp(500);
                 $(".about_dialog .pic").fadeOut(100);
             });
 
 
-            $(".menu_tab_home a:nth-child(1), .menu_tab a:nth-child(1)").click(function() {
+            $(".menu_tab_home a:nth-child(1), .menu_tab a:nth-child(1)").click(function () {
                 $(this).addClass("selected");
                 $(this).siblings("a:nth-child(2)").removeClass("selected");
                 $(this).parent().siblings(".menu_tab1").show();
                 $(this).parent().siblings(".menu_tab2").hide();
             });
 
-            $(".menu_tab_home a:nth-child(2), .menu_tab a:nth-child(2)").click(function() {
+            $(".menu_tab_home a:nth-child(2), .menu_tab a:nth-child(2)").click(function () {
                 $(this).addClass("selected");
                 $(this).siblings("a:nth-child(1)").removeClass("selected");
                 $(this).parent().siblings(".menu_tab1").hide();
                 $(this).parent().siblings(".menu_tab2").show();
             });
 
-            $(".credit_box .credit_select ul li input:radio").bind("click", function() {
+            $(".credit_box .credit_select ul li input:radio").bind("click", function () {
                 $(this).parents().eq(8).find('.credit_option').slideDown("slow");
                 $(this).parents().eq(8).find('.credit_box').animate({'top': '-=25px'}, 'slow');
                 $(this).parents().eq(8).find('.goback a').animate({'top': '-=15px'}, 'slow');
@@ -326,9 +343,9 @@
 
         <script>
 
-            $(function() {
+            $(function () {
                 var $post = $(".blink");
-                setInterval(function() {
+                setInterval(function () {
                     $post.toggleClass("blink");
                 }, 500);
             });
