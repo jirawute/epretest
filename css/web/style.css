@@ -3253,6 +3253,13 @@ ul#exam_list li a:hover {
   line-height: 1.2em;
   margin: 14px 0 5px;
 }
+#content .news_desc {
+  font-family: rsufont, Helvetica, Arial, Tahoma, Thonburi, sans-serif;
+  color: #bc6d11;
+  font-size: 1.5em;
+  line-height: 0.8em;
+  margin: 14px 0 5px;
+}
 #content .news_list .news_list_box .news_box a {
   color: #824700;
   text-decoration: none;

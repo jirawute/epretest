@@ -28,6 +28,7 @@
 
         <?php
         $exam_id = $_GET['id'];
+        $redo = isset($_GET['redo'])? '1':'0';
         $exam = new Exam;
         $exam_info = $exam->getExamDetailById($exam_id);
         ?>
@@ -114,8 +115,8 @@
                     type: 'GET',
                     dataType: 'html',
                     success: function (isStarted, textStatus, xhr) {
-                        //alert(data);
-                        if (isStarted == 0) {
+                        //alert(redo);
+                        if (isStarted == 0||redo== 1) {
                             createNewTest();
                         } else {
                             showPDF();
@@ -165,7 +166,7 @@
 
                 $testRecord = new TestRecord;
                 $Total = $testRecord->getTestRecordByStudentIdExamId($student->student_id, $exam->exam_id);
-                if ($Total > 0) {
+                if ($redo =='0'&&$Total > 0) {
                     $test_record_id = $testRecord->getIdByStudentIdExamId($student->student_id, $exam->exam_id);
                     $model = $testRecord->loadTestRecord($test_record_id);
                     $status = $model->status;
@@ -188,6 +189,7 @@
 
                     var test_rec_id = <?php echo $test_record_id; ?>;
                     var exam_id = <?php echo $exam_id ?>;
+                    var redo = <?php echo $redo;?>;
                     var min = <?php echo $start_countdown; ?>;
                     var time_left = min * 60;
                     //var cinterval;

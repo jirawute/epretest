@@ -62,7 +62,7 @@ $(function(){
 								</div>
 							</p>
 							<div class="clear"></div>
-							<p>
+							<!--p>
                                                                 <?php echo $form->labelEx($model,'address'); ?>
                                                                 <?php echo $form->textField($model,'address',array('class'=>'input')); ?>
                                                                 <?php echo $form->error($model,'address'); ?>
@@ -89,15 +89,15 @@ $(function(){
                                                                 <input type="text" name="number13" id="number13" value="<?php if($model->id_number)echo $model->id_number[12];?>" maxlength="1"/>
 
                                                             </div>
-							</p>
+							</p-->
 
-							<p>
+							<!--p>
                                                                 <?php echo $form->labelEx($model,'level_id'); ?>
                                                                 <?php echo $form->dropDownList($model,'level_id', $option_levels,array(
                                                                                 'prompt' => '--กรุณาเลือก--',
                                                                                 'value' => '',)); ?>
                                                                 <?php echo $form->error($model,'level_id'); ?>
-                                                        </p>
+                                                        </p-->
                                                         <p>
                                                                 <?php echo $form->labelEx($model,'school'); ?>
                                                                 <?php
@@ -124,12 +124,12 @@ $(function(){
                                                                 <?php echo $form->textField($model,'email',array('class'=>'input')); ?>
                                                                 <?php echo $form->error($model,'email'); ?>
 							</p>
-                                                        <p>
+                                                        <!--p>
                                                                 <?php echo $form->labelEx($model,'phone'); ?>
                                                                 <?php echo $form->textField($model,'phone',array('class'=>'input')); ?>
                                                                 <?php echo $form->error($model,'phone'); ?>
-							</p>
-							<p>
+							</p-->
+							<!--p>
                                                                 <label>วัน/เดือน/ปีเกิด</label>
                                                                  <?php
                                                                         $day =  date("d");
@@ -194,7 +194,7 @@ $(function(){
                                                                         ),
                                                                     )); ?>
                                                                 <?php echo $form->error($model,'birthday'); ?>
-                                                        </p>
+                                                        </p-->
 							<p class="submit">
                                                             <?php echo CHtml::submitButton('สมัครสมาชิก',
                                                                     array(

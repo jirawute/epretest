@@ -54,7 +54,7 @@ class Student extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('firstname,email, username,password ,school, level_id,phone', 'required','message'=>'กรุณากรอก {attribute}'),	// lastname, address,
+			array('firstname,email, username,password ', 'required','message'=>'กรุณากรอก {attribute}'),	// lastname, address,
 			array('id_number', 'length', 'max'=>13),
                         array('credit,status', 'numerical', 'integerOnly'=>true),
 			array('firstname, lastname', 'length', 'max'=>42),

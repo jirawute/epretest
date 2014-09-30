@@ -61,7 +61,7 @@ if ($subject['exam_type'] == 'Exam') {
         document.getElementById('dialogBox').style.display = "none";
     }
 
-    function showExam(subject_id, type, subject_name) {
+    function     showExam(subject_id, type, subject_name) {
         var type_name;
         $.ajax({
             url: '?r=exam/select&subject_id=' + subject_id,
@@ -92,11 +92,12 @@ if ($subject['exam_type'] == 'Exam') {
     function CheckandGo(status, exam_id) {
         //alert(exam_id);
         if (status == 2) {
-            apprise('คุณเคยทำข้อสอบชุดนี้แล้ว', {'verify': true, 'textYes': 'ดูเฉลยละเอียด', 'textNo': 'กลับหน้าหลัก'}, function(r) {
+            apprise('คุณเคยทำข้อสอบชุดนี้แล้ว', {'verify': true, 'textYes': 'ทำซ้ำ', 'textNo': 'ดูเฉลยละเอียด'}, function(r) {
                 if (r) {
-                    OpenLink('index.php?r=exam/answer&id=' + exam_id);
+                   OpenLink('index.php?r=exam&redo=1&id='+exam_id); 
                 }else{
-                   //OpenLink('index.php?r=exam&id=32@%3$' + exam_id+'$aw8'); 
+                   
+                    OpenLink('index.php?r=exam/answer&id=' + exam_id);
                 }
             });
         } else {
@@ -171,7 +172,7 @@ if ($subject['exam_type'] == 'Exam') {
 <!-- Start Selected -->
 <div class="grid_12 title_bar">
     <span class="before"></span>
-    <h2>เลือกชุดข้อสอบ - ระดับของคุณคือ <?php echo $level_info->name; ?></h2>
+    <h2>เลือกชุดข้อสอบด้านล่าง</h2>
     <span class="after"></span>
 </div>
 <div class="clear"></div>
@@ -179,8 +180,9 @@ if ($subject['exam_type'] == 'Exam') {
 <div class="menu_test" >
 
     <div class="menu_tab" >
-        <a class="selected">ชุดข้อสอบ</a>
-        <a>ชุดแบบฝึกหัด</a>
+        <a class="selected">ข้อสอบ</a>
+        
+        <a >แบบฝึกหัด</a>
     </div>
     <ul class="menu_list menu_tab1" id="menu_tab1">
         <li>
@@ -241,10 +243,8 @@ if ($subject['exam_type'] == 'Exam') {
 
 <div class="list_test">
     <div style="position:absolute;text-align:right;width:640px;">
-        <div style="position:relative;margin:0;top:-40px;">
-<?php foreach ($level_all as $level) { ?>
-                <a style="margin-left:10px;" class="view_all" href="<?php echo Yii::app()->createUrl('student/view', array('level' => $level->level_id)); ?>"><?php echo $level->name; ?></a>
-<?php } ?>
+        <div style="position:relative;margin:0;top:-40px;"><a style="margin-left:10px;" class="view_all" href="">test</a>
+
         </div>
     </div>
     <div class="clear"></div>

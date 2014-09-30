@@ -28,11 +28,11 @@ $this->pageTitle=Yii::app()->name;
 <?php foreach($levels as $level) { ?>
 <div class="grid_4 col1 list_subject">
 
-	<h3><?php echo $level->name;?></h3>
+	<h3>ชุดข้อสอบ</h3>
 
 	<div class="menu_tab_home">
-		<a class="selected">ชุดข้อสอบ</a>
-		<a>ชุดแบบฝึกหัด</a>
+		<a class="selected">แอดมิดชัน</a>
+		<a>บุคคลทั่วไป</a>
 	</div>
 
 	<ul class="menu_list menu_tab1">
@@ -40,9 +40,9 @@ $this->pageTitle=Yii::app()->name;
                 $level_id = $level->level_id;
                 $type_criteria = new CDbCriteria();
 		$type_criteria->select = '*';
-		$type_criteria->condition = 'status=:status AND level_id=:level_id AND exam_type=:exam_type';
+		/*$type_criteria->condition = 'status=:status AND level_id=:level_id AND exam_type=:exam_type';
 		$type_criteria->params=array(':status'=>1,':level_id'=>$level_id,':exam_type'=>'Exam');
-		$type_criteria->order='sort_order';
+		*/$type_criteria->order='sort_order';
 		$Types = Type::model()->findAll($type_criteria);?>
 
                <?php foreach($Types  as $type) { ?>
@@ -59,7 +59,7 @@ $this->pageTitle=Yii::app()->name;
                                 $Subjects = Subject::model()->findAll($sub_criteria);
                             ?>
                             <?php foreach($Subjects  as $Subject) { ?>
-                                <li style="float:left"><a href="<?php echo Yii::app()->createUrl('student/view', array('type'=>$type->type_id,'level'=>$level_id,'subject'=>$Subject->subject_id));?>"><?php echo $Subject->name;?><?php if($Subject->show_new==1){?><span>NEW</span><?php }else if ($Subject->show_new==2) {?><span class="hot">HOT</span><?php }?></a></li>
+                                <li style="float:left"><a href="<?php echo Yii::app()->createUrl('student/view');?>"><?php echo $Subject->name;?><?php if($Subject->show_new==1){?><span>NEW</span><?php }else if ($Subject->show_new==2) {?><span class="hot">HOT</span><?php }?></a></li>
                             <?php } ?>
 			</ul>
 		</li>
@@ -72,8 +72,8 @@ $this->pageTitle=Yii::app()->name;
                 $level_id = $level->level_id;
                 $type_criteria = new CDbCriteria();
 		$type_criteria->select = '*';
-		$type_criteria->condition = 'status=:status AND level_id=:level_id AND exam_type=:exam_type';
-		$type_criteria->params=array(':status'=>1,':level_id'=>$level_id,':exam_type'=>'Exercise');
+		$type_criteria->condition = 'status=:status AND level_id=:level_id ';
+		$type_criteria->params=array(':status'=>1,':level_id'=>14);
 		$type_criteria->order='sort_order';
 		$Types = Type::model()->findAll($type_criteria);?>
 
@@ -99,7 +99,7 @@ $this->pageTitle=Yii::app()->name;
 
 	</ul>
 
-	<h4>นักเรียนที่ได้รับคะแนนสูงสุด</h4>
+	<h4>ผู้ได้รับคะแนนสูงสุด</h4>
         <?php
             $std = new TestRecord();
             $top_std = $std->getTopStudentByLevel($level_id);
@@ -213,12 +213,11 @@ $this->pageTitle=Yii::app()->name;
                 <?php }else{?>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/no-pic.jpg" width="220" height="220" border="0"/>
                 <?php }?>
-                <h3><?php echo $information->title;?></h3>
-                <?php echo $information->description; ?>
+                <p class="news_desc" style="height:250px"><?php echo $information->description; ?></hp>
                 
 		<!--h3 class="news_title" style="height:100px"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>"><?php echo $information->title; ?></a></h3-->
 		<p class="news_timestamp"><?php echo date('j F Y', strtotime($information->date_added)); ?></p>
-		<!--p class="readmore"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>">อ่านต่อ...</a></p-->
+		<p class="readmore"><a href="<?php echo Yii::app()->createUrl('information/view', array('id'=>$information->information_id)) ?>">อ่านต่อ...</a></p>
 		</div>
 	</div>
 	<?php } ?>

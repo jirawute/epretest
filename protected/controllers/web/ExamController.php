@@ -17,7 +17,7 @@ class ExamController extends Controller {
             $session = new Session;
             $session_list = $session->getSessionByExamId($exam_id);
             // print_r($session_list);exit();
-            $session_detail = $session->getSessionByExamId1($exam_id);
+           // $session_detail = $session->getSessionByExamId1($exam_id);
 
             $this->render('index', array(
                 'exam_info' => $exam_info,

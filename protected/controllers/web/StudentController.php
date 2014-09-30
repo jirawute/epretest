@@ -1,7 +1,5 @@
 ﻿<?php
-
 require_once('mail.php');
-
 class StudentController extends Controller {
 
     /**
@@ -256,7 +254,7 @@ class StudentController extends Controller {
                     //Change function send email
                     $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
                     if ($flgSend) {
-                        Yii::app()->user->setFlash('create', '<h3>บัญชีของคุณจะใช้ได้หลังจากยืนยันตัวตนผ่านข้อความอัตโนมัติที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
+                        Yii::app()->user->setFlash('create', '<h3>บัญชีของคุณจะใช้ได้หลังจากยืนยันตัวตนผ่านข้อความอัตโนมัติที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ กรุณากดยืนยันจากอีเมล์เพื่อเริ่มใช้งานภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
                         $this->redirect(array('student/create', 'id' => $model->student_id));
                     } else {
                         Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
@@ -797,23 +795,20 @@ class StudentController extends Controller {
         // collect user input data
         if (isset($_POST['Student'])) {
 
-            $length = 32;
             $chars = array_merge(range(0, 9), range('a', 'z'));
             shuffle($chars);
-            $sid = implode(array_slice($chars, 0, $length));
-            $_POST['Student']['sid'] = $sid;
-            $_POST['Student']['credit'] = 0;
+            $_POST['Student']['sid'] = implode(array_slice($chars, 0, 32));
+            $_POST['Student']['credit'] = 15;
 
 
             if (isset($_POST['number1'])) {
                 $_POST['Student']['id_number'] = $_POST['number1'] . $_POST['number2'] . $_POST['number3'] . $_POST['number4'] . $_POST['number5'] . $_POST['number6'] . $_POST['number7'] . $_POST['number8'] . $_POST['number9'] . $_POST['number10'] . $_POST['number11'] . $_POST['number12'] . $_POST['number13'];
-            } else {
-                $_POST['Student']['id_number'] = '0000000000000';
-            }
+            } 
+            if (isset( $_POST['Student']['birthday'])) {
             list($d, $m, $y) = explode("/", $_POST['Student']['birthday']);
             $birthday = ($y - 543) . "-" . $m . "-" . $d;
             $_POST['Student']['birthday'] = $birthday;
-
+            } 
 
             if ($_POST['password_confirm'] == '') {
                 $password_confirm = 1;
@@ -882,7 +877,7 @@ class StudentController extends Controller {
                     //Change function send email
                     $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
                     if ($flgSend) {
-                        Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
+                        Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ กรุณากดยืนยันจากอีเมล์เพื่อเริ่มใช้งานภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
                         $this->redirect(array('student/extra', 'id' => $model->student_id));
                     } else {
                         Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');

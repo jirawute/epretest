@@ -8,7 +8,7 @@
         <div class="flash-success">
             <?php echo Yii::app()->user->getFlash('create'); ?>
             <br/>
-            <h3>กรอกอีเมล์เพื่อนของคุณ</h3>
+            <!--h3>กรอกอีเมล์เพื่อนของคุณ</h3>
             <p>กรอกอีเมล์เพื่อแนะนำเพื่อนของคุณ ยิ่งกรอกมาก ยิ่งได้รับสิทธิพิเศษมาก</p><br/>
             <form class="form_send_email" name="friend_email" id="friend_email" action="index.php?r=student/sendEmailFriend" method="post" onsubmit="return validateForm()" >
                 <div><label>1.</label><input type="text" name="friend_email[]" id="email_1"/></div>
@@ -19,7 +19,7 @@
                 <input type="hidden" name="student_id" value="<?php echo $_GET['id'];?>">
                 <div align="center"><input type="submit" value="ส่งข้อมูล"/></div>
 
-            </form>
+            </form-->
         </div>
     </div>
 </div>
