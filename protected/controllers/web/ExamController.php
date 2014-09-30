@@ -410,7 +410,7 @@ class ExamController extends Controller {
         //
         if (isset($_POST['ans'])) {
             
-                $eliminated = array(",","'",".");
+                $eliminated = array(",","'");
             $selected = str_replace($eliminated, "",$_POST['ans']);
             $session_id_list = $_POST['session_id'];
 

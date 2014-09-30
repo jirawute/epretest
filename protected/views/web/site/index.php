@@ -59,7 +59,7 @@ $this->pageTitle=Yii::app()->name;
                                 $Subjects = Subject::model()->findAll($sub_criteria);
                             ?>
                             <?php foreach($Subjects  as $Subject) { ?>
-                                <li style="float:left"><a href="<?php echo Yii::app()->createUrl('student/view');?>"><?php echo $Subject->name;?><?php if($Subject->show_new==1){?><span>NEW</span><?php }else if ($Subject->show_new==2) {?><span class="hot">HOT</span><?php }?></a></li>
+                                <li style="float:left"><a href="#"><?php echo $Subject->name;?><?php if($Subject->show_new==1){?><span>NEW</span><?php }else if ($Subject->show_new==2) {?><span class="hot">HOT</span><?php }?></a></li>
                             <?php } ?>
 			</ul>
 		</li>
