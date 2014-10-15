@@ -64,12 +64,12 @@ function showExam(subject_id){
                         <span><?php echo $type_exam['name'];?></span>
                         <ul>
                             <?php
-                                $level_id = $level->level_id;
+                                //$level_id = $level->level_id;
                                 $type_id = $type_exam['type_id'];
                                 $sub_criteria = new CDbCriteria();
                                 $sub_criteria->select = '*';
-                                $sub_criteria->condition = 'status=:status AND level_id=:level_id AND type_id=:type_id';
-                                $sub_criteria->params=array(':status'=>1,':level_id'=>$level_id,':type_id'=>$type_id);
+                                $sub_criteria->condition = 'status=:status AND type_id=:type_id';
+                                $sub_criteria->params=array(':status'=>1,':type_id'=>$type_id);
                                 $sub_criteria->order='sort_order';
                                 $Subjects = Subject::model()->findAll($sub_criteria);
                             ?>
@@ -95,12 +95,12 @@ function showExam(subject_id){
                         <span><?php echo $type_ex['name'];?></span>
                         <ul>
                             <?php
-                                $level_id = $level->level_id;
+                                //$level_id = $level->level_id;
                                 $type_id = $type_exam['type_id'];
                                 $sub_criteria = new CDbCriteria();
                                 $sub_criteria->select = '*';
-                                $sub_criteria->condition = 'status=:status AND level_id=:level_id AND type_id=:type_id';
-                                $sub_criteria->params=array(':status'=>1,':level_id'=>$level_id,':type_id'=>$type_id);
+                                $sub_criteria->condition = 'status=:status AND type_id=:type_id';
+                                $sub_criteria->params=array(':status'=>1,':type_id'=>$type_id);
                                 $sub_criteria->order='sort_order';
                                 $Subjects = Subject::model()->findAll($sub_criteria);
                             ?>

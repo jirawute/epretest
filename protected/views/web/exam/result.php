@@ -67,7 +67,7 @@
 <script type="text/javascript">
 
     function showPDF() {
-        $("#loading").show();
+      //  $("#loading").show();
         var doc_id = '<?= $exam_info['answer_doc_id'] ?>';
         var access_key = '<?= $exam_info['answer_access_key'] ?>';
         if (doc_id === '') {

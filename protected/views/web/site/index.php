@@ -13,7 +13,8 @@ $this->pageTitle=Yii::app()->name;
 	</ul>
 </div>
 
-<div class="clear"></div><!-- close Top Banner -->
+<div class="clear"></div>
+<!-- close Top Banner -->
 
 
 
@@ -59,7 +60,7 @@ $this->pageTitle=Yii::app()->name;
                                 $Subjects = Subject::model()->findAll($sub_criteria);
                             ?>
                             <?php foreach($Subjects  as $Subject) { ?>
-                                <li style="float:left"><a href="#"><?php echo $Subject->name;?><?php if($Subject->show_new==1){?><span>NEW</span><?php }else if ($Subject->show_new==2) {?><span class="hot">HOT</span><?php }?></a></li>
+                                <li style="float:left"><a href="<?php echo Yii::app()->createUrl('student/view', array('type'=>$type->type_id,'level'=>$level_id,'subject'=>$Subject->subject_id));?>"><?php echo $Subject->name;?><?php if($Subject->show_new==1){?><span>NEW</span><?php }else if ($Subject->show_new==2) {?><span class="hot">HOT</span><?php }?></a></li>
                             <?php } ?>
 			</ul>
 		</li>
@@ -134,14 +135,13 @@ $this->pageTitle=Yii::app()->name;
 		</div>
 
 	</div>
-</div>
 <?php } ?>
 
 <div class="clear"></div><!-- Hall of Fames -->
 <!--เริ่มตะลุย-->
 
 <div class="go_signup">
-	<a href="<?php echo Yii::app()->createUrl('student/view') ?>">เริ่มตะลุยโจทย์!</a>
+	<a href="<?php echo Yii::app()->createUrl('student/view');?>">เริ่มตะลุยโจทย์!</a>
 	<hr>
 </div>
 

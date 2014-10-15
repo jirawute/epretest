@@ -243,7 +243,7 @@ if ($subject['exam_type'] == 'Exam') {
 
 <div class="list_test">
     <div style="position:absolute;text-align:right;width:640px;">
-        <div style="position:relative;margin:0;top:-40px;"><a style="margin-left:10px;" class="view_all" href="">test</a>
+        <div style="position:relative;margin:0;top:-40px;"><!-- show button a style="margin-left:10px;" class="view_all" href="">test</a-->
 
         </div>
     </div>

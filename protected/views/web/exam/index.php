@@ -64,7 +64,7 @@
 
     function showPDF() {
         cinterval = setInterval('time_dec()', 1000);//for offline
-        $("#loading").show();
+       // $("#loading").show();
         var doc_id = '<?php echo $exam_info['exam_doc_id'];?>';
         var access_key = '<?php echo $exam_info['exam_access_key'] ?>';
         if (doc_id === '') {
@@ -77,9 +77,9 @@
         }
         var onDocReady = function(e) {
             $("#loading").hide(1000);
-           // cinterval = setInterval('time_dec()', 1000);
+            cinterval = setInterval('time_dec()', 1000);
         };
-        scribd_doc.addEventListener('docReady', onDocReady);
+       // scribd_doc.addEventListener('docReady', onDocReady);
         scribd_doc.addParam('jsapi_version', 2);
         var h1 = $('#answer_sheet').height();
         scribd_doc.addParam('height', 475);

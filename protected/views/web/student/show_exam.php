@@ -11,14 +11,11 @@
 
                 <?php
                 
-                if(isset($_REQUEST['level'])){
-                    $level_id = $_REQUEST['level'];
-                }else{$level_id =$model->level_id ;}
                 
                     $exam_criteria = new CDbCriteria();
                     $exam_criteria->select = '*';
-                    $exam_criteria->condition = 'status>=:status AND level_id=:level_id';
-                    $exam_criteria->params=array(':status'=>1,':level_id'=>$level_id);
+                    $exam_criteria->condition = 'status>=:status ';
+                    $exam_criteria->params=array(':status'=>1);
                     $exam_criteria->order='sort_order';
                     $Exams = Exam::model()->findAll($exam_criteria);
                     

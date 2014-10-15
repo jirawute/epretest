@@ -1,7 +1,6 @@
 ﻿<?php
 require_once('mail.php');
 class StudentController extends Controller {
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -65,7 +64,10 @@ class StudentController extends Controller {
             
        if($model['email']=='epretest@e-studio.co.th'){           
    	Yii::app()->user->setState('isOffline', true, false); //set offline when user is epretest
-       }else{Yii::app()->user->setState('isOffline',false,false);}//set online
+       }else{
+           Yii::app()->user->setState('isOffline',false,false);
+           
+       }//set online
             /* if(!$msg && !$model->credit){
               $msg= "E-Pretest ยินดีต้อนรับค่ะ ที่นี่บริการข้อสอบออนไลน์ที่ได้มาตรฐาน น้องๆที่สนใจสามารถคลิกรายวิชาที่ปรากฏตามด้านล่างเพื่อสั่งซื้อชุดข้อสอบ
               เมื่อสั่งซื้อแล้ว ชุดข้อสอบจะจัดเก็บอยู่ในคลังข้อสอบส่วนตัวที่น้องๆสามารถคลิกเพื่อทำข้อสอบได้ตลอด 24 ชั่วโมง ขอให้โชคดีค่ะ";
@@ -154,7 +156,7 @@ class StudentController extends Controller {
                 'msg' => $msg,
             ));
         } else {
-            $this->redirect(Yii::app()->createUrl('site/login'));
+            $this->render('signup');
         }
     }
 
@@ -878,7 +880,7 @@ class StudentController extends Controller {
                     $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
                     if ($flgSend) {
                         Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ กรุณากดยืนยันจากอีเมล์เพื่อเริ่มใช้งานภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
-                        $this->redirect(array('student/extra', 'id' => $model->student_id));
+                        $this->render('extra',array('id' => $model->student_id));
                     } else {
                         Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
                         $this->refresh();
