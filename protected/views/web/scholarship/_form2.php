@@ -133,7 +133,7 @@
 <input Type="Hidden" Name="itm" id="itm" value="ค่าสมัครสอบทุน"/>
 <input Type="Hidden" Name="amt" id="amt" value="<?php echo $scholar->price;?>"/>
 <input Type="Hidden" Name="opt_fix_method" id="opt_fix_method" value="1"/>
-<input Type="Hidden" Name="postURL" value="http://www.e-pretest.com/index.php/index.php?r=scholarship/result"/>
-<input Type="Hidden" Name="reqURL" value="http://www.e-pretest.com/index.php/index.php?r=scholarship/result"/>
+<input Type="Hidden" Name="postURL" value="http://www.e-pretest.com/index.php?r=scholarship/result"/>
+<input Type="Hidden" Name="reqURL" value="http://www.e-pretest.com/index.php?r=scholarship/result"/>
 <?php $this->endWidget(); ?>
 <?php }?>
