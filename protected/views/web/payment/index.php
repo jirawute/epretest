@@ -4,27 +4,27 @@ if (!Yii::app()->user->id)
 ?>
 <script type="text/javascript">
 
-    function checkCoupon(){
-            var code = prompt("ใช้คูปอง", "Enter your code here");
+    function checkCoupon() {
+        var code = prompt("ใช้คูปอง", "Enter your code here");
         document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/loader.gif"/>';
         $.ajax({
             url: 'index.php?r=payment/checkcoupon&c=' + code,
             type: 'GET',
             dataType: 'html',
-            success: function(data, textStatus, xhr) {
+            success: function (data, textStatus, xhr) {
                 //alert(data);
                 if (data == 'Y') {
                     document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/exists.png"/>';
-                    
-                    document.forms['payment_form'].action = "index.php?r=payment/coupon&&coupon_code="+code;
+
+                    document.forms['payment_form'].action = "index.php?r=payment/coupon&&coupon_code=" + code;
                     document.forms['payment_form'].submit();
-} else {
+                } else {
                     document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/not-exists.png"/>';
                     alert(data);
                     location.href = "index.php?r=payment/index";
                 }
             },
-            error: function(request, status, error) {
+            error: function (request, status, error) {
                 document.getElementById('spin').innerHTML = '<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/web/not-exists.png"/>';
                 alert("Error: " + error + "\nResponseText: " + request.responseText);
             }
@@ -48,7 +48,7 @@ if (!Yii::app()->user->id)
             document.getElementById('bank').style.display = "none";
             document.getElementById('creditcard').style.display = "none";
             document.getElementById('counter').style.display = "";
-        } 
+        }
 
     }
     function checkSubmit() {
@@ -67,7 +67,7 @@ if (!Yii::app()->user->id)
             url: 'index.php?r=payment/getinvoice' + temp,
             type: 'GET',
             dataType: 'html',
-            success: function(data, textStatus, xhr) {
+            success: function (data, textStatus, xhr) {
                 document.getElementById('inv').value = data;
 
                 if (document.getElementById('payment_counter_service').checked) {
@@ -85,10 +85,9 @@ if (!Yii::app()->user->id)
                 } else if (document.getElementById('payment_credit').checked) {
                     document.forms['payment_form'].action = "https://www.paysbuy.com/paynow.aspx?c=true&lang=t";
                     document.forms['payment_form'].submit();
-                } 
-
+                }
             },
-            error: function(request, status, error) {
+            error: function (request, status, error) {
                 alert("Error: " + error + "\nResponseText: " + request.responseText);
             }
         });
@@ -130,18 +129,19 @@ if (!Yii::app()->user->id)
                 <div class="credit_select" >
                     <h2>เลือกวิธีการชำระเงิน</h2>
                     <ul><li>
-                            <input onclick="changeMethodPayment('4');appBtn('ผ่านเคาน์เตอร์เซอร์วิส');" 
+                            <input onclick="changeMethodPayment('4');
+                                        appBtn('ผ่านเคาน์เตอร์เซอร์วิส');" 
                                    type="radio" name="payment_method" id="payment_counter_service" value="counter_service"/>
                             <label for="payment_counter_service">ชำระผ่านเคาน์เตอร์เซอร์วิส</label>
                         </li><li>
                             <input onclick="changeMethodPayment('1');
-            appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_transfer" value="Transfer"/>
+                                        appBtn('โดยการโอนเงิน');" type="radio" name="payment_method" id="payment_transfer" value="Transfer"/>
                             <label for="payment_transfer">ชำระโดยโอนเงินผ่านบัญชีธนาคาร</label>
-                        </li><li>
+                        </li><!--li> Temporary unavailable
                             <input onclick="changeMethodPayment('2');
-            appBtn('ผ่านบัตรเครดิต');" type="radio" name="payment_method" id="payment_credit" value="Credit Card"/>
+                                        appBtn('ผ่านบัตรเครดิต');" type="radio" name="payment_method" id="payment_credit" value="Credit Card"/>
                             <label for="payment_credit">ชำระผ่านบัตรเครดิต</label>
-                             </li><li>
+                        </li--><li>
                             <input onclick="checkCoupon()" type="radio" name="payment_method" id="payment_coupon" value="coupon" />
                             <label for="payment_coupon">ใช้คูปองเติมเครดิต</label>
 
@@ -186,24 +186,24 @@ if (!Yii::app()->user->id)
                     $criteria->params = array(':status' => 1);
                     $criteria->order = 'credit_order';
                     $credits = Credit::model()->findAll($criteria);
-                    
-                        $i = 1;
-                        foreach ($credits as $credit) {
-                            ?>
-                    <li>
-                                <input type="radio" id="tick_<?php echo $i ?>" name="tick" value="<?php echo $credit->credit_amount; ?>" />
-                                <input type="hidden" id="desc_<?php echo $i; ?>" name="desc_<?php echo $i; ?>" value="<?php echo $credit->credit_desc; ?>"/>
-                                <input type="hidden" id="credit_<?php echo $i; ?>" name="credit_<?php echo $i; ?>" value="<?php echo $credit->credit_point; ?>"/>
-                                <label for ="tick_<?php echo $i ?>">
-                                    <h3><?php echo number_format($credit->credit_point); ?> เครดิต</h3>
-                                    <?php echo number_format($credit->credit_amount); ?> บาท (ฟรี<?php echo (number_format($credit->credit_point * 100 / $credit->credit_amount) - 100) . "%)"; ?> 
-                                </label></li>
-                            <?php
-                            $i++;
-                        }
+
+                    $i = 1;
+                    foreach ($credits as $credit) {
                         ?>
-                        <input type="Hidden" id="credit_point" Name="credit_point" value=""/>
-                    
+                        <li>
+                            <input type="radio" id="tick_<?php echo $i ?>" name="tick" value="<?php echo $credit->credit_amount; ?>" />
+                            <input type="hidden" id="desc_<?php echo $i; ?>" name="desc_<?php echo $i; ?>" value="<?php echo $credit->credit_desc; ?>"/>
+                            <input type="hidden" id="credit_<?php echo $i; ?>" name="credit_<?php echo $i; ?>" value="<?php echo $credit->credit_point; ?>"/>
+                            <label for ="tick_<?php echo $i ?>">
+                                <h3><?php echo number_format($credit->credit_point); ?> เครดิต</h3>
+                                <?php echo number_format($credit->credit_amount); ?> บาท (ฟรี<?php echo (number_format($credit->credit_point * 100 / $credit->credit_amount) - 100) . "%)"; ?> 
+                            </label></li>
+                        <?php
+                        $i++;
+                    }
+                    ?>
+                    <input type="Hidden" id="credit_point" Name="credit_point" value=""/>
+
                     <input id='confirmBtn' type="button" name="Submit" value="ยืนยันการชำระเงิน" onclick="checkSubmit();"/>
                     <div id="counterAlert" style="display:none">                        
                         กรุณากดปุ่ม <font color="#11100" style="font-size:150%"><strong>สิ้นสุดการทำรายการ</strong></font> ทุกครั้งหลังพิมพ์เพื่อให้รายการสมบูรณ์<br />
@@ -223,4 +223,4 @@ if (!Yii::app()->user->id)
             <input Type="Hidden" Name="postURL" value="http://www.e-pretest.com/index.php?r=payment/result"/>
             <input Type="Hidden" Name="reqURL" value="http://www.e-pretest.com/index.php?r=payment/result"/>
     </form>
-<?php } ?>
+<?php }?>

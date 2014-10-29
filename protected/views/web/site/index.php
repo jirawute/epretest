@@ -138,17 +138,6 @@ $this->pageTitle=Yii::app()->name;
 <?php }?>
 
         
-        <div class="grid_4 col1 list_subject">
-            <h3>ชุดข้อสอบ</h3>
-
-	<div class="menu_tab_home">
-		<a class="selected">แอดมิดชัน</a>
-		<a>บุคคลทั่วไป</a>
-	</div>
-
-            <ul class="menu_list menu_tab1">xx</ul>
-        </div>
-        
 <div class="clear"></div><!-- Hall of Fames -->
 <!--เริ่มตะลุย-->
 
