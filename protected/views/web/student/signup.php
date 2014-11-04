@@ -6,7 +6,7 @@
                 <div class="signup_normal_box" style="width:300px;padding-bottom:10px;">
                         <!--h3>สมัครสมาชิกแบบพิเศษ</h3--><br/><br/>
                         <div align="center">
-                            <input onclick="OpenLink('<?php echo Yii::app()->createUrl('student/extra'); ?>')" type="button" value="สมัครเลย" class="submit_button">
+                            <input onclick="OpenLink('<?php echo Yii::app()->createUrl('student/extra'); ?>')" type="button" value="สมัครฟรี" class="submit_button">
                         </div><br/>
                         <ul>
                                 <li>ทำข้อสอบและทราบผลคะแนนสอบ</li>
