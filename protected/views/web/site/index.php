@@ -149,7 +149,6 @@ $this->pageTitle = Yii::app()->name;
 
 </div>
 
-<<<<<<< HEAD
 <div class="grid_4 col1 list_subject">
     <?php echo CHtml::image(Yii::app()->baseUrl . '/images/web/testimonial/2.png', "title", array('width' => 300, 'height' => 445)); ?>
 
@@ -158,9 +157,7 @@ $this->pageTitle = Yii::app()->name;
     <?php echo CHtml::image(Yii::app()->baseUrl . '/images/web/testimonial/3.png', "title", array('width' => 300, 'height' => 445)); ?>
 
 </div>
-=======
         
->>>>>>> c6d09b543c3488d9bdd773b906e456c5b5e9946d
 <div class="clear"></div><!-- Hall of Fames -->
 <!--เริ่มตะลุย-->
 

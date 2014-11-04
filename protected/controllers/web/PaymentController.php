@@ -240,7 +240,7 @@ class PaymentController extends Controller {
         $inv_id = "INV" . (rand(11, 79) * 10000 + $totalOrder);
         echo $inv_id;
 
-        if ($_GET['amt']) {
+        if (isset($_GET['amt'])) {
             $amt = $_GET['amt'];
             $command = Yii::app()->db->createCommand();
 
