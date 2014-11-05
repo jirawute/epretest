@@ -70,7 +70,7 @@ function validateForm()
                 <div><label>3.</label><input type="text" name="friend_email[]" id="email_3"/></div>
                 <div><label>4.</label><input type="text" name="friend_email[]" id="email_4"/></div>
                 <div><label>5.</label><input type="text" name="friend_email[]" id="email_5"/></div>
-                <input type="hidden" name="student_id" value="<?php echo $_GET['id'];?>">
+                <input type="hidden" name="student_id" value="<?php //echo $_GET['id'];?>">
                 <div align="center"><input type="submit" value="ส่งข้อมูล"/></div>
 
             </form-->

@@ -274,7 +274,7 @@ class ExamController extends AdminController {
         $doc_type = 'pdf';
         $access = 'private';  // upload private
         $data = $this->scribd->upload($filePath, $doc_type, $access, $rev_id); // returns Array ( [doc_id] => 1026598 [access_key] => key-23nvikunhtextwmdjm2i )
-//        print_r($data);
+       // print_r($data);exit();
         return $data;
     }
 

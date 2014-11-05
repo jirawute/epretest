@@ -225,7 +225,8 @@ class Scribd {
 				
 				//This is shifty. Works currently though.
 				$result = $this->convert_simplexml_to_array($result);
-				if(urlencode((string)$result) == "%0A%0A" && $this->error == 0){
+                                //print_r($result);exit();
+				if(urlencode(serialize($result)) == "%0A%0A" && $this->error == 0){
 					$result = "1";
 					return $result;
 				}else{
@@ -252,7 +253,8 @@ class Scribd {
 		$arr = array();
 		if ($sxml) {
 		  foreach ($sxml as $k => $v) {
-				if($arr[$k]){
+                      
+				if(isset($arr[$k])){
 					$arr[$k." ".(count($arr) + 1)] = self::convert_simplexml_to_array($v);
 				}else{
 					$arr[$k] = self::convert_simplexml_to_array($v);
