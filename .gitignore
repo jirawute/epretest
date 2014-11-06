@@ -5,7 +5,9 @@ nbproject*
 *.pydevproject
 .project
 .metadata
+protected/config/_admin.php
 uploads/
+assets/
 bin/
 tmp/
 *.tmp

@@ -47,10 +47,10 @@ return array(
         //'authFile'=>''
         ),
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=epretest',
+            'connectionString' => 'mysql:host=localhost;dbname=epretest_98',
             'emulatePrepare' => true,
-            'username' => 'epretest',
-            'password' => 'epre1q2w3e',
+            'username' => 'yong',
+            'password' => '1123',
             'charset' => 'utf8',
         ),
         'errorHandler' => array(
