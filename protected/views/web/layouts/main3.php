@@ -190,10 +190,13 @@
                             echo number_format($test_static['score_max']);
                         }
                         ?></div>
-                    <div class="box">คุณได้ลำดับที่ : <?php echo $test_rank; ?></div>
+                    <div class="box">คุณได้ลำดับที่ : <?php if (isset($test_rank)) {
+                            echo $test_rank;
+                        } ?></div>
                     <div class="box">จากผู้เข้าสอบทั้งหมด : <?php
-                    if (isset($test_static['student_toal'])) {
+                    if (isset($test_static['student_total'])) {
                         $student_total = number_format($test_static['student_total']);
+                        echo $student_total;
                     }
                     ?> คน</div>
                 </div>
@@ -201,8 +204,8 @@
                     <!--<a name="fb_share" type="button" share_url="http://www.e-pretest.com/fbsharepage.php">Share Facebook</a>-->
                     <!--<a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php"  share_url="http://www.e-pretest.com/index.php?r=exam/answer&id=10">Share</a>-->
                     <?php
-                    $parm = $exam_id . "-" . $score . "-" . intval($exam->score_total) . "-" . $test_rank . "-" . $student_total;
-                    $url = "www.e-pretest.com/fbsharescore.php?parm=" . $parm;
+                    $param = "";//$exam_id . "-" . $score . "-" . intval($exam->score_total) . "-" . $test_rank . "-" . $student_total;
+                    $url = "www.e-pretest.com/fbsharescore.php?parm=" . $param;
                     //echo $url;
                     ?>
                     <script type="text/javascript">
@@ -217,7 +220,7 @@
                     </a>
                 </div>
                 <div class="time_countdown time_countdown_mini_long">                                    
-                    <div class="time_text"><span class="point">คะแนนที่ได้:</span><?php echo $score . "/" . intval($exam->score_total); ?></div>
+                    <div class="time_text"><span class="point">คะแนนที่ได้:</span><?php if(isset($score)){echo $score . "/" . intval($exam->score_total);} ?></div>
                 </div>
 
             </div>

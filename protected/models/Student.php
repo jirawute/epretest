@@ -54,7 +54,7 @@ class Student extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('firstname,email, username,password ', 'required','message'=>'กรุณากรอก {attribute}'),	// lastname, address,
+			array('firstname,lastname,email, username,password ', 'required','message'=>'กรุณากรอก {attribute}'),	// lastname, address,
 			array('id_number', 'length', 'max'=>13),
                         array('credit,status', 'numerical', 'integerOnly'=>true),
 			array('firstname, lastname', 'length', 'max'=>42),
@@ -65,7 +65,7 @@ class Student extends CActiveRecord
 			array('phone', 'length', 'max'=>15),
                         array('username', 'length', 'max'=>255),
                         array('password', 'length', 'max'=>20),
-                        array('id_number,username,email', 'unique','message'=>'{attribute} นี้มีผู้ใช้งานแล้ว'),
+                        //array('id_number,username,email', 'unique','message'=>'{attribute} นี้มีผู้ใช้งานแล้ว'),
                         array('birthday','safe'),
                         array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
 			// The following rule is used by search().

@@ -188,7 +188,7 @@ class StudentController extends Controller {
             $_POST['SignupForm']['phone'] = '';
             $_POST['SignupForm']['image'] = '';
             $_POST['SignupForm']['credit'] = 0;
-            $_POST['SignupForm']['status'] = 0;
+            $_POST['SignupForm']['status'] = 1;
 
             if ($_POST['password_confirm'] == '') {
                 $password_confirm = 1;
@@ -242,7 +242,7 @@ class StudentController extends Controller {
                     //Change function send email
                     $flgSend = $this->sendMail($to,'epretest@e-studio.co.th','E-pretest.com',$subject,$body);
                     if($flgSend){
-                         Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
+                         Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>');//ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ ภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
                         $this->redirect(array('student/create', 'id' => $model->student_id));
                     }else{
                         Yii::app()->user->setFlash('create','ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');

@@ -153,7 +153,7 @@ class TransferController extends Controller {
         // Additional headers
         $headers .= 'To: ' . $to . "\r\n";
         $headers .= 'From: ' . $data['name'] . '<' . $from . '>' . "\r\n";
-        $headers .= 'Bcc: ' . $bcc . "\r\n";
+        //$headers .= 'Bcc: ' . $bcc . "\r\n";
 
 
         // Mail it

@@ -13,6 +13,7 @@ return CMap::mergeArray(
 			'allowAutoLogin'=>true,
 
 		),
+            
 			'urlManager'=>array(
 				'urlFormat'=>'path',
 				'showScriptName'=>false,

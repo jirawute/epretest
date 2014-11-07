@@ -21,7 +21,7 @@ class PaymentController extends Controller {
         $rows = $student->getStudentById($student_id);
         foreach ($rows as $row) {
             $firstname = $row['firstname'];
-            $lastname = $row['lastname'];
+            $lastname = isset($row['lastname'])?$row['lastname']:"";
             $email = $row['email'];
         }
 
@@ -31,12 +31,6 @@ class PaymentController extends Controller {
         } else {
             $credit = 0;
         }
-//                  echo "<br> ===> ";
-//		  echo "<pre>";
-//		  print_r($_POST);
-//		  echo "</pre>";
-        //exit;
-
         $field['inv_id'] = $_POST['inv'];
         $field['student_id'] = Yii::app()->user->id;
         $field['firstname'] = $firstname;
@@ -97,7 +91,7 @@ class PaymentController extends Controller {
                 $rows = $student->getStudentById($student_id);
                 foreach ($rows as $row) {
                     $firstname = $row['firstname'];
-                    $lastname = $row['lastname'];
+                    $lastname = isset($row['lastname'])?$row['lastname']:"";
                     $email = $row['email'];
                 }
             }
@@ -243,7 +237,6 @@ class PaymentController extends Controller {
         if (isset($_GET['amt'])) {
             $amt = $_GET['amt'];
             $command = Yii::app()->db->createCommand();
-
             $record = $command->select('credit_point')->from('esto_credit')->where('credit_amount="' . $amt . '"')->queryRow();
             if ($record) {
                 $credit = $record['credit_point'];
@@ -257,7 +250,7 @@ class PaymentController extends Controller {
             $rows = Student::model()->getStudentById($student_id);
             foreach ($rows as $row) {
                 $firstname = $row['firstname'];
-                $lastname = $row['lastname'];
+                $lastname = isset($row['lastname'])?$row['lastname']:"";
                 $email = $row['email'];
             }
 

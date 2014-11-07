@@ -157,8 +157,8 @@ final class Mail {
 			}
 
 		} elseif ($this->protocol == 'smtp') {
-			$handle = fsockopen($this->hostname, $this->port, $errno, $errstr, $this->timeout);
-
+                    $handle = fsockopen($this->hostname, $this->port, $errno, $errstr, $this->timeout);
+                    
 			if (!$handle) {
 				exit('Error: ' . $errstr . ' (' . $errno . ')');
 			} else {

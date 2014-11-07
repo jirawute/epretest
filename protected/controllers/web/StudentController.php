@@ -1,6 +1,8 @@
 ﻿<?php
 require_once('mail.php');
+
 class StudentController extends Controller {
+
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -61,22 +63,21 @@ class StudentController extends Controller {
                 $level_id = $model->level_id;
             }
             @ $msg = $_GET['msg'];
-            
-       if($model['email']=='epretest@e-studio.co.th'){           
-   	Yii::app()->user->setState('isOffline', true, false); //set offline when user is epretest
-       }else{
-           Yii::app()->user->setState('isOffline',false,false);
-           
-       }//set online
+
+            if ($model['email'] == 'epretest@e-studio.co.th') {
+                Yii::app()->user->setState('isOffline', true, false); //set offline when user is epretest
+            } else {
+                Yii::app()->user->setState('isOffline', false, false);
+            }//set online
             /* if(!$msg && !$model->credit){
               $msg= "E-Pretest ยินดีต้อนรับค่ะ ที่นี่บริการข้อสอบออนไลน์ที่ได้มาตรฐาน น้องๆที่สนใจสามารถคลิกรายวิชาที่ปรากฏตามด้านล่างเพื่อสั่งซื้อชุดข้อสอบ
               เมื่อสั่งซื้อแล้ว ชุดข้อสอบจะจัดเก็บอยู่ในคลังข้อสอบส่วนตัวที่น้องๆสามารถคลิกเพื่อทำข้อสอบได้ตลอด 24 ชั่วโมง ขอให้โชคดีค่ะ";
-              } 
+              }
 
-                $msg = "สวัสดีค่ะน้องๆ ขณะนี้ E-Pretest.com ร่วมกับโครงการศึกษาต่อประเทศนิวซีแลนด์ จัดทำ
-<a href='?r=exam&id=$82'>ชุดข้อสอบวัดบุคลิกภาพและอาชีพ (DISC)</a> กดลิงค์แล้วเข้าไปทดลองได้ฟรีเลยค่ะ
-";
-            */
+              $msg = "สวัสดีค่ะน้องๆ ขณะนี้ E-Pretest.com ร่วมกับโครงการศึกษาต่อประเทศนิวซีแลนด์ จัดทำ
+              <a href='?r=exam&id=$82'>ชุดข้อสอบวัดบุคลิกภาพและอาชีพ (DISC)</a> กดลิงค์แล้วเข้าไปทดลองได้ฟรีเลยค่ะ
+              ";
+             */
             $level_info = Level::model()->findByPk($level_id);
 
             if (isset($_GET['subject'])) {
@@ -537,7 +538,8 @@ class StudentController extends Controller {
             $_POST['SignupForm']['school'] = '';
             $_POST['SignupForm']['phone'] = '';
             $_POST['SignupForm']['image'] = '';
-            $_POST['SignupForm']['credit'] = 0;
+            $_POST['SignupForm']['credit'] = 15;
+            $_POST['SignupForm']['level_id'] = 13;
             $_POST['SignupForm']['status'] = 1;
 
             if ($_POST['password_confirm'] == '') {
@@ -805,12 +807,12 @@ class StudentController extends Controller {
 
             if (isset($_POST['number1'])) {
                 $_POST['Student']['id_number'] = $_POST['number1'] . $_POST['number2'] . $_POST['number3'] . $_POST['number4'] . $_POST['number5'] . $_POST['number6'] . $_POST['number7'] . $_POST['number8'] . $_POST['number9'] . $_POST['number10'] . $_POST['number11'] . $_POST['number12'] . $_POST['number13'];
-            } 
-            if (isset( $_POST['Student']['birthday'])) {
-            list($d, $m, $y) = explode("/", $_POST['Student']['birthday']);
-            $birthday = ($y - 543) . "-" . $m . "-" . $d;
-            $_POST['Student']['birthday'] = $birthday;
-            } 
+            }
+            if (isset($_POST['Student']['birthday'])) {
+                list($d, $m, $y) = explode("/", $_POST['Student']['birthday']);
+                $birthday = ($y - 543) . "-" . $m . "-" . $d;
+                $_POST['Student']['birthday'] = $birthday;
+            }
 
             if ($_POST['password_confirm'] == '') {
                 $password_confirm = 1;
@@ -818,6 +820,8 @@ class StudentController extends Controller {
                 $password_not_match = 1;
             } else {
                 $model->attributes = $_POST['Student'];
+                $model->level_id=13;
+                $model->status=1;//edit to make every new entry not to activate (tempolary)
                 $image = CUploadedFile::getInstance($model, 'image');
 
                 //exit;
@@ -879,8 +883,8 @@ class StudentController extends Controller {
                     //Change function send email
                     $flgSend = $this->sendMail($to, 'epretest@e-studio.co.th', 'E-pretest.com', $subject, $body);
                     if ($flgSend) {
-                        Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ กรุณากดยืนยันจากอีเมล์เพื่อเริ่มใช้งานภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
-                        $this->render('extra',array('id' => $model->student_id));
+                        Yii::app()->user->setFlash('create', '<h2>สมัครสมาชิกเรียบร้อยแล้วค่ะ</h2><h3>กรุณาล็อกอินด้วยชื่อและรหัสผ่านที่ระบุ');//ระบบจะส่งลิงค์ยืนยันการสมัครไปที่อีเมล์ของคุณที่ได้ทำการสมัครไว้ กรุณากดยืนยันจากอีเมล์เพื่อเริ่มใช้งานภายใน 24 ชั่วโมงค่ะ<br/>กรุณาตรวจสอบอีเมล์ของคุณ และกดลิงค์เพื่อยืนยันการสมัครสมาชิก</h3><p>หากไม่ได้รับอีเมล์ยืนยัน กรุณาตรวจสอบที่เมล์ขยะ (Junk Mail, Spam) ของคุณค่ะ</p>');
+                        $this->render('extra', array('id' => $model->student_id));
                     } else {
                         Yii::app()->user->setFlash('create', 'ระบบไม่สามารถส่งอีเมล์ไปยังอีเมล์ของคุณได้');
                         $this->refresh();
